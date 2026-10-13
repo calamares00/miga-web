@@ -19,6 +19,7 @@ APK_URL = "https://github.com/bmo00/app-miga/releases"
 SERVER_REPO = "https://github.com/bmo00/miga-server"
 PACKS_REPO = "https://github.com/bmo00/miga-packs"
 CONTACT = "miga@calamares.org"
+SITE_URL = "https://miga.calamares.org/"
 VERSION = "1.0.0"
 
 ICONS = {
@@ -397,7 +398,9 @@ def head(t, root, title, description, page_path):
 <meta name="theme-color" content="#0f1310">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(description)}">
-<meta property="og:image" content="{root}assets/img/og.png">
+<meta property="og:image" content="{SITE_URL}assets/img/og.png">
+<meta property="og:url" content="{SITE_URL}{'en/' if t['lang'] == 'en' else ''}{page_path}">
+<link rel="canonical" href="{SITE_URL}{'en/' if t['lang'] == 'en' else ''}{page_path}">
 <link rel="alternate" hreflang="{t['other']}" href="{other_language(t, root, page_path)}">
 <link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}assets/style.css">

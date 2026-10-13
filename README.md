@@ -58,10 +58,13 @@ Increase `latestVersion` when a pack changes so the app offers the update.
 
 ## Publishing
 
-In the repository settings, **Pages › Build and deployment**: deploy from the `main` branch, root
-folder. The app reads the packs catalogue from `https://miga.calamares.org/packs/catalog.json`; to
-serve the site there, set that custom domain in Pages and point a `CNAME` DNS record for
-`miga.calamares.org` to `bmo00.github.io`.
+The site is served at **https://miga.calamares.org** (the `CNAME` file) with GitHub Pages: in the
+repository settings, **Pages › Build and deployment**, deploy from the `main` branch, root folder, with
+`miga.calamares.org` as the custom domain and HTTPS enforced. The DNS has a `CNAME` record for
+`miga.calamares.org` pointing to `bmo00.github.io`.
+
+The app reads the packs catalogue from `https://miga.calamares.org/packs/catalog.json`, and Google
+Play links to the privacy policy at `https://miga.calamares.org/privacy/`.
 
 ## License
 
