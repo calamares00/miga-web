@@ -14,9 +14,9 @@ import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
 
-APP_REPO = "https://github.com/bmo00/app-miga"
-APK_URL = "https://github.com/bmo00/app-miga/releases"
-SERVER_REPO = "https://github.com/bmo00/miga-server"
+APP_REPO = "https://github.com/calamares00/miga-app"
+APK_URL = "https://github.com/calamares00/miga-app/releases"
+SERVER_REPO = "https://github.com/calamares00/miga-server"
 PACKS_REPO = "https://github.com/bmo00/miga-packs"
 CONTACT = "miga@calamares.org"
 SITE_URL = "https://miga.calamares.org/"

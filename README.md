@@ -1,10 +1,10 @@
 # web-miga
 
-Website of [Miga](https://github.com/bmo00/app-miga), the family recipe book and shopping list app
+Website of [Miga](https://github.com/calamares00/miga-app), the family recipe book and shopping list app
 for Android: features, the sync server, recipe packs and the privacy policy.
 
 Static HTML and CSS with no third-party requests, ready for GitHub Pages. Every link is relative, so
-it works at `https://bmo00.github.io/web-miga/` and on its own domain alike.
+it works at `https://calamares00.github.io/miga-web/` and on its own domain alike.
 
 ## Structure
 
@@ -61,7 +61,7 @@ Increase `latestVersion` when a pack changes so the app offers the update.
 The site is served at **https://miga.calamares.org** (the `CNAME` file) with GitHub Pages: in the
 repository settings, **Pages › Build and deployment**, deploy from the `main` branch, root folder, with
 `miga.calamares.org` as the custom domain and HTTPS enforced. The DNS has a `CNAME` record for
-`miga.calamares.org` pointing to `bmo00.github.io`.
+`miga.calamares.org` pointing to `calamares00.github.io`.
 
 The app reads the packs catalogue from `https://miga.calamares.org/packs/catalog.json`, and Google
 Play links to the privacy policy at `https://miga.calamares.org/privacy/`.
