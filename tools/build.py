@@ -2,7 +2,7 @@
 
 Texts live here, one dictionary per language; the privacy pages come from content/privacy-*.md
 (the same text as PRIVACY.md and the copy inside the app). Every link is relative, so the site
-works at https://<user>.github.io/web-miga/ and on its own domain alike.
+works at https://calamares00.github.io/miga-web/ and on its own domain alike.
 
     pip install markdown
     python3 tools/build.py
