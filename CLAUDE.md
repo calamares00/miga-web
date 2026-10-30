@@ -10,8 +10,8 @@ Static site for https://miga.calamares.org (GitHub Pages, `CNAME`), in Spanish (
 - Do not edit the generated HTML by hand: change `tools/build.py` (texts of both languages live
   there) or `content/*.md`, then run `python3 tools/build.py` (needs the `markdown` package) and
   commit the regenerated pages together with the source change.
-- `calamares00/miga-app` and `calamares00/miga-server` are private: the site must not link to
-  them, offer APK downloads or mention source code. Only `calamares00/miga-packs` is public.
+- `calamares00/miga-app` is private: the site must not link to it, offer APK downloads or call
+  the app open source. `calamares00/miga-server` and `calamares00/miga-packs` are public.
 - `PLAY_PUBLIC` in `tools/build.py` switches the download buttons from "join the beta" (email)
   to the Play Store page.
 - `content/privacy-es.md` and `content/privacy-en.md` are the privacy policy linked from Google
