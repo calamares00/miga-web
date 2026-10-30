@@ -7,20 +7,24 @@ works at https://calamares00.github.io/miga-web/ and on its own domain alike.
     pip install markdown
     python3 tools/build.py
 """
+import json
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 
 import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
 
-APP_REPO = "https://github.com/calamares00/miga-app"
-APK_URL = "https://github.com/calamares00/miga-app/releases"
-SERVER_REPO = "https://github.com/calamares00/miga-server"
 PACKS_REPO = "https://github.com/calamares00/miga-packs"
+SERVER_IMAGE = "ghcr.io/calamares00/miga-server:latest"
+PLAY_URL = "https://play.google.com/store/apps/details?id=org.calamares.miga"
+# False while Miga is in closed testing on Google Play: its store page only opens for testers, so
+# the site asks people to join the beta by email instead. Set to True once it is in production.
+PLAY_PUBLIC = False
 CONTACT = "miga@calamares.org"
 SITE_URL = "https://miga.calamares.org/"
-VERSION = "1.0.0"
+YEAR = 2026
 
 ICONS = {
     "book": '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
@@ -60,6 +64,7 @@ ICONS = {
     "table": '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>',
     "ban": '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
     "phone": '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
+    "mail": '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
     "wand": '<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4M19 14v4M10 2v2M7 8H3M21 16h-4M11 3H9"/>',
 }
 
@@ -77,12 +82,15 @@ ES = {
     "title": "Miga · Tu recetario familiar y tu lista de la compra",
     "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.",
     "nav": [("#funciones", "Funciones"), ("#asistente", "Asistente"), ("#sincronizacion", "Sincronización"), ("#packs", "Packs"), ("#preguntas", "Preguntas")],
-    "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar",
-    "badge": f"Versión {VERSION}",
+    "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Probar la beta",
+    "badge": "Disponible en Google Play", "badge_beta": "Beta cerrada en Google Play",
     "hero_title": "Tus recetas. Tus libros. <em>Tu cocina.</em>",
     "hero_lead": "Miga guarda las recetas de tu familia en libros con su portada, te acompaña paso a paso mientras cocinas y organiza la compra por los pasillos de tu supermercado. Sin cuentas, sin anuncios y con todo guardado en tu móvil.",
-    "play": "Google Play", "soon": "Pronto", "apk": "Descargar APK", "source": "Código fuente",
-    "hero_badges": ["Sin cuentas", "Sin anuncios", "Sin analítica", "Código abierto (GPL-3.0)", "Español e inglés"],
+    "play": "Google Play", "soon": "Pronto", "beta": "Apúntate a la beta",
+    "beta_note": "Miga está en pruebas en Google Play. Escríbenos desde el correo de tu cuenta de Google y te enviamos la invitación.",
+    "beta_subject": "Quiero probar Miga",
+    "beta_body": "Hola, quiero probar la beta de Miga. El correo de mi cuenta de Google es: ",
+    "hero_badges": ["Sin cuentas", "Sin anuncios", "Sin analítica", "Funciona sin conexión", "Español e inglés"],
     "shot_alt_front": "Pantalla de una receta en Miga", "shot_alt_back": "Lista de libros en Miga",
     "marquee": [("book", "Libros de recetas"), ("utensils", "Modo cocina"), ("timer", "Temporizadores"), ("mic", "Dictado y voz"), ("cart", "Lista de la compra"), ("scan", "Escáner de productos"), ("leaf", "Open Food Facts"), ("sparkles", "Asistente de cocina"), ("server", "Servidor propio"), ("package", "Packs de recetas"), ("file", "PDF e imagen"), ("archive", "Copias cifradas"), ("palette", "Temas y marcos"), ("widget", "Widget"), ("lock", "Bloqueo con huella")],
     "pillars_head": ("Hecha para tu cocina, no para vender tus datos", "Miga no tiene servidores propios ni te pide registrarte. Lo que guardas es tuyo y se queda en tu teléfono."),
@@ -90,7 +98,7 @@ ES = {
         ("phone", "Todo en tu móvil", "Recetas, fotos, listas y ajustes se guardan en el teléfono. Funciona sin conexión."),
         ("ban", "Sin cuentas ni anuncios", "Ni registro, ni publicidad, ni analítica. Abres la app y empiezas a cocinar."),
         ("shield", "Tú decides qué sale", "Internet solo se usa para lo que activas: tu asistente, Open Food Facts, packs o tu servidor."),
-        ("code", "Código abierto", "Licencia GPL-3.0. Puedes revisar el código, compilarlo y proponer mejoras."),
+        ("users", "Para toda la familia", "Comparte libros y la lista de la compra con tu propio servidor, sin nadie en medio."),
     ],
     "showcase_head": ("Explora Miga", "Elige una parte de la app para ver qué puede hacer por ti.", "Vista interactiva"),
     "showcase": [
@@ -165,8 +173,8 @@ ES = {
     "server_title": "Tu propio servidor de sincronización",
     "server_lead": "Para compartir libros y la lista de la compra en familia, Miga se conecta a un servidor que alojas tú. Es ligero, funciona con Docker y trae una web de administración muy completa.",
     "server_steps": [
-        ("Arranca el servidor", "copia <code>.env.example</code> a <code>.env</code>, pon un token de administrador y ejecuta <code>docker compose up -d</code>."),
-        ("Crea un espacio compartido", "desde la web de administración, crea un namespace (por ejemplo, «casa») y un token para cada móvil."),
+        ("Arranca el servidor", "guarda el <code>docker-compose.yml</code> de abajo, cambia el token de administrador por una cadena larga y aleatoria (por ejemplo, la salida de <code>openssl rand -base64 32</code>) y ejecuta <code>docker compose up -d</code>."),
+        ("Crea un espacio compartido", "desde la web de administración (<code>http://tu-servidor:8080/ui</code>), crea un namespace (por ejemplo, «casa») y un token para cada móvil."),
         ("Conecta la app", "en Ajustes › Servidor de sincronización, añade la conexión. El resto de la familia se une escaneando un QR."),
     ],
     "server_features": [
@@ -178,7 +186,8 @@ ES = {
         ("lock", "Sin dependencias externas", "una sola imagen Docker con SQLite; ponla detrás de un proxy con TLS para usarla fuera de casa."),
     ],
     "server_gallery": [("table.png", "Recetas en modo tabla, con acciones sobre varias a la vez"), ("editor-dark.png", "Editor de recetas en modo oscuro"), ("grid.png", "Vista de cuadrícula con fotos"), ("mobile.png", "También funciona en el móvil")],
-    "server_cta": "Ver miga-server",
+    "server_compose_note": "Con este archivo basta: la imagen trae todo lo necesario y los datos se guardan en el volumen <code>miga-data</code>.",
+    "admin_token_placeholder": "cambia-esto-por-un-token-largo",
     "packs_chip": "Packs",
     "packs_title": "Packs de recetas listos para instalar",
     "packs_lead": "Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros.",
@@ -189,9 +198,12 @@ ES = {
     ],
     "packs_example_title": "Ejemplo de catalog.json",
     "packs_cta": "Repositorio de packs",
+    "packs_available": "Packs disponibles",
+    "recipes": "recetas",
     "faq_head": ("Preguntas frecuentes", "", "Ayuda"),
+    "faq_beta": ("¿Cómo consigo Miga?", f"Ahora mismo está en pruebas cerradas en Google Play. Escríbenos a {CONTACT} desde el correo de tu cuenta de Google y te enviamos la invitación. Pronto estará disponible para todo el mundo."),
     "faq": [
-        ("¿Miga es gratis?", "Sí. Es gratuita y de código abierto (GPL-3.0), sin anuncios ni compras dentro de la app."),
+        ("¿Miga es gratis?", "Sí. Es gratuita, sin anuncios ni compras dentro de la app."),
         ("¿Necesito una cuenta o internet?", "No. Todo funciona sin conexión y sin registrarte. Internet solo se usa para las funciones que eliges: el asistente con tu clave, Open Food Facts, el catálogo de packs y tu servidor."),
         ("¿Cuánto cuesta el asistente de cocina?", "Depende del proveedor que elijas. Con OpenRouter hay modelos gratuitos; con Gemini, Claude u OpenAI pagas a ellos según tu uso. Miga no cobra nada ni ve tus datos."),
         ("¿Dónde se guardan mis recetas?", "En el almacenamiento interno de tu móvil. Si usas la sincronización, también en tu propio servidor. Miga no tiene servidores propios."),
@@ -201,13 +213,14 @@ ES = {
     ],
     "cta_title": "Empieza tu recetario hoy",
     "cta_text": "Descarga Miga, crea tu primer libro y guarda esa receta que siempre te piden.",
+    "cta_text_beta": "Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.",
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
-        ("Miga", [("#funciones", "Funciones"), ("#asistente", "Asistente de cocina"), ("#packs", "Packs de recetas"), (APK_URL, "Descargas")]),
-        ("Proyecto", [(APP_REPO, "Código de la app"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
+        ("Miga", [("#funciones", "Funciones"), ("#asistente", "Asistente de cocina"), ("#descargar", "Descargar")]),
+        ("Más", [("#sincronizacion", "Servidor de sincronización"), ("#packs", "Packs de recetas"), (PACKS_REPO, "Repositorio de packs")]),
         ("Legal", [("privacy/", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
     ],
-    "legal": "Miga es software libre bajo licencia GPL-3.0.",
+    "legal": f"© {YEAR} Calamares. Las recetas de los packs se publican bajo CC BY 4.0.",
     "off": "Datos de productos de Open Food Facts (ODbL).",
     "privacy_title": "Política de privacidad · Miga",
     "back": "Volver al inicio",
@@ -218,12 +231,15 @@ EN = {
     "title": "Miga · Your family recipe book and shopping list",
     "description": "Miga is an Android app to keep your family's recipes in books, cook step by step and do the shopping. No accounts, no ads, and your data stays on your phone.",
     "nav": [("#features", "Features"), ("#assistant", "Assistant"), ("#sync", "Sync"), ("#packs", "Packs"), ("#faq", "FAQ")],
-    "theme": "Switch theme", "menu": "Menu", "get": "Download",
-    "badge": f"Version {VERSION}",
+    "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Try the beta",
+    "badge": "Available on Google Play", "badge_beta": "Closed beta on Google Play",
     "hero_title": "Your recipes. Your books. <em>Your kitchen.</em>",
     "hero_lead": "Miga keeps your family's recipes in books with their own covers, guides you step by step while you cook and sorts the shopping by your supermarket's aisles. No accounts, no ads, and everything stays on your phone.",
-    "play": "Google Play", "soon": "Soon", "apk": "Download APK", "source": "Source code",
-    "hero_badges": ["No accounts", "No ads", "No analytics", "Open source (GPL-3.0)", "English and Spanish"],
+    "play": "Google Play", "soon": "Soon", "beta": "Join the beta",
+    "beta_note": "Miga is in testing on Google Play. Email us from your Google account's address and we'll send you an invitation.",
+    "beta_subject": "I'd like to try Miga",
+    "beta_body": "Hi, I'd like to try the Miga beta. My Google account's email is: ",
+    "hero_badges": ["No accounts", "No ads", "No analytics", "Works offline", "English and Spanish"],
     "shot_alt_front": "A recipe in Miga", "shot_alt_back": "The list of books in Miga",
     "marquee": [("book", "Recipe books"), ("utensils", "Cooking mode"), ("timer", "Timers"), ("mic", "Dictation and voice"), ("cart", "Shopping list"), ("scan", "Product scanner"), ("leaf", "Open Food Facts"), ("sparkles", "Cooking assistant"), ("server", "Your own server"), ("package", "Recipe packs"), ("file", "PDF and image"), ("archive", "Encrypted backups"), ("palette", "Themes and frames"), ("widget", "Widget"), ("lock", "Fingerprint lock")],
     "pillars_head": ("Made for your kitchen, not to sell your data", "Miga has no servers of its own and never asks you to sign up. What you save is yours and stays on your phone."),
@@ -231,7 +247,7 @@ EN = {
         ("phone", "Everything on your phone", "Recipes, photos, lists and settings live on the phone. It works offline."),
         ("ban", "No accounts, no ads", "No sign-up, no advertising, no analytics. Open the app and start cooking."),
         ("shield", "You decide what leaves", "The internet is only used for what you turn on: your assistant, Open Food Facts, packs or your server."),
-        ("code", "Open source", "GPL-3.0 licensed. Read the code, build it and suggest improvements."),
+        ("users", "For the whole family", "Share books and the shopping list through your own server, with no one in between."),
     ],
     "showcase_head": ("Explore Miga", "Pick a part of the app to see what it can do for you.", "Interactive preview"),
     "showcase": [
@@ -306,8 +322,8 @@ EN = {
     "server_title": "Your own sync server",
     "server_lead": "To share books and the shopping list with your family, Miga connects to a server you host. It's lightweight, runs with Docker and comes with a full web admin.",
     "server_steps": [
-        ("Start the server", "copy <code>.env.example</code> to <code>.env</code>, set an admin token and run <code>docker compose up -d</code>."),
-        ("Create a shared space", "in the web admin, create a namespace (say, “home”) and a token for each phone."),
+        ("Start the server", "save the <code>docker-compose.yml</code> below, replace the admin token with a long random string (for example, the output of <code>openssl rand -base64 32</code>) and run <code>docker compose up -d</code>."),
+        ("Create a shared space", "in the web admin (<code>http://your-server:8080/ui</code>), create a namespace (say, “home”) and a token for each phone."),
         ("Connect the app", "in Settings › Sync server, add the connection. The rest of the family joins by scanning a QR code."),
     ],
     "server_features": [
@@ -319,7 +335,8 @@ EN = {
         ("lock", "No external dependencies", "one Docker image with SQLite; put it behind a TLS proxy to use it away from home."),
     ],
     "server_gallery": [("table.png", "Recipes in table mode, with bulk actions"), ("editor-dark.png", "The recipe editor in dark mode"), ("grid.png", "Grid view with photos"), ("mobile.png", "It works on phones too")],
-    "server_cta": "See miga-server",
+    "server_compose_note": "That file is all you need: the image has everything inside and the data lives in the <code>miga-data</code> volume.",
+    "admin_token_placeholder": "replace-with-a-long-token",
     "packs_chip": "Packs",
     "packs_title": "Recipe packs, ready to install",
     "packs_lead": "A pack is a recipe book you install with one tap from Settings › Recipe packs. Its recipes can't be edited, but you can copy the ones you like into your books.",
@@ -330,9 +347,12 @@ EN = {
     ],
     "packs_example_title": "Sample catalog.json",
     "packs_cta": "Packs repository",
+    "packs_available": "Available packs",
+    "recipes": "recipes",
     "faq_head": ("Frequently asked questions", "", "Help"),
+    "faq_beta": ("How do I get Miga?", f"Right now it's in closed testing on Google Play. Email {CONTACT} from your Google account's address and we'll send you an invitation. It will be open to everyone soon."),
     "faq": [
-        ("Is Miga free?", "Yes. It's free and open source (GPL-3.0), with no ads or in-app purchases."),
+        ("Is Miga free?", "Yes. It's free, with no ads or in-app purchases."),
         ("Do I need an account or the internet?", "No. Everything works offline and without signing up. The internet is only used for what you choose: the assistant with your key, Open Food Facts, the packs catalogue and your server."),
         ("How much does the cooking assistant cost?", "It depends on the provider you pick. OpenRouter has free models; with Gemini, Claude or OpenAI you pay them for what you use. Miga charges nothing and never sees your data."),
         ("Where are my recipes stored?", "In your phone's internal storage, and on your own server if you use sync. Miga has no servers of its own."),
@@ -342,13 +362,14 @@ EN = {
     ],
     "cta_title": "Start your recipe book today",
     "cta_text": "Download Miga, create your first book and save that recipe everyone keeps asking for.",
+    "cta_text_beta": "Join the beta, create your first book and save that recipe everyone keeps asking for.",
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
-        ("Miga", [("#features", "Features"), ("#assistant", "Cooking assistant"), ("#packs", "Recipe packs"), (APK_URL, "Downloads")]),
-        ("Project", [(APP_REPO, "App source code"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
+        ("Miga", [("#features", "Features"), ("#assistant", "Cooking assistant"), ("#download", "Download")]),
+        ("More", [("#sync", "Sync server"), ("#packs", "Recipe packs"), (PACKS_REPO, "Packs repository")]),
         ("Legal", [("privacy/", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
     ],
-    "legal": "Miga is free software under the GPL-3.0 licence.",
+    "legal": f"© {YEAR} Calamares. Recipes in the packs are published under CC BY 4.0.",
     "off": "Product data from Open Food Facts (ODbL).",
     "privacy_title": "Privacy policy · Miga",
     "back": "Back to home",
@@ -356,9 +377,23 @@ EN = {
 
 # Section anchors differ per language (they appear in the URL).
 ANCHORS = {
-    "es": {"features": "funciones", "assistant": "asistente", "sync": "sincronizacion", "packs": "packs", "faq": "preguntas", "explore": "explora"},
-    "en": {"features": "features", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq", "explore": "explore"},
+    "es": {"features": "funciones", "assistant": "asistente", "sync": "sincronizacion", "packs": "packs", "faq": "preguntas", "explore": "explora", "get": "descargar"},
+    "en": {"features": "features", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq", "explore": "explore", "get": "download"},
 }
+
+COMPOSE = """services:
+  miga-server:
+    image: {image}
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      MIGA_ADMIN_TOKEN: "{token}"
+    volumes:
+      - miga-data:/data
+
+volumes:
+  miga-data:"""
 
 CATALOG_EXAMPLE = """{
   "schemaVersion": 1,
@@ -387,7 +422,31 @@ def other_language(t, root, page_path):
     return root + ("en/" if t["lang"] == "es" else "") + page_path
 
 
-def head(t, root, title, description, page_path):
+def page_url(lang, page_path):
+    return f"{SITE_URL}{'en/' if lang == 'en' else ''}{page_path}"
+
+
+def structured_data(t):
+    """schema.org description of the app, so search engines can show it as an app result."""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Miga",
+        "description": t["description"],
+        "url": page_url(t["lang"], ""),
+        "image": f"{SITE_URL}assets/img/og.png",
+        "operatingSystem": "Android 8.0+",
+        "applicationCategory": "LifestyleApplication",
+        "inLanguage": ["es", "en"],
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+    }
+    if PLAY_PUBLIC:
+        data["installUrl"] = PLAY_URL
+    return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>\n'
+
+
+def head(t, root, title, description, page_path, extra=""):
+    alternates = "".join(f'<link rel="alternate" hreflang="{lang}" href="{page_url(lang, page_path)}">\n' for lang in ("es", "en"))
     return f"""<!doctype html>
 <html lang="{t['lang']}" data-theme="dark">
 <head>
@@ -396,13 +455,17 @@ def head(t, root, title, description, page_path):
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">
 <meta name="theme-color" content="#0f1310">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Miga">
+<meta property="og:locale" content="{'es_ES' if t['lang'] == 'es' else 'en_GB'}">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(description)}">
 <meta property="og:image" content="{SITE_URL}assets/img/og.png">
-<meta property="og:url" content="{SITE_URL}{'en/' if t['lang'] == 'en' else ''}{page_path}">
-<link rel="canonical" href="{SITE_URL}{'en/' if t['lang'] == 'en' else ''}{page_path}">
-<link rel="alternate" hreflang="{t['other']}" href="{other_language(t, root, page_path)}">
-<link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
+<meta property="og:url" content="{page_url(t['lang'], page_path)}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{page_url(t['lang'], page_path)}">
+{alternates}<link rel="alternate" hreflang="x-default" href="{page_url('es', page_path)}">
+{extra}<link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}assets/style.css">
 <script>
   // Saved theme, else the system's, before the first paint.
@@ -429,18 +492,43 @@ def nav(t, root, home_rel, page_path):
     <a class="icon-btn" href="{other_href}" hreflang="{t['other']}" title="{escape(t['other_label'])}">{t['other_short']}</a>
     <button class="icon-btn" data-theme-toggle title="{escape(t['theme'])}" aria-label="{escape(t['theme'])}">{icon('sun')}</button>
     <button class="icon-btn menu-toggle" data-menu-toggle aria-expanded="false" aria-label="{escape(t['menu'])}">{icon('menu')}</button>
-    <a class="btn primary small" href="{APK_URL}">{icon('download')}<span class="cta-label">{escape(t['get'])}</span></a>
+    <a class="btn primary small" href="{home_rel}#{ANCHORS[t['lang']]['get']}">{icon('download')}<span class="cta-label">{escape(t['get'] if PLAY_PUBLIC else t['get_beta'])}</span></a>
   </div>
 </header>
 """
 
 
+def beta_mail(t):
+    return f"mailto:{CONTACT}?subject={quote(t['beta_subject'])}&body={quote(t['beta_body'])}"
+
+
 def downloads(t):
-    return f"""<div class="hero-actions">
-        <a class="btn primary" href="{APK_URL}">{icon('download')}{escape(t['apk'])}</a>
-        <span class="btn" aria-disabled="true" title="{escape(t['soon'])}">{icon('play')}{escape(t['play'])}<span class="soon">{escape(t['soon'])}</span></span>
-        <a class="btn" href="{APP_REPO}">{icon('code')}{escape(t['source'])}</a>
+    if PLAY_PUBLIC:
+        return f"""<div class="hero-actions">
+        <a class="btn primary" href="{PLAY_URL}">{icon('play')}{escape(t['play'])}</a>
       </div>"""
+    return f"""<div class="hero-actions">
+        <a class="btn primary" href="{escape(beta_mail(t))}">{icon('mail')}{escape(t['beta'])}</a>
+        <span class="btn" aria-disabled="true" title="{escape(t['soon'])}">{icon('play')}{escape(t['play'])}<span class="soon">{escape(t['soon'])}</span></span>
+      </div>
+      <p class="beta-note">{escape(t['beta_note'])}</p>"""
+
+
+def pack_cards(t, img):
+    """The packs of the official catalogue in this page's language, with covers kept in assets/."""
+    catalog = json.loads((ROOT / "packs" / "catalog.json").read_text(encoding="utf-8"))
+    cards = []
+    for pack in catalog["packs"]:
+        if pack.get("language", "es") != t["lang"]:
+            continue
+        if not (ROOT / "assets" / "img" / "packs" / f"{pack['id']}.jpg").exists():
+            raise SystemExit(f"Missing assets/img/packs/{pack['id']}.jpg: copy packs/{pack['id']}/cover.jpg from miga-packs")
+        cards.append(f"""<article class="pack">
+        <img src="{img}packs/{pack['id']}.jpg" alt="" width="720" height="720" loading="lazy">
+        <div><h3>{escape(pack['name'])}</h3><span class="chip">{pack['recipeCount']} {escape(t['recipes'])}</span>
+        <p>{escape(pack['description'])}</p></div>
+      </article>""")
+    return "".join(cards)
 
 
 def wavy():
@@ -460,13 +548,13 @@ def section_head(title, text, chip=None):
 def home(t, root):
     a = ANCHORS[t["lang"]]
     img = f"{root}assets/img/"
-    out = [head(t, root, t["title"], t["description"], ""), nav(t, root, "", ""), "<main>"]
+    out = [head(t, root, t["title"], t["description"], "", structured_data(t)), nav(t, root, "", ""), "<main>"]
 
     badges = "".join(f'<span class="chip outline">{icon("check")}{escape(b)}</span>' for b in t["hero_badges"])
     out.append(f"""<section class="hero">
   <div class="wrap">
     <div>
-      <span class="chip primary">{icon('leaf')}{escape(t['badge'])}</span>
+      <span class="chip primary">{icon('leaf')}{escape(t['badge'] if PLAY_PUBLIC else t['badge_beta'])}</span>
       <h1>{t['hero_title']}</h1>
       <p class="lead">{escape(t['hero_lead'])}</p>
       {downloads(t)}
@@ -549,9 +637,12 @@ def home(t, root):
       <h2>{escape(t['server_title'])}</h2>
       <p>{escape(t['server_lead'])}</p>
       <ol class="steps">{steps}</ol>
-      <a class="btn" href="{SERVER_REPO}">{icon('code')}{escape(t['server_cta'])}</a>
     </div>
     <div class="showcase-media">{phone(img + 'screens/sync.svg', t['server_title'])}</div>
+  </div>
+  <div class="compose">
+    <p class="muted"><b>docker-compose.yml</b> · {t['server_compose_note']}</p>
+    <pre><code>{escape(COMPOSE.format(image=SERVER_IMAGE, token=t['admin_token_placeholder']))}</code></pre>
   </div>
   <div class="gallery">{gallery}</div>
   <div class="grid" style="margin-top:28px">{sfeat}</div>
@@ -567,25 +658,28 @@ def home(t, root):
       <h2>{escape(t['packs_title'])}</h2>
       <p>{escape(t['packs_lead'])}</p>
       <ul class="checks" style="margin-bottom:26px">{ppoints}</ul>
-      <a class="btn" href="{PACKS_REPO}">{icon('code')}{escape(t['packs_cta'])}</a>
+      <a class="btn" href="{PACKS_REPO}">{icon('package')}{escape(t['packs_cta'])}</a>
     </div>
     <div>
       <p class="muted" style="margin-bottom:10px;font-weight:600">{escape(t['packs_example_title'])}</p>
       <pre><code>{escape(CATALOG_EXAMPLE)}</code></pre>
     </div>
   </div>
+  <h3 class="subhead">{escape(t['packs_available'])}</h3>
+  <div class="packs">{pack_cards(t, img)}</div>
 </section>
 """)
     out.append(wavy())
 
     title, text, chip = t["faq_head"]
-    faq = "".join(f"<details><summary>{escape(q)}</summary><p>{escape(r)}</p></details>" for q, r in t["faq"])
+    questions = t["faq"] if PLAY_PUBLIC else [t["faq_beta"], *t["faq"]]
+    faq = "".join(f"<details><summary>{escape(q)}</summary><p>{escape(r)}</p></details>" for q, r in questions)
     out.append(f'<section class="wrap" id="{a["faq"]}">{section_head(title, text, chip)}<div class="faq">{faq}</div></section>\n')
 
-    out.append(f"""<section class="wrap" style="margin-top:80px">
+    out.append(f"""<section class="wrap" id="{a['get']}" style="margin-top:80px">
   <div class="cta">
     <h2>{escape(t['cta_title'])}</h2>
-    <p>{escape(t['cta_text'])}</p>
+    <p>{escape(t['cta_text'] if PLAY_PUBLIC else t['cta_text_beta'])}</p>
     {downloads(t)}
   </div>
 </section>
@@ -635,6 +729,9 @@ def main():
         ROOT / "privacy" / "index.html": privacy(ES, "../", ROOT / "content" / "privacy-es.md"),
         ROOT / "en" / "privacy" / "index.html": privacy(EN, "../../", ROOT / "content" / "privacy-en.md"),
     }
+    urls = "".join(f"  <url><loc>{page_url(lang, path)}</loc></url>\n" for path in ("", "privacy/") for lang in ("es", "en"))
+    pages[ROOT / "sitemap.xml"] = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
+    pages[ROOT / "robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n"
     for path, html in pages.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(html, encoding="utf-8")
