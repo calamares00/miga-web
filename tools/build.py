@@ -194,14 +194,13 @@ ES = {
     "packs_title": "Packs de recetas listos para instalar",
     "packs_lead": "Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros.",
     "packs_points": [
-        ("Catálogo oficial", "Miga consulta el catálogo de esta web; cada pack trae portada, autor y número de recetas."),
+        ("Catálogo oficial", "Miga consulta el catálogo de esta web; cada pack trae su portada, su autor y una descripción."),
         ("Catálogos alternativos", "añade otro catálogo con una URL o un repositorio de GitHub «usuario/repositorio»."),
         ("Crea el tuyo", "exporta un libro como archivo de Miga (ZIP) y descríbelo en un <code>catalog.json</code>."),
     ],
     "packs_example_title": "Ejemplo de catalog.json",
     "packs_cta": "Repositorio de packs",
     "packs_available": "Packs disponibles",
-    "recipes": "recetas",
     "faq_head": ("Preguntas frecuentes", "", "Ayuda"),
     "faq_beta": ("¿Cómo consigo Miga?", f"Ahora mismo está en pruebas cerradas en Google Play. Escríbenos a {CONTACT} desde el correo de tu cuenta de Google y te enviamos la invitación. Pronto estará disponible para todo el mundo."),
     "faq": [
@@ -344,14 +343,13 @@ EN = {
     "packs_title": "Recipe packs, ready to install",
     "packs_lead": "A pack is a recipe book you install with one tap from Settings › Recipe packs. Its recipes can't be edited, but you can copy the ones you like into your books.",
     "packs_points": [
-        ("Official catalogue", "Miga reads this website's catalogue; each pack has a cover, an author and a recipe count."),
+        ("Official catalogue", "Miga reads this website's catalogue; each pack has a cover, an author and a description."),
         ("Other catalogues", "add another one with a URL or a GitHub “user/repo”."),
         ("Make your own", "export a book as a Miga file (ZIP) and describe it in a <code>catalog.json</code>."),
     ],
     "packs_example_title": "Sample catalog.json",
     "packs_cta": "Packs repository",
     "packs_available": "Available packs",
-    "recipes": "recipes",
     "faq_head": ("Frequently asked questions", "", "Help"),
     "faq_beta": ("How do I get Miga?", f"Right now it's in closed testing on Google Play. Email {CONTACT} from your Google account's address and we'll send you an invitation. It will be open to everyone soon."),
     "faq": [
@@ -528,7 +526,7 @@ def pack_cards(t, img):
             raise SystemExit(f"Missing assets/img/packs/{pack['id']}.jpg: copy packs/{pack['id']}/cover.jpg from miga-packs")
         cards.append(f"""<article class="pack">
         <img src="{img}packs/{pack['id']}.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h3>{escape(pack['name'])}</h3><span class="chip">{pack['recipeCount']} {escape(t['recipes'])}</span>
+        <div><h3>{escape(pack['name'])}</h3>
         <p>{escape(pack['description'])}</p></div>
       </article>""")
     return "".join(cards)
