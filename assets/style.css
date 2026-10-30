@@ -313,7 +313,7 @@ footer .legal { grid-column: 1 / -1; border-top: 1px solid var(--outline); paddi
 .pack > div { padding: 20px 22px 24px; }
 .pack h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .pack p {
-  color: var(--muted); font-size: 15px; margin-top: 12px;
+  color: var(--muted); font-size: 15px;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
 }
 @media (max-width: 960px) { .packs { grid-template-columns: 1fr 1fr; } }
