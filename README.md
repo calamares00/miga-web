@@ -1,6 +1,6 @@
 # web-miga
 
-Website of [Miga](https://github.com/calamares00/miga-app), the family recipe book and shopping list app
+Website of Miga, the family recipe book and shopping list app
 for Android: features, the sync server, recipe packs and the privacy policy.
 
 Static HTML and CSS with no third-party requests, ready for GitHub Pages. Every link is relative, so
@@ -38,23 +38,17 @@ real screenshots, save them as PNG (portrait, about 1080×2280) in the same fold
 
 ### Recipe packs
 
-Add each pack's ZIP (a book exported from Miga as a "Miga file") under `packs/zips/`, its cover
-under `packs/covers/`, and an entry in `packs/catalog.json`:
+The packs live in the public repository
+[calamares00/miga-packs](https://github.com/calamares00/miga-packs). `packs/catalog.json` is the
+`catalog.json` built there, with absolute `downloadUrl` and `coverImageUrl`. The home page shows
+the packs of each language with the covers in `assets/img/packs/<id>.jpg` (a copy of
+`packs/<id>/cover.jpg` from miga-packs), so the site makes no third-party requests.
 
-```json
-{
-  "id": "cocina-de-la-abuela",
-  "name": "Cocina de la abuela",
-  "author": "Ana",
-  "description": "Guisos, potajes y postres de siempre.",
-  "coverImageUrl": "covers/abuela.jpg",
-  "latestVersion": 1,
-  "recipeCount": 24,
-  "downloadUrl": "zips/abuela.zip"
-}
-```
+### Google Play
 
-Increase `latestVersion` when a pack changes so the app offers the update.
+While Miga is in closed testing, `PLAY_PUBLIC = False` in `tools/build.py` makes the download
+buttons ask people to join the beta by email. Set it to `True` once the app is in production and
+the buttons link to its Play Store page.
 
 ## Publishing
 
@@ -68,4 +62,4 @@ Play links to the privacy policy at `https://miga.calamares.org/privacy/`.
 
 ## License
 
-[GPL-3.0](LICENSE), like the app. Product data shown in the app comes from Open Food Facts (ODbL).
+Site code: [GPL-3.0](LICENSE). Product data shown in the app comes from Open Food Facts (ODbL).
