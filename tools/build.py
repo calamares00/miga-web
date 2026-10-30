@@ -17,6 +17,7 @@ import markdown
 ROOT = Path(__file__).resolve().parent.parent
 
 PACKS_REPO = "https://github.com/calamares00/miga-packs"
+SERVER_REPO = "https://github.com/calamares00/miga-server"
 SERVER_IMAGE = "ghcr.io/calamares00/miga-server:latest"
 PLAY_URL = "https://play.google.com/store/apps/details?id=org.calamares.miga"
 # False while Miga is in closed testing on Google Play: its store page only opens for testers, so
@@ -188,6 +189,7 @@ ES = {
     "server_gallery": [("table.png", "Recetas en modo tabla, con acciones sobre varias a la vez"), ("editor-dark.png", "Editor de recetas en modo oscuro"), ("grid.png", "Vista de cuadrícula con fotos"), ("mobile.png", "También funciona en el móvil")],
     "server_compose_note": "Con este archivo basta: la imagen trae todo lo necesario y los datos se guardan en el volumen <code>miga-data</code>.",
     "admin_token_placeholder": "cambia-esto-por-un-token-largo",
+    "server_cta": "Ver miga-server",
     "packs_chip": "Packs",
     "packs_title": "Packs de recetas listos para instalar",
     "packs_lead": "Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros.",
@@ -217,7 +219,7 @@ ES = {
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
         ("Miga", [("#funciones", "Funciones"), ("#asistente", "Asistente de cocina"), ("#descargar", "Descargar")]),
-        ("Más", [("#sincronizacion", "Servidor de sincronización"), ("#packs", "Packs de recetas"), (PACKS_REPO, "Repositorio de packs")]),
+        ("Más", [("#sincronizacion", "Servidor de sincronización"), ("#packs", "Packs de recetas"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy/", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
     ],
     "legal": f"© {YEAR} Calamares. Las recetas de los packs se publican bajo CC BY 4.0.",
@@ -337,6 +339,7 @@ EN = {
     "server_gallery": [("table.png", "Recipes in table mode, with bulk actions"), ("editor-dark.png", "The recipe editor in dark mode"), ("grid.png", "Grid view with photos"), ("mobile.png", "It works on phones too")],
     "server_compose_note": "That file is all you need: the image has everything inside and the data lives in the <code>miga-data</code> volume.",
     "admin_token_placeholder": "replace-with-a-long-token",
+    "server_cta": "See miga-server",
     "packs_chip": "Packs",
     "packs_title": "Recipe packs, ready to install",
     "packs_lead": "A pack is a recipe book you install with one tap from Settings › Recipe packs. Its recipes can't be edited, but you can copy the ones you like into your books.",
@@ -366,7 +369,7 @@ EN = {
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
         ("Miga", [("#features", "Features"), ("#assistant", "Cooking assistant"), ("#download", "Download")]),
-        ("More", [("#sync", "Sync server"), ("#packs", "Recipe packs"), (PACKS_REPO, "Packs repository")]),
+        ("More", [("#sync", "Sync server"), ("#packs", "Recipe packs"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy/", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
     ],
     "legal": f"© {YEAR} Calamares. Recipes in the packs are published under CC BY 4.0.",
@@ -637,6 +640,7 @@ def home(t, root):
       <h2>{escape(t['server_title'])}</h2>
       <p>{escape(t['server_lead'])}</p>
       <ol class="steps">{steps}</ol>
+      <a class="btn" href="{SERVER_REPO}">{icon('code')}{escape(t['server_cta'])}</a>
     </div>
     <div class="showcase-media">{phone(img + 'screens/sync.svg', t['server_title'])}</div>
   </div>
