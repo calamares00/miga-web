@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://miga.calamares.org/sitemap.xml

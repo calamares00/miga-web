@@ -296,3 +296,25 @@ footer .legal { grid-column: 1 / -1; border-top: 1px solid var(--outline); paddi
 .doc th, .doc td { border: 1px solid var(--outline); padding: 8px 12px; text-align: left; vertical-align: top; }
 .doc th { background: var(--surface-high); }
 .gallery .frame img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
+
+/* --- Beta note, server compose file and recipe packs --- */
+.beta-note { color: var(--muted); font-size: 14.5px; margin-top: 14px; max-width: 34em; }
+.cta .beta-note { margin: 14px auto 0; }
+.compose { margin-top: 28px; }
+.compose p { margin-bottom: 10px; font-size: 15px; }
+.subhead { font-size: 1.4rem; font-weight: 800; margin: 48px 0 18px; }
+.packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.pack {
+  border-radius: var(--radius); overflow: hidden; background: var(--surface); border: 1px solid var(--outline);
+  transition: transform .3s cubic-bezier(.2, 0, 0, 1), box-shadow .3s;
+}
+.pack:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.pack img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.pack > div { padding: 20px 22px 24px; }
+.pack h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.pack p {
+  color: var(--muted); font-size: 15px; margin-top: 12px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+@media (max-width: 960px) { .packs { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .packs { grid-template-columns: 1fr; } }
