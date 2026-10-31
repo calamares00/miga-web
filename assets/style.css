@@ -311,7 +311,9 @@ footer .legal { grid-column: 1 / -1; border-top: 1px solid var(--outline); paddi
 .pack:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
 .pack img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 .pack > div { padding: 20px 22px 24px; }
-.pack h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.pack h4 { font-size: 1.2rem; margin-bottom: 10px; }
+.pack-series { font-size: 1.4rem; margin: 40px 0 18px; }
+.subhead + .pack-series { margin-top: 8px; }
 .pack p {
   color: var(--muted); font-size: 15px;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;

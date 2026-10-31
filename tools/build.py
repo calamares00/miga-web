@@ -402,6 +402,7 @@ CATALOG_EXAMPLE = """{
     {
       "id": "cocina-de-la-abuela",
       "name": "Cocina de la abuela",
+      "series": "Cocina de siempre",
       "author": "Ana",
       "authorGithub": "ana",
       "description": "Guisos, potajes y postres de siempre.",
@@ -516,20 +517,25 @@ def downloads(t):
 
 
 def pack_cards(t, img):
-    """The packs of the official catalogue in this page's language, with covers kept in assets/."""
+    """The packs of the official catalogue in this page's language, grouped by series (the largest
+    first), with covers kept in assets/."""
     catalog = json.loads((ROOT / "packs" / "catalog.json").read_text(encoding="utf-8"))
-    cards = []
+    series = {}
     for pack in catalog["packs"]:
         if pack.get("language", "es") != t["lang"]:
             continue
         if not (ROOT / "assets" / "img" / "packs" / f"{pack['id']}.jpg").exists():
             raise SystemExit(f"Missing assets/img/packs/{pack['id']}.jpg: copy packs/{pack['id']}/cover.jpg from miga-packs")
-        cards.append(f"""<article class="pack">
+        series.setdefault(pack.get("series") or "", []).append(f"""<article class="pack">
         <img src="{img}packs/{pack['id']}.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h3>{escape(pack['name'])}</h3>
+        <div><h4>{escape(pack['name'])}</h4>
         <p>{escape(pack['description'])}</p></div>
       </article>""")
-    return "".join(cards)
+    groups = sorted(series.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+    return "".join(
+        (f'<h3 class="pack-series">{escape(name)}</h3>' if name else "") + f'<div class="packs">{"".join(cards)}</div>'
+        for name, cards in groups
+    )
 
 
 def wavy():
@@ -668,7 +674,7 @@ def home(t, root):
     </div>
   </div>
   <h3 class="subhead">{escape(t['packs_available'])}</h3>
-  <div class="packs">{pack_cards(t, img)}</div>
+  {pack_cards(t, img)}
 </section>
 """)
     out.append(wavy())
