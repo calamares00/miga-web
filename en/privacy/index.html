@@ -42,7 +42,7 @@
   </div>
 </header>
 <main class="wrap"><article class="doc"><h1>Miga privacy policy</h1>
-<p>Last updated: 8 November 2026.</p>
+<p>Last updated: 15 November 2026.</p>
 <p>Miga is a family recipe book and shopping list app. This document explains what data the app handles, where it goes and what control you have over it.</p>
 <h2>Summary</h2>
 <ul>
@@ -53,7 +53,7 @@
 </ul>
 <h2>What data the app stores and where</h2>
 <p>Recipes, books, photos, personal notes, categories, tags, kitchen equipment, ratings, shopping lists, templates, supermarkets and settings are stored <strong>in your device's internal storage</strong>.</p>
-<p>The Google Gemini, Anthropic, OpenAI or OpenRouter API keys you enter are stored only on your device, <strong>encrypted</strong> with a key from Android's secure keystore that never leaves the phone, and are used only to call the provider you choose.</p>
+<p>The Google Gemini, Anthropic, OpenAI, DeepSeek, Mistral, Groq or OpenRouter API keys (and that of any OpenAI-compatible server you set up) you enter are stored only on your device, <strong>encrypted</strong> with a key from Android's secure keystore that never leaves the phone, and are used only to call the provider you choose.</p>
 <p>If Android backup is turned on, the system may include this data (recipes, photos and settings) in the backup managed by your Google account, as with any other app. Miga has no access to that backup. API keys stay encrypted and cannot be read on another device: after restoring on a new phone you will need to enter them again.</p>
 <h2>Permissions</h2>
 <ul>
@@ -67,7 +67,7 @@
 <h2>Network connections and who data is shared with</h2>
 <p>All of them start from an action of yours or a feature you have turned on. None goes through a server of the Miga developer: there is no such server.</p>
 <ol>
-<li><strong>AI features (optional, with your own key).</strong> What each feature needs is sent to the provider you set up (<strong>Google Gemini</strong>, <strong>Anthropic Claude</strong>, <strong>OpenAI</strong> or <strong>OpenRouter</strong>, which in turn forwards it to the provider of the model you choose):</li>
+<li><strong>AI features (optional, with your own key).</strong> What each feature needs is sent to the provider you set up (<strong>Google Gemini</strong>, <strong>Anthropic Claude</strong>, <strong>OpenAI</strong>, <strong>DeepSeek</strong>, <strong>Mistral</strong>, <strong>Groq</strong> or <strong>OpenRouter</strong>, which in turn forwards it to the provider of the model you choose; or the <strong>OpenAI-compatible server</strong> whose address you enter, which may be your own):</li>
 <li><strong>Recipes from photos</strong>: the photos you choose. Cropping the dish photo is then done on your device.</li>
 <li><strong>Improving a photo</strong>: the photo you choose. The assistant only suggests colour, brightness and sharpness adjustments, which are applied on your device.</li>
 <li><strong>Recipes from a web page</strong>: the text of the page.</li>
@@ -78,7 +78,7 @@
 <li><strong>Cleaning up dictated text</strong>: the text you dictated.</li>
 <li><strong>Ideas</strong>: a summary of your recipes (name, category, tags, time, main ingredients, equipment, whether it is a favourite and how many times you have cooked it), the options you choose, your question and the earlier questions of that conversation.</li>
 </ol>
-<p>Providers are used in the priority order you choose: if one fails or cannot read images, the same request is sent to the next one. How that data is handled is subject to each provider's terms for your key (some free OpenRouter models may use requests for training). Without a key nothing is sent. The OpenRouter model list is downloaded from its public catalogue without sending any of your data; the Gemini, Claude and OpenAI lists are requested from each provider with your key, without sending any other data. You can turn off all AI features, or only the automatic health rating or nutrition estimate, in Settings → Artificial intelligence. AI-generated content is labelled in the app, may contain mistakes and can be reported.
+<p>Providers are used in the priority order you choose: if one fails or cannot read images, the same request is sent to the next one. How that data is handled is subject to each provider's terms for your key (some free OpenRouter models may use requests for training; DeepSeek processes and stores data on servers in the People's Republic of China; Mistral processes it in the European Union; with your own server, data only goes there). Without a key nothing is sent. The OpenRouter model list is downloaded from its public catalogue without sending any of your data; the Gemini, Claude, OpenAI, DeepSeek, Mistral, Groq and custom server lists are requested from each provider with your key, without sending any other data. You can turn off all AI features, or only the automatic health rating or nutrition estimate, in Settings → Artificial intelligence. AI-generated content is labelled in the app, may contain mistakes and can be reported.
 2. <strong>Open Food Facts.</strong> When you scan a barcode or search for a product by name, that code or text is sent to Open Food Facts (an open database, no account) to get the product's name, photo and details. Product photos are downloaded from its servers. Open Food Facts data is licensed under the ODbL.
 3. <strong>Recipe packs catalogue.</strong> When you open the catalogue or install a pack, a public listing and the pack file are downloaded from miga.calamares.org (or from the alternative catalogue you set up). None of your data is sent.</p>
 <p>With the official catalogue, the app also reads from miga-stats.calamares.org how many times each pack has been installed and, when you install a new one (not when updating it), sends there only the pack's identifier to add one install. No data about you or your device is sent. To count each install only once a day, the server keeps an encrypted fingerprint of the date, your IP address and the pack, which cannot be turned back into the IP and is deleted every day; only totals per pack and day are kept. You can turn it off in Settings → Recipe packs → Contribute to the install counter.
