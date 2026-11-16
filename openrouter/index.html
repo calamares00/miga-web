@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Miga · OpenRouter</title>
+<!-- Return page of "Connect with OpenRouter" in the Miga app (OAuth PKCE). OpenRouter only
+     redirects to https or localhost, so it comes here with ?code=... and this page hands the code
+     to the app (miga://openrouter). The code is useless without the verifier kept in the app. It
+     is also shown, to paste by hand if the app does not open. Nothing is sent anywhere. -->
+<style>
+  :root { color-scheme: light dark; --green: #2E7D5B; }
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 32px 20px; max-width: 520px; margin-inline: auto; line-height: 1.5; }
+  h1 { font-size: 1.4rem; margin: 0 0 8px; }
+  .button { display: block; text-align: center; background: var(--green); color: #fff; text-decoration: none; padding: 14px; border-radius: 999px; font-weight: 600; margin: 20px 0; border: 0; width: 100%; font-size: 1rem; }
+  .secondary { background: transparent; color: var(--green); border: 1px solid var(--green); }
+  code { display: block; word-break: break-all; padding: 12px; border-radius: 12px; background: rgba(127,127,127,.15); font-size: .9rem; }
+  .muted { opacity: .75; font-size: .9rem; }
+  [hidden] { display: none; }
+</style>
+</head>
+<body>
+<main id="ok" hidden>
+  <h1 data-es="Ya casi está" data-en="Almost there"></h1>
+  <p data-es="Vuelve a Miga para terminar de conectar OpenRouter." data-en="Go back to Miga to finish connecting OpenRouter."></p>
+  <a id="open" class="button" href="#" data-es="Volver a Miga" data-en="Back to Miga"></a>
+  <p class="muted" data-es="¿No se abre? Copia este código y pégalo en Miga, en Ajustes › Asistente de cocina › OpenRouter (caduca en 10 minutos):" data-en="Does it not open? Copy this code and paste it in Miga, under Settings › Cooking assistant › OpenRouter (it expires in 10 minutes):"></p>
+  <code id="code"></code>
+  <button id="copy" class="button secondary" type="button" data-es="Copiar código" data-en="Copy code"></button>
+</main>
+<main id="fail" hidden>
+  <h1 data-es="No se ha conectado" data-en="Not connected"></h1>
+  <p data-es="OpenRouter no ha dado acceso. Vuelve a Miga y pulsa otra vez «Conectar con OpenRouter»." data-en="OpenRouter did not grant access. Go back to Miga and tap “Connect with OpenRouter” again."></p>
+</main>
+<script>
+  const lang = (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-es]").forEach(el => { el.textContent = el.dataset[lang]; });
+  const params = new URLSearchParams(location.search);
+  const code = params.get("code");
+  if (!code) {
+    document.getElementById("fail").hidden = false;
+  } else {
+    const query = "code=" + encodeURIComponent(code) + (params.get("state") ? "&state=" + encodeURIComponent(params.get("state")) : "");
+    const appLink = /android/i.test(navigator.userAgent)
+      ? "intent://openrouter?" + query + "#Intent;scheme=miga;package=org.calamares.miga;end"
+      : "miga://openrouter?" + query;
+    document.getElementById("ok").hidden = false;
+    document.getElementById("open").href = appLink;
+    document.getElementById("code").textContent = code;
+    document.getElementById("copy").addEventListener("click", () => navigator.clipboard && navigator.clipboard.writeText(code));
+    location.href = appLink;
+  }
+</script>
+</body>
+</html>
