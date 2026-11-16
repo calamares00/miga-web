@@ -26,3 +26,9 @@ Static site for https://miga.calamares.org (GitHub Pages, `CNAME`), in Spanish (
 (`https://raw.githubusercontent.com/calamares00/miga-packs/main/...`). Update it whenever a pack
 is added or its version changes there, and copy its `cover.jpg` to `assets/img/packs/<id>.jpg`
 (the build fails without it).
+
+## OpenRouter return page
+
+`openrouter/index.html` is hand-written (not built by `tools/build.py`): the `callback_url` of the
+app's "Connect with OpenRouter" (OAuth PKCE). It hands `?code=` to the app (`miga://openrouter`)
+and shows it to paste by hand. Keep it out of the sitemap.
