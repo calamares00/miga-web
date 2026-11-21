@@ -7,6 +7,7 @@ works at https://calamares00.github.io/miga-web/ and on its own domain alike.
     pip install markdown
     python3 tools/build.py
 """
+import hashlib
 import json
 from html import escape
 from pathlib import Path
@@ -71,6 +72,11 @@ ICONS = {
     "wheat": '<path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/>',
     "wand": '<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4M19 14v4M10 2v2M7 8H3M21 16h-4M11 3H9"/>',
 }
+
+
+def asset_version(name):
+    """A short hash of an asset, added to its URL so browsers never mix a new page with an old cached copy."""
+    return hashlib.sha256((ROOT / "assets" / name).read_bytes()).hexdigest()[:10]
 
 
 def icon(name):
@@ -523,7 +529,7 @@ def head(t, root, title, description, page_path, extra=""):
 <link rel="canonical" href="{page_url(t['lang'], page_path)}">
 {alternates}<link rel="alternate" hreflang="x-default" href="{page_url('es', page_path)}">
 {extra}<link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{root}assets/style.css">
+<link rel="stylesheet" href="{root}assets/style.css?v={asset_version('style.css')}">
 <script>
   // Saved theme, else the system's, before the first paint.
   (function () {{
@@ -797,7 +803,7 @@ def footer(t, root, home_rel):
     <div class="legal"><span>{escape(t['legal'])}</span><span>{escape(t['off'])}</span></div>
   </div>
 </footer>
-<script src="{root}assets/main.js"></script>
+<script src="{root}assets/main.js?v={asset_version('main.js')}"></script>
 </body>
 </html>
 """
