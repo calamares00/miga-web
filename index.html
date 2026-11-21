@@ -20,7 +20,7 @@
 <link rel="alternate" hreflang="x-default" href="https://miga.calamares.org/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Miga", "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.", "url": "https://miga.calamares.org/", "image": "https://miga.calamares.org/assets/img/og.png", "operatingSystem": "Android 8.0+", "applicationCategory": "LifestyleApplication", "inLanguage": ["es", "en"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}</script>
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=83d7d28400">
+<link rel="stylesheet" href="assets/style.css?v=f5e4cb0c2b">
 <script>
   // Saved theme, else the system's, before the first paint.
   (function () {
@@ -32,17 +32,18 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Saltar al contenido</a>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="./"><img src="assets/img/logo.svg" alt=""><b>Miga</b></a>
-    <nav class="nav-links" aria-label="Miga"><a href="#funciones">Funciones</a><a href="#salud">Salud</a><a href="#asistente">Asistente</a><a href="#sincronizacion">Sincronización</a><a href="#packs">Packs</a><a href="#preguntas">Preguntas</a></nav>
-    <a class="icon-btn" href="en/" hreflang="en" title="English">EN</a>
+    <a class="brand" href="./" aria-current="page"><img src="assets/img/logo.svg" alt=""><b>Miga</b></a>
+    <nav class="nav-links" id="menu" aria-label="Miga"><a href="funciones/">Funciones</a><a href="salud/">Salud</a><a href="asistente/">Asistente</a><a href="familia/">Familia</a><a href="packs/">Packs</a><a href="preguntas/">Preguntas</a></nav>
+    <a class="icon-btn" href="en/" hreflang="en" lang="en" title="English">EN</a>
     <button class="icon-btn" data-theme-toggle title="Cambiar tema" aria-label="Cambiar tema"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
-    <button class="icon-btn menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Menú"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <button class="icon-btn menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="Menú"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     <a class="btn primary small" href="#descargar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg><span class="cta-label">Probar la beta</span></a>
   </div>
 </header>
-<main><section class="hero">
+<main id="main" data-legacy-anchors='{"funciones": "funciones/", "capturas": "funciones/", "salud": "salud/", "asistente": "asistente/", "sincronizacion": "familia/", "packs": "packs/", "preguntas": "preguntas/"}'><section class="hero">
   <div class="wrap">
     <div>
       <span class="chip primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Beta cerrada en Google Play</span>
@@ -55,13 +56,19 @@
       <p class="beta-note">Miga está en pruebas en Google Play. Escríbenos desde el correo de tu cuenta de Google y te enviamos la invitación.</p>
       <div class="hero-badges"><span class="chip outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sin cuentas</span><span class="chip outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sin anuncios</span><span class="chip outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sin analítica</span><span class="chip outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Funciona sin conexión</span><span class="chip outline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Español e inglés</span></div>
     </div>
-    <div class="hero-phones" aria-hidden="false">
+    <div class="hero-phones">
       <div class="phone back"><img src="assets/img/screens/es/books.webp" alt="Lista de libros en Miga" width="360" height="781" loading="lazy"></div>
       <div class="phone front"><img src="assets/img/screens/es/recipe.webp" alt="Pantalla de una receta en Miga" width="360" height="781" loading="lazy"></div>
     </div>
   </div>
 </section>
 <div class="marquee" aria-label="Funciones"><div class="marquee-track"><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Libros de recetas</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>Modo cocina</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg>Temporizadores</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>Dictado y voz</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>Lista de la compra</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M11 8v8M15 8v8M18 8v8"/></svg>Escáner de productos</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Open Food Facts</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg>Asistente de cocina</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>Servidor propio</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Packs de recetas</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Alérgenos</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/></svg>Modo celíacos</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>Raciones de hidratos</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>Consejos de cocina</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M9 13h6M9 17h6"/></svg>PDF e imagen</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg>Copias cifradas</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></svg>Temas y marcos</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>Widget</span><span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Bloqueo con huella</span></div></div>
+<section class="wrap news">
+  <a class="news-card" href="asistente/#instagram">
+    <img src="assets/img/screens/es/share_instagram.webp" alt="" width="360" height="781" loading="lazy">
+    <div><span class="chip accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg>Novedad</span><h2>Recetas de Instagram</h2><p>Comparte un reel con Miga y guárdalo como una receta más: con su foto, y si el texto no la trae, el asistente escucha el vídeo.</p><span class="more">Ver más →</span></div>
+  </a>
+</section>
 <div class="wavy" aria-hidden="true"></div>
 <section class="wrap"><div class="section-head"><h2>Hecha para tu cocina, no para vender tus datos</h2><p>Miga no tiene servidores propios ni te pide registrarte. Lo que guardas es tuyo y se queda en tu teléfono.</p></div><div class="pillars"><div class="pillar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg><h3>Todo en tu móvil</h3><p>Recetas, fotos, listas y ajustes se guardan en el teléfono. Funciona sin conexión.</p></div><div class="pillar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg><h3>Sin cuentas ni anuncios</h3><p>Ni registro, ni publicidad, ni analítica. Abres la app y empiezas a cocinar.</p></div><div class="pillar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><h3>Tú decides qué sale</h3><p>Internet solo se usa para lo que activas: tu asistente, Open Food Facts, packs o tu servidor.</p></div><div class="pillar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Para toda la familia</h3><p>Comparte libros y la lista de la compra con tu propio servidor, sin nadie en medio.</p></div></div></section>
 <div class="wavy" aria-hidden="true"></div>
@@ -75,6 +82,7 @@
           <h3>Un recetario para cada cosa</h3>
           <p class="desc">Crea un libro para cada persona o cada tema, cada uno con su portada, y llena sus páginas con recetas completas.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Recetas completas:</b> <span>ingredientes con cantidad y unidad, pasos, fotos, dificultad, tiempos, raciones, origen con bandera y etiquetas.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Subrecetas:</b> <span>separa la salsa, la masa o la guarnición, cada una con sus ingredientes y sus pasos.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ingredientes opcionales:</b> <span>marca el perejil para decorar sin ensuciar su nombre.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Packs de recetas:</b> <span>libros listos para instalar, con cocinas del mundo, arroces, panadería, Thermomix y más.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Consejo del día:</b> <span>un truco de cocina cada día y cientos más que funcionan sin conexión.</span></div></li></ul>
+          <a class="btn small" href="funciones/">Ver más: Funciones →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/books.webp" alt="Un recetario para cada cosa" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -85,6 +93,7 @@
           <h3>Todo claro de un vistazo</h3>
           <p class="desc">Tiempo, raciones y dificultad en una línea; los ingredientes, escritos como los dirías.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ingredientes naturales:</b> <span>«½ vaso de vino», «2 dientes de ajo»: sin tablas ni columnas.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Raciones al momento:</b> <span>cambia las raciones y las cantidades se recalculan solas.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Alérgenos calculados:</b> <span>los 14 de la ley europea y la lactosa, a partir de los ingredientes.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Consejos para esta receta:</b> <span>si un truco ayuda con sus ingredientes o pasos, aparece ahí mismo.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Mis notas:</b> <span>apuntes con fecha que no cambian la receta: «la próxima vez, menos sal».</span></div></li></ul>
+          <a class="btn small" href="funciones/">Ver más: Funciones →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/recipe.webp" alt="Todo claro de un vistazo" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -95,6 +104,7 @@
           <h3>Cocina con las manos en la masa</h3>
           <p class="desc">Los pasos uno a uno, en grande y sin que se apague la pantalla.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Temporizadores de un toque:</b> <span>«cocer 10 minutos» se convierte en un temporizador; puedes tener varios y siguen aunque salgas.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Lectura en voz alta:</b> <span>Miga te lee cada paso con la voz que elijas.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Manos libres:</b> <span>di «siguiente», «anterior», «repite» o «temporizador» sin tocar el móvil.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Formato claro:</b> <span>tiempos y temperaturas resaltados para encontrarlos de un vistazo.</span></div></li></ul>
+          <a class="btn small" href="funciones/">Ver más: Funciones →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/cook_mode.webp" alt="Cocina con las manos en la masa" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -105,6 +115,7 @@
           <h3>La compra, en el orden de tu súper</h3>
           <p class="desc">Añade lo que falta escribiendo, dictando, escaneando o desde una receta, y recórrela por pasillos.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Por pasillos:</b> <span>escribe «limones» o «leche» como siempre y cada cosa va a su pasillo.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Varias listas y plantillas:</b> <span>la de casa, la de la fiesta y la compra semanal guardada.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Modo tienda:</b> <span>desliza para marcar y la pantalla se queda encendida.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Compartir:</b> <span>por texto, con un código QR o sincronizada con tu familia.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ficha del producto:</b> <span>escanea el código de barras y mira Nutri-Score, NOVA, alérgenos y aditivos (Open Food Facts).</span></div></li></ul>
+          <a class="btn small" href="funciones/">Ver más: Funciones →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/shopping.webp" alt="La compra, en el orden de tu súper" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -115,6 +126,7 @@
           <h3>Cocina para quien tienes en la mesa</h3>
           <p class="desc">Miga calcula los alérgenos de cada receta y te ayuda con la celiaquía y con las raciones de hidratos. Todo opcional y sin el asistente.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Solo los tuyos:</b> <span>marca tus alergias e intolerancias y cada receta dice «Lleva huevo» o «Sin tus alérgenos».</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Filtros:</b> <span>busca «Sin huevo», «Sin ingredientes con gluten» o recetas para celíacos.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Modo celíacos:</b> <span>qué comprar certificado y cómo evitar la contaminación cruzada.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Raciones de hidratos:</b> <span>cuántas lleva cada receta por persona y cuánto servirte según tu plan.</span></div></li></ul>
+          <a class="btn small" href="salud/">Ver más: Salud →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/filters.webp" alt="Cocina para quien tienes en la mesa" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -124,7 +136,8 @@
           <span class="chip accent kicker">Asistente de cocina</span>
           <h3>Una ayuda cuando la quieras</h3>
           <p class="desc">Funciones opcionales con inteligencia artificial y tu propia clave. Si no lo configuras, no se envía nada.</p>
-          <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Recetas desde fotos:</b> <span>fotografía una receta de un libro o escrita a mano y precarga el editor.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Desde una web:</b> <span>pega un enlace y obtén la receta limpia, sin anuncios ni historias.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Mejorar recetas:</b> <span>pule la redacción y normaliza ingredientes; ves el antes y el después.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ideas:</b> <span>pregunta qué cocinar con lo que tienes, pide un menú semanal o un plato de temporada.</span></div></li></ul>
+          <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Recetas desde fotos:</b> <span>fotografía una receta de un libro o escrita a mano y precarga el editor.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Desde una web o Instagram:</b> <span>pega un enlace o comparte un reel y obtén la receta limpia, sin anuncios ni historias.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Mejorar recetas:</b> <span>pule la redacción y normaliza ingredientes; ves el antes y el después.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ideas:</b> <span>pregunta qué cocinar con lo que tienes, pide un menú semanal o un plato de temporada.</span></div></li></ul>
+          <a class="btn small" href="asistente/">Ver más: Asistente de cocina →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/new_recipe.webp" alt="Una ayuda cuando la quieras" width="360" height="781" loading="lazy"></div></div>
       </div>
@@ -135,370 +148,33 @@
           <h3>Compartid libros y listas en familia</h3>
           <p class="desc">Conecta Miga a un servidor que alojes tú y comparte libros y la lista de la compra entre varios móviles.</p>
           <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Tu servidor:</b> <span>miga-server funciona en tu casa o en tu VPS con Docker.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Invitaciones con QR:</b> <span>escanea el código desde otro móvil y ya estáis conectados.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Lista compartida en directo:</b> <span>se actualiza cada pocos segundos mientras la miras.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Sin terceros:</b> <span>los datos van solo a tu servidor.</span></div></li></ul>
+          <a class="btn small" href="familia/">Ver más: Familia y sincronización →</a>
         </div>
         <div class="showcase-media"><div class="phone "><img src="assets/img/server/mobile.png" alt="Compartid libros y listas en familia" width="360" height="781" loading="lazy"></div></div>
       </div>
     </div>
 </section>
 <div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="capturas"><div class="section-head"><span class="chip primary">Capturas</span><h2>Así es Miga por dentro</h2><p>Pantallas de la app tal cual, con recetas de los packs.</p></div><div class="screens-strip" tabindex="0"><figure><div class="phone "><img src="assets/img/screens/es/books.webp" alt="Tu biblioteca" width="360" height="781" loading="lazy"></div><figcaption>Tu biblioteca</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/recipe.webp" alt="Una receta" width="360" height="781" loading="lazy"></div><figcaption>Una receta</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/cook_mode.webp" alt="Modo cocina" width="360" height="781" loading="lazy"></div><figcaption>Modo cocina</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/shopping.webp" alt="La compra por pasillos" width="360" height="781" loading="lazy"></div><figcaption>La compra por pasillos</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/search.webp" alt="Buscar recetas" width="360" height="781" loading="lazy"></div><figcaption>Buscar recetas</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/health_settings.webp" alt="Ajustes de salud" width="360" height="781" loading="lazy"></div><figcaption>Ajustes de salud</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/recipe_health.webp" alt="Alérgenos e hidratos" width="360" height="781" loading="lazy"></div><figcaption>Alérgenos e hidratos</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/fit_meal.webp" alt="Ajustar a mi comida" width="360" height="781" loading="lazy"></div><figcaption>Ajustar a mi comida</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/ideas.webp" alt="Ideas del asistente" width="360" height="781" loading="lazy"></div><figcaption>Ideas del asistente</figcaption></figure><figure><div class="phone "><img src="assets/img/screens/es/recipe_dark.webp" alt="Tema oscuro" width="360" height="781" loading="lazy"></div><figcaption>Tema oscuro</figcaption></figure></div></section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="funciones"><div class="section-head"><span class="chip primary">Funciones</span><h2>Todo lo que hace Miga</h2><p>Una app completa para la cocina de casa, explicada sin letra pequeña.</p></div><div class="grid"><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h3>Libros con portada</h3><p>Organiza las recetas en libros: el de tu madre, el de un amigo o uno por temas.</p><ul><li>Fija tus libros favoritos arriba</li><li>Recetas agrupadas por categoría</li><li>Desliza para pasar de receta como las páginas de un libro</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Buscar y filtrar</h3><p>Encuentra cualquier receta en todos tus libros por nombre o ingrediente.</p><ul><li>Filtros por tiempo, dificultad, categoría, ingredientes, origen y alérgenos</li><li>«¿Qué cocino con lo que tengo?» con lo que hay en tu despensa</li><li>Búsquedas guardadas y recientes</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><h3>Editor cómodo</h3><p>Escribir una receta es rápido: pestañas para cada parte y sugerencias de lo que ya has usado.</p><ul><li>Escribe «200 g de patatas» y Miga separa cantidad, unidad y nombre</li><li>Pasos con negrita, cursiva y listas, o dictados</li><li>Selecciona varias recetas y cámbialas de una vez</li></ul></article><article class="card"><div class="icon-circle accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div><h3>Fotos a juego</h3><p>Recorta, gira y mejora tus fotos, que se guardan con el tamaño justo.</p><ul><li>Marcos para todas las fotos: Polaroid, galería, viñeta…</li><li>Mejora automática de luz, color y nitidez ✨</li><li>La foto del plato se recorta sola al importar</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div><h3>Modo cocina</h3><p>Los pasos en grande y la pantalla siempre encendida.</p><ul><li>Varios temporizadores que siguen aunque salgas de la app</li><li>Lectura en voz alta</li><li>Control por voz y manos libres</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div><h3>Lista de la compra</h3><p>Desde una receta añades todos sus ingredientes de una vez.</p><ul><li>Varias listas y plantillas</li><li>Orden por pasillos de tu supermercado</li><li>Modo tienda, QR y widget</li></ul></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8v8M11 8v8M15 8v8M18 8v8"/></svg></div><h3>Escáner y Open Food Facts</h3><p>Escanea códigos de barras para añadir productos y ver su ficha.</p><ul><li>Nutri-Score, NOVA, alérgenos y aditivos</li><li>Puntuación orientativa de 0 a 100</li><li>Datos abiertos bajo licencia ODbL</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg></div><h3>Importar recetas</h3><p>Trae recetas de donde estén.</p><ul><li>Desde una web, con su foto y tiempos, sin necesitar el asistente</li><li>Desde un archivo de Miga o un enlace compartido</li><li>Desde fotos o el nombre de un plato, incluso varias a la vez ✨</li></ul></article><article class="card"><div class="icon-circle accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Alérgenos e intolerancias</h3><p>Los 14 alérgenos de la ley europea y la lactosa, calculados con los ingredientes.</p><ul><li>Muestra todos, solo los tuyos o ninguno</li><li>Aviso en las listas y búsquedas sin tus alérgenos</li><li>Modo celíacos con lo que hay que comprar certificado</li></ul></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></div><h3>Raciones de hidratos</h3><p>Para quien cuenta raciones (por ejemplo, con diabetes). Opcional.</p><ul><li>Raciones por persona en cada receta</li><li>Tu plan por comidas y grupos de alimentos</li><li>«Ajustar a mi comida»: cuánto servirte y qué añadir</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div><h3>Consejos de cocina</h3><p>Trucos cortos para cocinar mejor, sin conexión.</p><ul><li>Un consejo del día en la biblioteca</li><li>Consejos para cada receta según sus ingredientes</li><li>Guárdalos y compártelos</li></ul></article><article class="card"><div class="icon-circle accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M9 13h6M9 17h6"/></svg></div><h3>Exportar y compartir</h3><p>Comparte una receta o un libro entero en el formato que necesites.</p><ul><li>Enlace cifrado que caduca a los 7 días</li><li>PDF con portada e índice, o imagen para WhatsApp e Instagram</li><li>Archivo de Miga para pasarlo a otro móvil, o texto</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg></div><h3>Copias de seguridad</h3><p>Guarda toda tu biblioteca en un archivo y restáurala cuando quieras.</p><ul><li>Con fotos incluidas</li><li>Cifrado opcional con contraseña (AES-256)</li><li>Compatible con la copia de Android</li></ul></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></svg></div><h3>A tu gusto</h3><p>Que Miga se vea como te gusta.</p><ul><li>Tema claro, oscuro o del sistema</li><li>Ocho colores de acento, con Huerta por defecto</li><li>Español e inglés</li></ul></article><article class="card"><div class="icon-circle "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Privada y segura</h3><p>Tus recetas, solo para ti.</p><ul><li>Bloqueo con huella, rostro o PIN</li><li>Claves del asistente cifradas en el móvil</li><li>Sin cuentas, anuncios ni analítica</li></ul></article></div></section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="salud">
-  <div class="split reverse">
-    <div>
-      <span class="chip primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>Opcional</span>
-      <h2>Alérgenos, celiaquía y raciones de hidratos</h2>
-      <p>Miga lee los ingredientes de cada receta, sin el asistente y sin conexión, y te dice lo que importa para tu familia. En Ajustes › Salud eliges qué ver.</p>
-      <ul class="checks" style="margin-top:22px"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><b>14 alérgenos y lactosa:</b> <span>los que la ley europea obliga a declarar. «Contiene» o «Puede contener» según el producto que compres, con la explicación al tocar el aviso.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Solo lo tuyo:</b> <span>todos los alérgenos, solo los tuyos o ninguno; avisos en las listas y búsquedas que empiezan sin ellos.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Celíacos:</b> <span>qué ingredientes llevan gluten, cuáles comprar certificados y cómo evitar la contaminación cruzada.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Raciones de hidratos:</b> <span>cuántas raciones lleva cada receta por persona (10 g por ración, o la que te indiquen).</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Ajustar a mi comida:</b> <span>con tu plan de raciones por grupos, cuánto servirte y qué añadir para completar esa comida, en medidas caseras.</span></div></li></ul>
-      <p class="muted" style="font-size:15px;margin-top:18px">Es orientativo: revisa siempre la etiqueta de cada producto y sigue la pauta de tu equipo médico.</p>
-    </div>
-    <div class="showcase-media duo"><div class="phone "><img src="assets/img/screens/es/recipe_health.webp" alt="Alérgenos, celiaquía y raciones de hidratos" width="360" height="781" loading="lazy"></div><div class="phone second"><img src="assets/img/screens/es/fit_meal.webp" alt="Alérgenos, celiaquía y raciones de hidratos" width="360" height="781" loading="lazy"></div></div>
-  </div>
-</section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="asistente">
-  <div class="split">
-    <div>
-      <span class="chip primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg>Opcional</span>
-      <h2>Un asistente de cocina que usa tu propia clave</h2>
-      <p>Las funciones marcadas con ✨ usan inteligencia artificial con la clave que tú configures. Eliges el proveedor y el modelo, y Miga solo envía lo necesario para cada tarea.</p>
-      <div class="providers"><span class="chip outline">Google Gemini</span><span class="chip outline">Anthropic Claude</span><span class="chip outline">OpenAI</span><span class="chip outline">DeepSeek</span><span class="chip outline">Mistral</span><span class="chip outline">Groq</span><span class="chip outline">OpenRouter (modelos gratuitos)</span><span class="chip outline">Compatible con OpenAI (Ollama, LM Studio…)</span></div>
-      <p class="muted" style="font-size:15px;margin-top:-8px">Si añades varios, se usan en el orden que elijas: si uno falla, se prueba el siguiente.</p>
-      <ul class="checks" style="margin-top:22px"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Recetas desde fotos y webs:</b> <span>lee el texto de una foto o de una página y precarga el editor; al importar de una web, también la pule. Tú lo revisas antes de guardar.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Mejorar recetas:</b> <span>una o muchas a la vez: mejor redacción, ingredientes normalizados y tiempos en negrita. Nada se guarda sin tu permiso.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Ideas:</b> <span>recomendaciones a partir de tus recetas, menús semanales y respuestas sobre técnicas, conservación o sustituciones.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Salud y nutrición:</b> <span>valoración orientativa, calorías y macros por ración, y sustitutos de ingredientes.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Sigue aunque salgas:</b> <span>las tareas largas continúan en segundo plano con una notificación que te lleva al resultado.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Fácil de configurar:</b> <span>«Conectar con OpenRouter» crea la clave por ti; con el resto, «Conseguir clave» y «Probar conexión».</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Transparente:</b> <span>el contenido generado se marca como tal y puedes reportarlo. Si no hay clave, no se envía nada.</span></div></li></ul>
-    </div>
-    <div class="showcase-media"><div class="phone "><img src="assets/img/screens/es/ideas.webp" alt="Un asistente de cocina que usa tu propia clave" width="360" height="781" loading="lazy"></div></div>
-  </div>
-</section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="sincronizacion">
-  <div class="split reverse">
-    <div>
-      <span class="chip primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>miga-server</span>
-      <h2>Tu propio servidor de sincronización</h2>
-      <p>Para compartir libros y la lista de la compra en familia, Miga se conecta a un servidor que alojas tú. Es ligero, funciona con Docker y trae una web de administración muy completa.</p>
-      <ol class="steps"><li><div><b>Arranca el servidor</b><span>guarda el <code>docker-compose.yml</code> de abajo, cambia el token de administrador por una cadena larga y aleatoria (por ejemplo, la salida de <code>openssl rand -base64 32</code>) y ejecuta <code>docker compose up -d</code>.</span></div></li><li><div><b>Crea un espacio compartido</b><span>desde la web de administración (<code>http://tu-servidor:8080/ui</code>), crea un namespace (por ejemplo, «casa») y un token para cada móvil.</span></div></li><li><div><b>Conecta la app</b><span>en Ajustes › Servidor de sincronización, añade la conexión. El resto de la familia se une escaneando un QR.</span></div></li></ol>
-      <a class="btn" href="https://github.com/calamares00/miga-server"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Ver miga-server</a>
-    </div>
-    <div class="showcase-media"><div class="phone "><img src="assets/img/server/mobile.png" alt="Tu propio servidor de sincronización" width="360" height="781" loading="lazy"></div></div>
-  </div>
-  <div class="compose">
-    <p class="muted"><b>docker-compose.yml</b> · Con este archivo basta: la imagen trae todo lo necesario y los datos se guardan en el volumen <code>miga-data</code>.</p>
-    <pre><code>services:
-  miga-server:
-    image: ghcr.io/calamares00/miga-server:latest
-    restart: unless-stopped
-    ports:
-      - &quot;8080:8080&quot;
-    environment:
-      MIGA_ADMIN_TOKEN: &quot;cambia-esto-por-un-token-largo&quot;
-    volumes:
-      - miga-data:/data
-
-volumes:
-  miga-data:</code></pre>
-  </div>
-  <div class="gallery"><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="assets/img/server/table.png" alt="Recetas en modo tabla, con acciones sobre varias a la vez" loading="lazy"></div><figcaption>Recetas en modo tabla, con acciones sobre varias a la vez</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="assets/img/server/editor-dark.png" alt="Editor de recetas en modo oscuro" loading="lazy"></div><figcaption>Editor de recetas en modo oscuro</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="assets/img/server/grid.png" alt="Vista de cuadrícula con fotos" loading="lazy"></div><figcaption>Vista de cuadrícula con fotos</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="assets/img/server/mobile.png" alt="También funciona en el móvil" loading="lazy"></div><figcaption>También funciona en el móvil</figcaption></figure></div>
-  <div class="grid" style="margin-top:28px"><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Espacios privados</h3><p>cada namespace lo comparten los móviles que tú decidas, con un token por dispositivo que puedes revocar.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>Sincronización fiable</h3><p>libros, recetas, fotos y listas, con «la última edición gana» aunque los relojes no coincidan.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div><h3>Administración web</h3><p>edita recetas en una tabla como en una hoja de cálculo, cambia muchas a la vez o usa el editor completo.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M9 13h6M9 17h6"/></svg></div><h3>PDF desde el navegador</h3><p>descarga una receta o un libro entero con el mismo diseño que la app, en español o inglés.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg></div><h3>Copias automáticas</h3><p>una copia diaria con rotación, y copias y descargas con un clic.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Sin dependencias externas</h3><p>una sola imagen Docker con SQLite; ponla detrás de un proxy con TLS para usarla fuera de casa.</p></article></div>
-</section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="packs">
-  <div class="split">
-    <div>
-      <span class="chip primary"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Packs</span>
-      <h2>Packs de recetas listos para instalar</h2>
-      <p>Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros.</p>
-      <ul class="checks" style="margin-bottom:26px"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><div><b>Catálogo oficial:</b> <span>Miga consulta el catálogo de esta web; cada pack trae su portada, su autor y una descripción.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><div><b>Catálogos alternativos:</b> <span>añade otro catálogo con una URL o un repositorio de GitHub «usuario/repositorio».</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg><div><b>Crea el tuyo:</b> <span>exporta un libro como archivo de Miga (ZIP) y descríbelo en un <code>catalog.json</code>.</span></div></li></ul>
-      <a class="btn" href="https://github.com/calamares00/miga-packs"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>Repositorio de packs</a>
-    </div>
-    <div>
-      <p class="muted" style="margin-bottom:10px;font-weight:600">Ejemplo de catalog.json</p>
-      <pre><code>{
-  &quot;schemaVersion&quot;: 1,
-  &quot;packs&quot;: [
-    {
-      &quot;id&quot;: &quot;cocina-de-la-abuela&quot;,
-      &quot;name&quot;: &quot;Cocina de la abuela&quot;,
-      &quot;series&quot;: &quot;Cocina de siempre&quot;,
-      &quot;author&quot;: &quot;Ana&quot;,
-      &quot;authorGithub&quot;: &quot;ana&quot;,
-      &quot;description&quot;: &quot;Guisos, potajes y postres de siempre.&quot;,
-      &quot;coverImageUrl&quot;: &quot;covers/abuela.jpg&quot;,
-      &quot;latestVersion&quot;: 1,
-      &quot;recipeCount&quot;: 24,
-      &quot;downloadUrl&quot;: &quot;zips/abuela.zip&quot;
-    }
-  ]
-}</code></pre>
-    </div>
-  </div>
-  <h3 class="subhead">Packs disponibles</h3>
-  <h3 class="pack-series">Cocina del mundo</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/cocina-alemana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Alemania</h4>
-        <p>Los clásicos de la cocina alemana de norte a sur: schnitzel, rouladen, sauerbraten, ensalada de patata suaba, bratkartoffeln, kartoffelpuffer, käsespätzle, königsberger klopse, currywurst, frikadellen, potajes de lentejas y de guisantes, sopa de patata, flammkuchen, brezeln, maultaschen, obatzda y postres como el pastel de manzana, la tarta Selva Negra y la rote grütze.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-argentina.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Argentina</h4>
-        <p>Del asado a la merienda: tira de asado, chimichurri, salsa criolla, choripán, provoleta, empanadas criollas, milanesa a la napolitana, locro, matambre arrollado, humita, carbonada, ñoquis con tuco, pastel de papa, revuelto gramajo, dulce de leche, alfajores de maicena, pastafrola, medialunas, tortas fritas y chipá.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-china.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: China</h4>
-        <p>Clásicos de las cocinas de Sichuan, Cantón y el norte de China: pollo kung pao, mapo tofu, jiaozi, cerdo agridulce, sopa agripicante, wonton, chow mein, hong shao rou, dan dan mian, char siu, pescado al vapor, rollitos de primavera y congee. Con las salsas y especias básicas de la despensa china.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-colombiana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Colombia</h4>
-        <p>La cocina de las regiones de Colombia: bandeja paisa, frijoles antioqueños, ajiaco santafereño, sancocho, arepas, empanadas, patacones, hogao, ají, arroz con pollo, changua, pandebono, buñuelos, natilla, posta negra cartagenera, mote de queso, arroz con coco, cazuela de mariscos, sobrebarriga y limonada de coco. Con equivalencias para los ingredientes menos habituales fuera de Colombia.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-coreana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Corea</h4>
-        <p>La cocina de Corea, picante, fermentada y para compartir: bibimbap, bulgogi, kimchi casero, japchae, kimbap, tteokbokki, guisos de kimchi y de tofu sedoso, samgyetang, pajeon de marisco, arroz frito con kimchi, dakgalbi, pollo frito coreano, galbi jjim, bossam, guarniciones (banchan) como la tortilla enrollada, los brotes de soja y el pepino aliñados y, de postre, hotteok y patbingsu. El gochujang y el gochugaru se encuentran en tiendas asiáticas.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-espanola.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: España</h4>
-        <p>Un recorrido por las cocinas regionales de España: cocido madrileño, fabada, lentejas, marmitako, bacalao al pil pil, pollo al ajillo, arroz negro, fideuá, arroz al horno, escalivada, patatas a la riojana, caldo gallego, papas arrugadas con mojo, ajoblanco, empanada gallega, migas, rabo de toro, torrijas, arroz con leche y tarta de Santiago. Sin repetir los platos de los packs de cocina mediterránea, tapas y Navidad.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-estadounidense.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Estados Unidos</h4>
-        <p>La cocina casera de Estados Unidos, del sur a Nueva Inglaterra: macarrones con queso, cerdo desmenuzado, pollo frito, sopa de almejas, chili, pan de maíz, tortitas, pastel de carne, jambalaya, gumbo, ensalada de col, tarta de manzana, galletas con pepitas de chocolate, tarta de queso de Nueva York, cheesesteak, ensalada Cobb y tarta de lima. Con medidas en gramos.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-francesa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Francia</h4>
-        <p>Los clásicos de la cocina francesa, de bistró y de casa: ternera a la borgoñona, pollo al vino, quiche lorraine, croque monsieur, gratin dauphinois, bullabesa, cassoulet, blanquette de ternera, mejillones a la marinera, magret con naranja, hachis parmentier, soufflé de queso, ensalada lionesa, pissaladière, tapenade y, de postre, tarta Tatin, crème brûlée, profiteroles, clafoutis de cerezas y madeleines. Con mantequilla, vino y hierbas.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-griega.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Grecia</h4>
-        <p>La cocina griega más allá de la ensalada y el tzatziki: souvlaki, spanakopita, pastitsio, gemista, fasolada, avgolemono, dolmades, keftedes, briam, fava, kleftiko, stifado, queso saganaki, gambas con feta, gigantes, taramosalata, melitzanosalata, spanakorizo, loukoumades y baklava. Con aceite de oliva, limón, orégano y eneldo.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-india.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: India</h4>
-        <p>Curris, legumbres, panes y dulces de la India: pollo a la mantequilla, pollo tandoori, rogan josh, korma, vindaloo, palak paneer, chana masala, dal tadka, rajma, aloo gobi, baingan bharta, samosas, bhajis de cebolla, raita, chutney de menta, chapatis, aloo paratha, kheer, lassi de mango y masala chai.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-indonesia.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Indonesia</h4>
-        <p>Los platos de diario y de fiesta de Indonesia: nasi goreng, mie goreng, satay de pollo con salsa de cacahuete, gado-gado, rendang, soto ayam, opor ayam, bakso, sayur lodeh, sambal y postres como el pisang goreng, el martabak o los klepon. Con equivalencias para los ingredientes menos habituales.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-italiana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Italia</h4>
-        <p>Los grandes clásicos de las regiones de Italia: carbonara, amatriciana, cacio e pepe, lasaña, pasta alla Norma, espaguetis con almejas, risotto a la milanesa, ossobuco, saltimbocca, parmigiana, minestrone, pasta e fagioli, pizza margarita, focaccia, arancini, vitello tonnato, caponata, puttanesca, orecchiette con grelos, ñoquis a la sorrentina, pollo a la cazadora, ribollita, panzanella, carpaccio, calzone, tiramisú, panna cotta, cannoli y cantucci. Hechos como en Italia, sin nata en la carbonara.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-japonesa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Japón</h4>
-        <p>La cocina casera de Japón: sopa de miso, pollo teriyaki, gyoza, ramen, tonkatsu, oyakodon, onigiri, tamagoyaki, okonomiyaki, yakitori, tempura, makis, karaage, nikujaga, yakisoba, gyudon, curry japonés y dorayaki. Con el dashi y las salsas de base explicados paso a paso.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-marroqui.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Marruecos</h4>
-        <p>La cocina de Marruecos, de especias suaves y cocciones lentas: cuscús con siete verduras, harira, pastela de pollo, tajines de cordero con ciruelas, de kefta con huevos y de pescado, zaalouk, ensaladas, bissara, briouats, rfissa, mechui y pinchos de kefta, panes como el msemen, el khobz y el baghrir, dulces de miel y almendra y el té con hierbabuena.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-mediterranea.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina mediterránea</h4>
-        <p>Recetas de las orillas del Mediterráneo: España, Italia, Grecia, Líbano, Marruecos y Túnez. Gazpacho, paella, tortilla, musaka, hummus, falafel, shakshuka, risotto, tajín y más, con aceite de oliva, verduras de temporada y legumbres.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-mexicana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: México</h4>
-        <p>Clásicos de México para cocinar en casa: tacos al pastor, cochinita pibil, pozole, chilaquiles, enchiladas, salsas, guacamole, aguas frescas y flan. Con ingredientes fáciles de encontrar y alternativas cuando hace falta.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-peruana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Perú</h4>
-        <p>La cocina peruana de la costa, la sierra y la herencia chifa: ceviche, tiradito, lomo saltado, ají de gallina, causa limeña, papa a la huancaína, ocopa, arroz chaufa, anticuchos, pollo a la brasa, rocoto relleno, seco de res, arroz con pollo, chupe de camarones, papa rellena, tallarines verdes, suspiro limeño, picarones, mazamorra morada y chicha morada. Con equivalencias para los ajíes peruanos.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-tailandesa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Tailandia</h4>
-        <p>El equilibrio tailandés entre picante, ácido, dulce y salado: pad thai, tom yum, tom kha gai, curris verde, massaman y panang, som tam, larb, arroz frito, pad kra pao, pad see ew, pollo con anacardos, ensalada de ternera, tortitas de pescado, tortilla tailandesa, khao man gai, gai yang, salsa jaew, mango con arroz glutinoso y té tailandés. Con equivalencias para los ingredientes menos habituales.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-turca.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Turquía</h4>
-        <p>La cocina de Turquía, de Estambul a Anatolia: desayunos de menemen y çılbır, lahmacun, pide, börek, simit, mantı, kebabs de İskender y Adana, tavuk şiş, berenjenas karnıyarık e imam bayıldı, pilaf de bulgur, kısır, mercimek köftesi, ezme, ensalada del pastor y dulces como el künefe y el revani, con un ayran para beber.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-vietnamita.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina del mundo: Vietnam</h4>
-        <p>La cocina fresca y aromática de Vietnam, de Hanói a Saigón: phở, bún chả, bánh mì, rollitos frescos y fritos, bún bò Huế, cơm tấm, pescado y cerdo caramelizados, sopa agria, bò lúc lắc, pollo con citronela, bánh xèo, ensalada de pollo, bún thịt nướng, nước chấm, tofu con tomate y, de postre, plátano con coco, café con leche condensada y batido de aguacate.</p></div>
-      </article></div><h3 class="pack-series">Cocina fusión</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/fusion-anglo-india.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: anglo-india</h4>
-        <p>Los platos nacidos del encuentro entre la India y Gran Bretaña, de los clubes y trenes del Raj a los restaurantes de curry británicos: kedgeree, sopa mulligatawny, pollo tikka masala, pollo coronación, jalfrezi, curry de cordero del ferrocarril, country captain y chutney de mango.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chifa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chifa</h4>
-        <p>La cocina de los inmigrantes cantoneses en Perú, que desde el barrio chino de Lima llegó a todo el país con el wok, la soja y los productos peruanos: tallarín saltado, chi jau kay, kam lu wantán, aeropuerto, pollo enrollado, wantanes fritos, chancho con tamarindo y sopa fuchifú.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chino-coreana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chino-coreana</h4>
-        <p>Los platos de los restaurantes chinos de Corea, creados por inmigrantes de Shandong en Incheon y que se piden a domicilio en todo el país: jajangmyeon, jjamppong, tangsuyuk, kkanpunggi, lajogi, yusanseul, gun-mandu y goguma mattang.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chino-estadounidense.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chino-estadounidense</h4>
-        <p>La cocina que crearon los inmigrantes chinos en Estados Unidos y que llena las cajas de comida para llevar: pollo del general Tso, pollo a la naranja, ternera con brócoli, chop suey, egg foo young, crab rangoon, ternera mongola y lo mein.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chino-india.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chino-india</h4>
-        <p>La cocina indochina, nacida entre los chinos hakka de Calcuta y hoy en todos los puestos callejeros de la India: gobi manchurian, pollo al chile, fideos hakka, arroz frito schezwan, paneer al chile, sopa manchow, sopa de maíz dulce y patatas con miel y chile.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chino-japonesa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chino-japonesa</h4>
-        <p>El chūka ryōri, la cocina china a la japonesa de los barrios chinos de Yokohama y Nagasaki y de los restaurantes de barrio: chāhan, tenshinhan, ebi chili, ebi mayo, hiyashi chūka, champon de Nagasaki, shūmai y nira reba.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-chino-malaya.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: chino-malaya</h4>
-        <p>La cocina de los chinos de Malasia (hokkien, cantoneses, hainaneses y hakka) en los puestos de comida de Penang y Kuala Lumpur: char kway teow, bak kut teh, hokkien mee, yong tau foo, arroz con pollo en cazuela de barro, wantan mee, chuleta de pollo hainanesa y tostadas con kaya.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-criolla.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: criolla</h4>
-        <p>La cocina criolla de Nueva Orleans, donde se mezclaron Francia, España, África occidental y el Caribe: gambas a la criolla, alubias rojas con arroz, étouffée de cangrejo de río, grillades con sémola de maíz, arroz sucio, muffuletta, beignets y pudin de pan con salsa de whisky.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-italoestadounidense.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: italoestadounidense</h4>
-        <p>La cocina de los inmigrantes italianos en Nueva York, Nueva Jersey y San Francisco, más generosa en carne, queso y salsa que la de Italia: espaguetis con albóndigas, pollo a la parmesana, penne alla vodka, fettuccine Alfredo, ziti al horno, gambas scampi, cioppino y sopa de boda italiana.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-italoperuana.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: ítalo-peruana</h4>
-        <p>Lo que dejaron en la mesa peruana los inmigrantes ligures del siglo XIX, mezclado con ajíes, papas y quesos andinos: tallarines rojos, tallarines a la huancaína con lomo saltado, menestrón, pastel de acelga, ñoquis de papa amarilla y panetón.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-peranakan.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: peranakan</h4>
-        <p>La cocina nyonya de los peranakan, descendientes de chinos y malayos de Malaca, Penang y Singapur, que mezcla técnicas chinas con especias, coco y tamarindo: laksa lemak, asam laksa, ayam pongteh, ayam buah keluak, otak-otak, kueh pie tee, chap chye y kuih dadar.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/fusion-texmex.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina fusión: Tex-Mex</h4>
-        <p>La cocina de los tejanos de origen mexicano, con más queso amarillo, comino y carne de ternera que la de México: nachos, chile con queso, enchiladas de queso con chili gravy, tacos crujientes de carne, tacos de desayuno, pollo King Ranch, frito pie y sopaipillas.</p></div>
-      </article></div><h3 class="pack-series">Cocina de cada día</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/arroces.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Arroces</h4>
-        <p>Paellas, arroces secos, melosos y caldosos y arroces del mundo: paella de marisco, mixta y de verduras, arroz del señoret, a banda, con conejo y caracoles, con costra, caldoso de bogavante, meloso de setas, empedrado, huertano, a la cubana, pilaf, biryani, risotto de calabaza, gallo pinto, arroz con gandules y jollof. Y ninguna paella lleva chorizo.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cenas-en-20-minutos.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cenas en 20 minutos</h4>
-        <p>Cenas caseras que están en la mesa en 20 minutos o menos, con ingredientes de cualquier supermercado: tortillas, revueltos, pasta, pescado a la plancha, wok de pollo, cremas de verduras, ensaladas completas y pizzas exprés. Para los días en que no apetece complicarse.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-de-aprovechamiento.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina de aprovechamiento</h4>
-        <p>Recetas para no tirar nada: lo que sobra del cocido, el pollo asado de ayer, el pan duro, el pescado de la cena, las verduras que se ablandan y la fruta demasiado madura. Ropa vieja, croquetas de cocido, lasaña de pollo asado, canelones de carne asada, empanadillas, pastel de puré y carne, huevos al horno con verduras, pastel de pescado, batido y mermelada de fruta madura, caldo de pieles de verdura y picatostes.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocina-economica.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina económica</h4>
-        <p>Platos completos con ingredientes baratos y de temporada, de los de toda la vida: judías verdes con patatas, patatas a la importancia, arroz con verduras, espaguetis con atún, pollo guisado con patatas, huevos a la flamenca, empanadillas de atún, caballa al horno, hígado encebollado, sopa de cebolla, coliflor al ajoarriero y pasta con brócoli. Con trucos para abaratar en las notas.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cocinar-con-ninos.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocinar con niños</h4>
-        <p>Recetas sencillas para cocinar en familia, con tareas que los niños pueden hacer solos: galletas de avena y plátano, bolitas de coco, polos de yogur, batido de fresa, huevos rellenos, ensalada de pasta, wraps de pollo, pizzas de pan de molde, mini quiches, albóndigas al horno, salmón en papillote y salchichón de chocolate. Cada receta dice qué puede hacer el niño; el horno, los cuchillos afilados y el fuego, siempre con un adulto.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/galletas-y-bizcochos.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Galletas y bizcochos</h4>
-        <p>Bizcochos para el desayuno y galletas para la merienda, de los de casa: bizcocho de naranja, marmolado, de zanahoria, de limón y amapola, de manzana y de cacao y café, y galletas de avena y pasas, de jengibre, de limón y de canela, pastas de té y lenguas de gato. Con notas para conservarlos y congelarlos.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/panaderia.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Panadería</h4>
-        <p>Panes y bollería para hacer en casa, de la masa madre a las magdalenas: hogaza de masa madre, barra, pan de molde, integral, de centeno, chapata, pan de nueces y pasas, pita, naan, bagels, panecillos de hamburguesa, bollos de leche, brioche, cruasanes, napolitanas de chocolate, ensaimadas, tortas de aceite, magdalenas y rosquillas de anís. Con pesos exactos y tiempos de levado.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/recetas-con-5-ingredientes.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Recetas con 5 ingredientes</h4>
-        <p>Platos con cinco ingredientes o menos (sin contar sal, pimienta, aceite ni agua), para cuando la nevera está casi vacía o no hay ganas de complicarse: patatas a lo pobre con huevo, salmón al horno con limón, hummus de remolacha, langostinos al horno, pollo relleno de jamón y queso, espaguetis al pomodoro, revuelto de gambas y ajetes, merluza a la gallega, pan de queso y, de postre, helado de plátano y cacao, galletas de crema de cacahuete y fresas con nata.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/reposteria-sin-horno.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Repostería sin horno</h4>
-        <p>Postres que se hacen en la nevera o en un cazo, sin encender el horno: tarta de queso fría, tarta de tres chocolates, tarta de limón, mousse de limón, tocino de cielo, copas de yogur con frutos rojos, bolitas de dátiles y cacao, barritas de cereales, crema de cacao y avellanas, tarta de fresas, vasitos de mango y yogur y peras al vino. Casi todos se preparan el día antes.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/tapers-para-el-trabajo.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Tápers para el trabajo</h4>
-        <p>Comidas que aguantan bien en la nevera, viajan en táper y se recalientan sin perder gracia: ensaladas de alubias y de quinoa, arroz con pollo, muslos al horno con patatas, garbanzos con chorizo y calabaza, pollo con champiñones, macarrones con chorizo, burritos, fideos salteados, tortilla de patatas y espinacas, pastel de patata y atún, bulgur con verduras, pasta con pollo y pesto y pimientos rellenos. Con notas de conservación y de cómo recalentar cada una.</p></div>
-      </article></div><h3 class="pack-series">Electrodomésticos</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/freidora-de-aire.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Freidora de aire</h4>
-        <p>Recetas pensadas para la freidora de aire: patatas, alitas, nuggets caseros, pescado rebozado, verduras crujientes, albóndigas, hamburguesas, costillas y hasta postres. Con muy poco aceite y los tiempos y temperaturas de cada plato. Los tiempos son orientativos: cada modelo calienta de forma distinta.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/horno-en-una-bandeja.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Horno: todo en una bandeja</h4>
-        <p>Cenas completas hechas en una sola bandeja de horno: preparas, metes y te olvidas, y solo hay que fregar una cosa. Pollo a la mostaza con verduras, salmón con patatas y espárragos, salchichas con verduras, fajitas de pollo, ñoquis con tomates cherry, chuletas de cerdo con patatas, pavo con boniato, coliflor asada entera, merluza con patatas panaderas, pizza de bandeja, verduras con halloumi y pollo con chorizo y garbanzos.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/microondas.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Microondas</h4>
-        <p>El microondas sirve para mucho más que calentar: bizcocho en taza, huevos al plato, salmón y bacalao con verduras, flan de queso, risotto, brócoli con almendras, pollo al limón, berenjenas rellenas, mermelada exprés, natillas de chocolate y almendras garrapiñadas. Tiempos para un microondas de 800 W: con más potencia, acórtalos; con menos, alárgalos. Usa recipientes aptos y tapa con una tapa de microondas o film perforado.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/olla-expres.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Olla exprés</h4>
-        <p>Guisos largos en la mitad o un tercio del tiempo con la olla a presión: callos a la madrileña, estofado de ternera, codillo, lengua en salsa, manitas de cerdo, pollo a la cerveza, carne mechada, fabes con almejas, alubias pintas con chorizo, patatas con sepia, arroz caldoso con pollo y conejo al ajillo. Los tiempos son desde que la olla alcanza la presión (segundo anillo o presión alta). No llenes la olla más de dos tercios, y con legumbres, no más de la mitad.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-comida-para-bebes.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: comida para bebés</h4>
-        <p>Purés y papillas caseros para la alimentación complementaria, a partir de los 6 meses, programados para Thermomix TM6 (funcionan igual en TM5 y TM7): verduras, pollo, ternera, pescado blanco, legumbres, fruta y avena. Sin sal ni azúcar. Cada bebé tiene su ritmo: sigue siempre las indicaciones de tu pediatra para introducir alimentos y texturas, y ofrece un alimento nuevo cada vez para detectar alergias.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-cremas-y-pures.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: cremas y purés</h4>
-        <p>Cremas y purés programados para Thermomix TM6 (vaso de 2,2 litros), que funcionan igual en TM5 y TM7. Calabaza, verduras, vichyssoise, champiñones, zanahoria con jengibre, brócoli, espárragos, guisantes con menta, tomate, lentejas rojas, coliflor, espinacas, boniato, alcachofas, pimientos asados, castañas, apio nabo, alubias, remolacha y puré de patatas. En TM31 (vaso de 2 litros y 100 °C como máximo), sofríe a temperatura Varoma.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-guisos-y-cuchara.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: guisos y cuchara</h4>
-        <p>Guisos de toda la vida programados para Thermomix TM6 (vaso de 2,2 litros), que funcionan igual en TM5 y TM7: lentejas con arroz, potaje de garbanzos con bacalao, alubias con chorizo, patatas con costillas, ternera con champiñones, pollo en pepitoria, pollo al curry, bacalao con tomate, estofado de pavo, menestra, risotto de gambas, sopa de picadillo, carrillada al vino tinto, calamares con patatas y pollo con tomate. En TM31 (vaso de 2 litros y 100 °C como máximo), sofríe a temperatura Varoma y reduce un poco las cantidades.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-masas-y-panes.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: masas y panes</h4>
-        <p>Panes y masas amasados en Thermomix TM6, que funcionan igual en TM5 y TM7 (en TM31, amasa con la función espiga): pan de molde de avena, hogaza, masa de pizza, trenza de pan de leche, pan de espelta, pan de cerveza, pan de aceitunas, tortillas de trigo, colines, empanada de pollo, crepes, quiche de puerro y bacon, bollitos de chocolate y bollos preñaos. La Thermomix amasa; el horno hace el resto.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-postres.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: postres</h4>
-        <p>Postres caseros programados para Thermomix TM6, que funcionan igual en TM5 y TM7: natillas, flan de huevo, leche frita, crema de limón, mousse de chocolate, sorbete de limón, helado exprés de fresa, bizcocho de yogur, tarta de queso cremosa, trufas, mermelada de fresa, crema pastelera, galletas de mantequilla, brownie de nueces y tarta de la abuela. En TM31, usa 90 °C donde se indique 85 °C y comprueba la textura antes de terminar.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/thermomix-salsas-y-bases.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Thermomix: salsas y bases</h4>
-        <p>Las salsas y bases que más se usan en la cocina, programadas para Thermomix TM6, que funcionan igual en TM5 y TM7: bechamel, mayonesa, alioli, sofrito, tomate frito, pesto, salsa boloñesa, salsa de queso, salsa brava, holandesa, romesco, salsa de yogur con hierbas, salsa de champiñones y caldos de verduras y de pollo. Muchas se congelan bien en porciones.</p></div>
-      </article></div><h3 class="pack-series">Cocina saludable</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/saludable-bajo-en-sal.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: bajo en sal</h4>
-        <p>Recetas sin sal añadida o con muy poca, que ganan sabor con hierbas, especias, ajo, cítricos y vinagres, y sin ingredientes muy salados como embutidos, quesos curados o salsas de soja: pollo marinado al limón, lubina con hinojo y naranja, solomillo con manzana, crema de puerros y manzana, ensalada de arroz integral, verduras asadas especiadas, tortilla de calabacín, pan sin sal con semillas, salsa de tomate casera y peras asadas.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-batch-cooking.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: batch cooking</h4>
-        <p>Platos sanos para cocinar en una tarde y comer toda la semana: aguantan bien en la nevera o el congelador y se recalientan sin perder nada. Bandeja de pollo y verduras, lentejas con verduras, espinacas con garbanzos, chili de pavo, albóndigas de pavo, ratatouille, ensalada de quinoa, salmón con boniato, pollo al curry con garbanzos y tacos de boniato.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-desayunos-y-meriendas.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: desayunos y meriendas</h4>
-        <p>Desayunos y meriendas con avena, fruta, yogur, frutos secos y huevo, con poco azúcar añadido: porridge de manzana, avena remojada, granola casera, pudin de chía, tortitas de avena y plátano, muffins de plátano, barritas de avena y dátiles, batido verde, tostada de requesón y fresas y revuelto de espinacas.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-ligero-y-saciante.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: ligero y saciante</h4>
-        <p>Platos de menos de 450 kcal por ración que llenan de verdad, con proteína magra, verdura y fibra: merluza en papillote, ensalada niçoise, brochetas de pollo con yogur, sopa de pollo y verduras, bacalao al horno con tomate, wok de gambas, pavo relleno de espinacas, crema fría de pepino, hamburguesas de pollo y calabacín y ensalada de pollo, mango y aguacate.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-sin-gluten.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: sin gluten</h4>
-        <p>Platos que no llevan trigo, cebada ni centeno, hechos con arroz, maíz, legumbres, trigo sarraceno y frutos secos: socca de garbanzo, risotto de espárragos, salmón con costra de almendras, pizza con base de coliflor, galettes de trigo sarraceno, polenta con setas, lasaña de calabacín, albóndigas en salsa de almendras, dorada a la sal y bizcocho de chocolate sin harina. Revisa siempre las etiquetas de caldos, salsas y especias.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-vegano.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: vegano</h4>
-        <p>Platos 100 % vegetales y completos, con legumbres, tofu, cereales integrales y frutos secos para no quedarse corto de proteína: tofu salteado con brócoli, boloñesa de lentejas, chili sin carne, bol de quinoa y garbanzos, tacos de coliflor asada, hamburguesas de lentejas, curry de verduras con coco, ensalada de fideos de arroz con tofu, guiso de alubias blancas y mousse de chocolate y aguacate.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/saludable-vegetariano.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cocina saludable: vegetariano</h4>
-        <p>Platos sin carne ni pescado, con huevo, lácteos, legumbres y mucha verdura, completos en proteína: frittata de verduras, berenjenas rellenas de quinoa y feta, pimientos rellenos de arroz integral, hamburguesas de alubias negras, ensalada de lentejas con feta, quiche sin masa de espinacas, calabacines rellenos de requesón, coliflor gratinada con yogur, cuscús con verduras y halloumi y huevos al horno con espinacas.</p></div>
-      </article></div><h3 class="pack-series">Especiales</h3><div class="packs"><article class="pack">
-        <img src="assets/img/packs/barbacoa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Barbacoa</h4>
-        <p>Recetas para una fiesta de verano alrededor de la barbacoa o la parrilla: hamburguesas de cerdo ibérico, costillas, brochetas de pollo y de verduras, secreto ibérico, chuletas de cordero, salmón y sardinas a la brasa, mazorcas de maíz, patatas en papillote, parrillada de verduras, salsa barbacoa casera, ensalada de tomate con ventresca y, de postre, piña y plátanos asados. Casi todo funciona también en una plancha o en el horno con el grill.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/cumpleanos-infantiles.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Cumpleaños infantiles</h4>
-        <p>Todo para la fiesta de cumpleaños de los peques, fácil de preparar con antelación: tarta de chocolate, bizcocho arcoíris, cupcakes de vainilla, galletas decoradas, mini pizzas, mini sándwiches, fingers de pollo al horno, salchichas en hojaldre, mini hamburguesas, brochetas de fruta, palomitas y limonada casera. Pregunta siempre a las familias por alergias e intolerancias, y evita los frutos secos enteros y las palomitas en menores de 4 años por riesgo de atragantamiento.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/especial-navidad.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Especial Navidad</h4>
-        <p>Las recetas de siempre para Nochebuena, Navidad y Reyes: cóctel de gambas, croquetas, sopa de galets, cordero asado, cochinillo, besugo, merluza en salsa verde, lombarda, roscón de Reyes, turrones, polvorones y mazapanes. Con notas para adelantar trabajo y cocinar para mucha gente.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/halloween.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Halloween</h4>
-        <p>Recetas para una fiesta de Halloween, con calabaza y mucho juego para hacer con los peques: sopa de calabaza y boniato, momias de salchicha, pizza telaraña, huevos endiablados con arañas, dedos de bruja, fantasmas de plátano, mandarinas calabaza, brownie cementerio, manzanas de caramelo, pan de calabaza, galletas de calabaza con especias y ponche de bruja. Pregunta por alergias, y cuidado con el caramelo caliente y las aceitunas enteras con los más pequeños.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/semana-santa.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Semana Santa</h4>
-        <p>Las recetas de la Cuaresma y la Semana Santa en España: dulces de sartén como pestiños, buñuelos de viento, flores fritas y bartolillos, la mona de Pascua y el hornazo, y los platos de vigilia con bacalao (a la vizcaína, soldaditos de Pavía, buñuelos, tortilla, patatas con bacalao y empanada de bacalao con pasas). Las torrijas y el potaje de vigilia ya están en otros packs.</p></div>
-      </article><article class="pack">
-        <img src="assets/img/packs/tapas-espanolas.jpg" alt="" width="720" height="720" loading="lazy">
-        <div><h4>Tapas españolas</h4>
-        <p>Tapas de bar de toda España para compartir: patatas bravas, pimientos de Padrón, pulpo a la gallega, boquerones en vinagre, calamares a la romana, tortillitas de camarones, croquetas de setas, chorizo a la sidra, pinchos morunos, huevos rotos, ensaladilla, gildas y pan con tomate, entre otras.</p></div>
-      </article></div>
-</section>
-<div class="wavy" aria-hidden="true"></div>
-<section class="wrap" id="preguntas"><div class="section-head"><span class="chip primary">Ayuda</span><h2>Preguntas frecuentes</h2></div><div class="faq"><details><summary>¿Cómo consigo Miga?</summary><p>Ahora mismo está en pruebas cerradas en Google Play. Escríbenos a miga@calamares.org desde el correo de tu cuenta de Google y te enviamos la invitación. Pronto estará disponible para todo el mundo.</p></details><details><summary>¿Miga es gratis?</summary><p>Sí. Es gratuita, sin anuncios ni compras dentro de la app.</p></details><details><summary>¿Necesito una cuenta o internet?</summary><p>No. Todo funciona sin conexión y sin registrarte. Internet solo se usa para las funciones que eliges: el asistente con tu clave, Open Food Facts, el catálogo de packs y tu servidor.</p></details><details><summary>¿Cuánto cuesta el asistente de cocina?</summary><p>Depende del proveedor que elijas. Con OpenRouter hay modelos gratuitos; con Groq hay una capa gratuita y con un modelo en tu propio ordenador (Ollama, LM Studio) no pagas nada; con Gemini, Claude, OpenAI, DeepSeek o Mistral pagas a ellos según tu uso. Miga no cobra nada ni ve tus datos.</p></details><details><summary>¿Dónde se guardan mis recetas?</summary><p>En el almacenamiento interno de tu móvil. Si usas la sincronización, también en tu propio servidor. Miga no tiene servidores propios.</p></details><details><summary>¿Puedo pasar mis recetas a otro móvil?</summary><p>Sí: con una copia de seguridad completa (opcionalmente cifrada), exportando libros como archivo de Miga o con la sincronización.</p></details><details><summary>¿Sirve si tengo alergias, celiaquía o diabetes?</summary><p>Miga calcula los alérgenos y las raciones de hidratos a partir de los ingredientes para ayudarte a elegir y a organizarte, pero es orientativo: no puede ver las marcas ni las etiquetas. Revisa siempre la etiqueta de cada producto y sigue la pauta de tu equipo médico.</p></details><details><summary>¿Puedo guardar recetas de webs?</summary><p>Sí. Pega el enlace y Miga lee la receta con su foto, tiempos y raciones, sin necesitar el asistente: casi todas las webs de recetas usan un formato estándar. Con el asistente configurado, además la pule.</p></details><details><summary>¿Hay versión para iPhone?</summary><p>De momento Miga es solo para Android (8.0 o superior).</p></details><details><summary>¿Qué datos usa de Open Food Facts?</summary><p>Al escanear un código o buscar un producto se envía ese código o ese texto a Open Food Facts para obtener su ficha. Los datos son abiertos (licencia ODbL).</p></details></div></section>
-<section class="wrap" id="descargar" style="margin-top:80px">
+<section class="wrap" id="secciones"><div class="section-head"><span class="chip primary">Secciones</span><h2>Descubre Miga</h2><p>Cada parte de la app en su página, con capturas reales.</p></div><div class="discover"><a class="dcard" href="funciones/">
+      <div class="dcard-shot"><img src="assets/img/screens/es/shopping.webp" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Funciones</h3><p>Libros, modo cocina, la compra por pasillos, el escáner, copias y todo lo demás.</p><span class="more">Ver más →</span></div>
+    </a><a class="dcard" href="salud/">
+      <div class="dcard-shot"><img src="assets/img/screens/es/recipe_health.webp" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Salud</h3><p>Tus alérgenos, el modo celíacos y las raciones de hidratos.</p><span class="more">Ver más →</span></div>
+    </a><a class="dcard" href="asistente/">
+      <div class="dcard-shot"><img src="assets/img/screens/es/share_instagram.webp" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Asistente de cocina</h3><p>Recetas desde fotos, webs e Instagram, ideas y mejoras, con tu clave.</p><span class="more">Ver más →</span></div>
+    </a><a class="dcard" href="familia/">
+      <div class="dcard-shot"><img src="assets/img/server/mobile.png" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Familia y sincronización</h3><p>Libros y lista de la compra compartidos con tu propio servidor.</p><span class="more">Ver más →</span></div>
+    </a><a class="dcard" href="packs/">
+      <div class="dcard-shot"><img src="assets/img/screens/es/books.webp" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Packs de recetas</h3><p>Libros de recetas listos para instalar con un toque.</p><span class="more">Ver más →</span></div>
+    </a><a class="dcard" href="preguntas/">
+      <div class="dcard-shot"><img src="assets/img/screens/es/search.webp" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>Preguntas frecuentes</h3><p>Precio, privacidad, alergias, iPhone… lo que más nos preguntan.</p><span class="more">Ver más →</span></div>
+    </a></div></section>
+<section class="wrap get" id="descargar">
   <div class="cta">
     <h2>Empieza tu recetario hoy</h2>
     <p>Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.</p>
@@ -516,10 +192,10 @@ volumes:
       <a class="brand" href="./"><img src="assets/img/logo.svg" alt=""><b>Miga</b></a>
       <p style="margin-top:12px">El recetario de tu familia y tu lista de la compra, en tu móvil.</p>
     </div>
-    <div><h4>Miga</h4><ul><li><a href="#funciones">Funciones</a></li><li><a href="#salud">Salud</a></li><li><a href="#asistente">Asistente de cocina</a></li><li><a href="#descargar">Descargar</a></li></ul></div><div><h4>Más</h4><ul><li><a href="#sincronizacion">Servidor de sincronización</a></li><li><a href="#packs">Packs de recetas</a></li><li><a href="https://github.com/calamares00/miga-server">miga-server</a></li><li><a href="https://github.com/calamares00/miga-packs">miga-packs</a></li></ul></div><div><h4>Legal</h4><ul><li><a href="privacy/">Política de privacidad</a></li><li><a href="mailto:miga@calamares.org">Contacto</a></li></ul></div>
+    <div><h2>Miga</h2><ul><li><a href="funciones/">Funciones</a></li><li><a href="salud/">Salud</a></li><li><a href="asistente/">Asistente de cocina</a></li><li><a href="preguntas/">Preguntas frecuentes</a></li></ul></div><div><h2>Más</h2><ul><li><a href="familia/">Servidor de sincronización</a></li><li><a href="packs/">Packs de recetas</a></li><li><a href="https://github.com/calamares00/miga-server">miga-server</a></li><li><a href="https://github.com/calamares00/miga-packs">miga-packs</a></li></ul></div><div><h2>Legal</h2><ul><li><a href="privacy/">Política de privacidad</a></li><li><a href="mailto:miga@calamares.org">Contacto</a></li></ul></div>
     <div class="legal"><span>© 2026 Calamares. Las recetas de los packs se publican bajo CC BY 4.0.</span><span>Datos de productos de Open Food Facts (ODbL).</span></div>
   </div>
 </footer>
-<script src="assets/main.js?v=e0c111aa22"></script>
+<script src="assets/main.js?v=1f6d1af622"></script>
 </body>
 </html>

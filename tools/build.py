@@ -9,6 +9,7 @@ works at https://calamares00.github.io/miga-web/ and on its own domain alike.
 """
 import hashlib
 import json
+import unicodedata
 from html import escape
 from pathlib import Path
 from urllib.parse import quote
@@ -91,7 +92,7 @@ ES = {
     "lang": "es", "other": "en", "other_label": "English", "other_short": "EN",
     "title": "Miga · Tu recetario familiar y tu lista de la compra",
     "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.",
-    "nav": [("#funciones", "Funciones"), ("#salud", "Salud"), ("#asistente", "Asistente"), ("#sincronizacion", "Sincronización"), ("#packs", "Packs"), ("#preguntas", "Preguntas")],
+    "nav": [("features", "Funciones"), ("health", "Salud"), ("assistant", "Asistente"), ("sync", "Familia"), ("packs", "Packs"), ("faq", "Preguntas")],
     "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Probar la beta",
     "badge": "Disponible en Google Play", "badge_beta": "Beta cerrada en Google Play",
     "hero_title": "Tus recetas. Tus libros. <em>Tu cocina.</em>",
@@ -148,7 +149,7 @@ ES = {
         ("assistant", "sparkles", "Asistente", "Asistente de cocina", "Una ayuda cuando la quieras",
          "Funciones opcionales con inteligencia artificial y tu propia clave. Si no lo configuras, no se envía nada.",
          [("Recetas desde fotos", "fotografía una receta de un libro o escrita a mano y precarga el editor."),
-          ("Desde una web", "pega un enlace y obtén la receta limpia, sin anuncios ni historias."),
+          ("Desde una web o Instagram", "pega un enlace o comparte un reel y obtén la receta limpia, sin anuncios ni historias."),
           ("Mejorar recetas", "pule la redacción y normaliza ingredientes; ves el antes y el después."),
           ("Ideas", "pregunta qué cocinar con lo que tienes, pide un menú semanal o un plato de temporada.")], "new_recipe"),
         ("sync", "users", "Familia", "Sincronización", "Compartid libros y listas en familia",
@@ -167,7 +168,7 @@ ES = {
         ("utensils", "", "Modo cocina", "Los pasos en grande y la pantalla siempre encendida.", ["Varios temporizadores que siguen aunque salgas de la app", "Lectura en voz alta", "Control por voz y manos libres"]),
         ("cart", "", "Lista de la compra", "Desde una receta añades todos sus ingredientes de una vez.", ["Varias listas y plantillas", "Orden por pasillos de tu supermercado", "Modo tienda, QR y widget"]),
         ("scan", "sage", "Escáner y Open Food Facts", "Escanea códigos de barras para añadir productos y ver su ficha.", ["Nutri-Score, NOVA, alérgenos y aditivos", "Puntuación orientativa de 0 a 100", "Datos abiertos bajo licencia ODbL"]),
-        ("download", "", "Importar recetas", "Trae recetas de donde estén.", ["Desde una web, con su foto y tiempos, sin necesitar el asistente", "Desde un archivo de Miga o un enlace compartido", "Desde fotos o el nombre de un plato, incluso varias a la vez ✨"]),
+        ("download", "", "Importar recetas", "Trae recetas de donde estén.", ["Desde una web o un reel de Instagram, con su foto y sin necesitar el asistente", "Desde un archivo de Miga o un enlace compartido", "Desde fotos o el nombre de un plato, incluso varias a la vez ✨"]),
         ("shield", "accent", "Alérgenos e intolerancias", "Los 14 alérgenos de la ley europea y la lactosa, calculados con los ingredientes.", ["Muestra todos, solo los tuyos o ninguno", "Aviso en las listas y búsquedas sin tus alérgenos", "Modo celíacos con lo que hay que comprar certificado"]),
         ("pulse", "sage", "Raciones de hidratos", "Para quien cuenta raciones (por ejemplo, con diabetes). Opcional.", ["Raciones por persona en cada receta", "Tu plan por comidas y grupos de alimentos", "«Ajustar a mi comida»: cuánto servirte y qué añadir"]),
         ("bulb", "", "Consejos de cocina", "Trucos cortos para cocinar mejor, sin conexión.", ["Un consejo del día en la biblioteca", "Consejos para cada receta según sus ingredientes", "Guárdalos y compártelos"]),
@@ -176,11 +177,46 @@ ES = {
         ("palette", "sage", "A tu gusto", "Que Miga se vea como te gusta.", ["Tema claro, oscuro o del sistema", "Ocho colores de acento, con Huerta por defecto", "Español e inglés"]),
         ("lock", "", "Privada y segura", "Tus recetas, solo para ti.", ["Bloqueo con huella, rostro o PIN", "Claves del asistente cifradas en el móvil", "Sin cuentas, anuncios ni analítica"]),
     ],
+    "pages": {
+        "features": ("Funciones", "Todo lo que hace Miga: libros de recetas, modo cocina, lista de la compra por pasillos, escáner, importar recetas, copias de seguridad y más.", "Funciones", "Todo lo que hace Miga", "Una app completa para la cocina de casa, explicada sin letra pequeña y con capturas de la app de verdad."),
+        "health": ("Salud", "Alérgenos, modo celíacos y raciones de hidratos en Miga: orientativo, sin el asistente y sin conexión.", "Salud · Opcional", "Alérgenos, celiaquía y raciones de hidratos", "Miga lee los ingredientes de cada receta, sin el asistente y sin conexión, y te dice lo que importa para tu familia."),
+        "assistant": ("Asistente de cocina", "El asistente de cocina de Miga: recetas desde fotos, webs e Instagram, mejorar recetas e ideas, con tu propia clave y el proveedor que elijas.", "Asistente · Opcional", "Un asistente de cocina que usa tu propia clave", "Las funciones marcadas con ✨ usan inteligencia artificial con la clave que tú configures. Eliges el proveedor y el modelo, y Miga solo envía lo necesario para cada tarea."),
+        "sync": ("Familia y sincronización", "Comparte libros y la lista de la compra en familia con miga-server, un servidor de sincronización que alojas tú con Docker.", "miga-server", "Tu propio servidor de sincronización", "Para compartir libros y la lista de la compra en familia, Miga se conecta a un servidor que alojas tú. Es ligero, funciona con Docker y trae una web de administración muy completa."),
+        "packs": ("Packs de recetas", "Packs de recetas para Miga: libros listos para instalar con cocinas del mundo, arroces, panadería, Thermomix y más.", "Packs", "Packs de recetas listos para instalar", "Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros."),
+        "faq": ("Preguntas frecuentes", "Respuestas sobre Miga: precio, privacidad, el asistente de cocina, alérgenos, importar recetas de webs e Instagram y más.", "Ayuda", "Preguntas frecuentes", "Lo que más nos preguntan. ¿No está tu duda? Escríbenos."),
+    },
+    "home_label": "Inicio", "skip": "Saltar al contenido", "breadcrumb": "Ruta de navegación",
+    "prev": "Anterior", "next": "Siguiente", "more": "Ver más", "page_nav": "Más secciones",
+    "discover_head": ("Descubre Miga", "Cada parte de la app en su página, con capturas reales.", "Secciones"),
+    "discover": {
+        "features": ("shopping", "Libros, modo cocina, la compra por pasillos, el escáner, copias y todo lo demás."),
+        "health": ("recipe_health", "Tus alérgenos, el modo celíacos y las raciones de hidratos."),
+        "assistant": ("share_instagram", "Recetas desde fotos, webs e Instagram, ideas y mejoras, con tu clave."),
+        "sync": ("server/mobile.png", "Libros y lista de la compra compartidos con tu propio servidor."),
+        "packs": ("books", "Libros de recetas listos para instalar con un toque."),
+        "faq": ("search", "Precio, privacidad, alergias, iPhone… lo que más nos preguntan."),
+    },
+    "news_chip": "Novedad",
+    "news_title": "Recetas de Instagram",
+    "news_text": "Comparte un reel con Miga y guárdalo como una receta más: con su foto, y si el texto no la trae, el asistente escucha el vídeo.",
+    "insta_chip": "Novedad",
+    "insta_title": "Recetas de Instagram, en tu libro",
+    "insta_lead": "¿Has visto una receta en un reel? Compártela con Miga o pega su enlace y queda guardada como una receta más, con su foto y el autor en las notas.",
+    "insta_points": [
+        ("Sin el asistente", "si el texto de la publicación trae los ingredientes y los pasos, Miga los lee directamente."),
+        ("Escucha el vídeo ✨", "si el texto no trae la receta, el asistente escucha el vídeo: Gemini oye el audio y OpenAI, Groq o Mistral lo transcriben. Revisa las cantidades."),
+        ("Desde Instagram", "toca Compartir en el reel, elige Miga y di en qué libro guardarla."),
+        ("La foto buena", "a tamaño completo y sin el botón de reproducir del vídeo."),
+    ],
+    "insta_shots": [("share_instagram", "Compartir un reel con Miga"), ("new_recipe", "Nueva receta desde una web o Instagram")],
+    "health_gallery": [("health_settings", "Ajustes de salud"), ("filters", "Filtros sin tus alérgenos"), ("recipe_health", "Alérgenos e hidratos de una receta"), ("fit_meal", "Ajustar a mi comida")],
+    "assistant_more": "Ideas y mejoras",
     "assistant_chip": "Opcional",
     "assistant_title": "Un asistente de cocina que usa tu propia clave",
     "assistant_lead": "Las funciones marcadas con ✨ usan inteligencia artificial con la clave que tú configures. Eliges el proveedor y el modelo, y Miga solo envía lo necesario para cada tarea.",
     "assistant_points": [
         ("Recetas desde fotos y webs", "lee el texto de una foto o de una página y precarga el editor; al importar de una web, también la pule. Tú lo revisas antes de guardar."),
+        ("Recetas de vídeos", "si un reel de Instagram no trae la receta en el texto, la saca de lo que se dice en el vídeo."),
         ("Mejorar recetas", "una o muchas a la vez: mejor redacción, ingredientes normalizados y tiempos en negrita. Nada se guarda sin tu permiso."),
         ("Ideas", "recomendaciones a partir de tus recetas, menús semanales y respuestas sobre técnicas, conservación o sustituciones."),
         ("Salud y nutrición", "valoración orientativa, calorías y macros por ración, y sustitutos de ingredientes."),
@@ -223,6 +259,7 @@ ES = {
     "server_compose_note": "Con este archivo basta: la imagen trae todo lo necesario y los datos se guardan en el volumen <code>miga-data</code>.",
     "admin_token_placeholder": "cambia-esto-por-un-token-largo",
     "server_cta": "Ver miga-server",
+    "server_admin_title": "La web de administración",
     "packs_chip": "Packs",
     "packs_title": "Packs de recetas listos para instalar",
     "packs_lead": "Un pack es un libro de recetas que se instala con un toque desde Ajustes › Packs de recetas. Sus recetas no se editan, pero puedes copiar las que quieras a tus libros.",
@@ -244,6 +281,7 @@ ES = {
         ("¿Puedo pasar mis recetas a otro móvil?", "Sí: con una copia de seguridad completa (opcionalmente cifrada), exportando libros como archivo de Miga o con la sincronización."),
         ("¿Sirve si tengo alergias, celiaquía o diabetes?", "Miga calcula los alérgenos y las raciones de hidratos a partir de los ingredientes para ayudarte a elegir y a organizarte, pero es orientativo: no puede ver las marcas ni las etiquetas. Revisa siempre la etiqueta de cada producto y sigue la pauta de tu equipo médico."),
         ("¿Puedo guardar recetas de webs?", "Sí. Pega el enlace y Miga lee la receta con su foto, tiempos y raciones, sin necesitar el asistente: casi todas las webs de recetas usan un formato estándar. Con el asistente configurado, además la pule."),
+        ("¿Y recetas de Instagram?", "Sí. Pega el enlace de una publicación o un reel, o compártelo desde Instagram con Miga. Si el texto trae los ingredientes y los pasos, Miga los lee sin el asistente; si no, el asistente lee el texto o escucha el vídeo (con Gemini, OpenAI, Groq o Mistral). Las publicaciones privadas no se pueden importar."),
         ("¿Hay versión para iPhone?", "De momento Miga es solo para Android (8.0 o superior)."),
         ("¿Qué datos usa de Open Food Facts?", "Al escanear un código o buscar un producto se envía ese código o ese texto a Open Food Facts para obtener su ficha. Los datos son abiertos (licencia ODbL)."),
     ],
@@ -252,9 +290,9 @@ ES = {
     "cta_text_beta": "Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.",
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
-        ("Miga", [("#funciones", "Funciones"), ("#salud", "Salud"), ("#asistente", "Asistente de cocina"), ("#descargar", "Descargar")]),
-        ("Más", [("#sincronizacion", "Servidor de sincronización"), ("#packs", "Packs de recetas"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
-        ("Legal", [("privacy/", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
+        ("Miga", [("features", "Funciones"), ("health", "Salud"), ("assistant", "Asistente de cocina"), ("faq", "Preguntas frecuentes")]),
+        ("Más", [("sync", "Servidor de sincronización"), ("packs", "Packs de recetas"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
+        ("Legal", [("privacy", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
     ],
     "legal": f"© {YEAR} Calamares. Las recetas de los packs se publican bajo CC BY 4.0.",
     "off": "Datos de productos de Open Food Facts (ODbL).",
@@ -266,7 +304,7 @@ EN = {
     "lang": "en", "other": "es", "other_label": "Español", "other_short": "ES",
     "title": "Miga · Your family recipe book and shopping list",
     "description": "Miga is an Android app to keep your family's recipes in books, cook step by step and do the shopping. No accounts, no ads, and your data stays on your phone.",
-    "nav": [("#features", "Features"), ("#health", "Health"), ("#assistant", "Assistant"), ("#sync", "Sync"), ("#packs", "Packs"), ("#faq", "FAQ")],
+    "nav": [("features", "Features"), ("health", "Health"), ("assistant", "Assistant"), ("sync", "Family"), ("packs", "Packs"), ("faq", "FAQ")],
     "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Try the beta",
     "badge": "Available on Google Play", "badge_beta": "Closed beta on Google Play",
     "hero_title": "Your recipes. Your books. <em>Your kitchen.</em>",
@@ -323,7 +361,7 @@ EN = {
         ("assistant", "sparkles", "Assistant", "Cooking assistant", "Help whenever you want it",
          "Optional AI features with your own key. Without one, nothing is sent anywhere.",
          [("Recipes from photos", "snap a recipe from a book or a handwritten card and the editor fills itself."),
-          ("From a web page", "paste a link and get the clean recipe, without the ads and life stories."),
+          ("From a website or Instagram", "paste a link or share a reel and get the clean recipe, without the ads and life stories."),
           ("Improve recipes", "better wording and tidy ingredients; you see the before and after."),
           ("Ideas", "ask what to cook with what you have, plan a weekly menu or find a seasonal dish.")], "new_recipe"),
         ("sync", "users", "Family", "Sync", "Share books and lists with your family",
@@ -342,7 +380,7 @@ EN = {
         ("utensils", "", "Cooking mode", "Big steps and the screen always on.", ["Several timers that keep going when you leave the app", "Read aloud", "Voice control and hands-free"]),
         ("cart", "", "Shopping list", "Add all the ingredients of a recipe in one go.", ["Several lists and templates", "Sorted by your supermarket's aisles", "Store mode, QR code and widget"]),
         ("scan", "sage", "Scanner and Open Food Facts", "Scan barcodes to add products and see their sheet.", ["Nutri-Score, NOVA, allergens and additives", "A rough score from 0 to 100", "Open data under the ODbL licence"]),
-        ("download", "", "Import recipes", "Bring recipes from wherever they are.", ["From a web page, with its photo and times, no assistant needed", "From a Miga file or a shared link", "From photos or a dish name, even several at once ✨"]),
+        ("download", "", "Import recipes", "Bring recipes from wherever they are.", ["From a web page or an Instagram reel, with its photo, no assistant needed", "From a Miga file or a shared link", "From photos or a dish name, even several at once ✨"]),
         ("shield", "accent", "Allergens and intolerances", "The 14 allergens of EU law plus lactose, worked out from the ingredients.", ["Show all, only yours or none", "Warnings in lists and searches without your allergens", "Coeliac mode with what to buy certified"]),
         ("pulse", "sage", "Carbohydrate portions", "For those who count portions (with diabetes, for instance). Optional.", ["Portions per serving on every recipe", "Your plan by meals and food groups", "“Fit to my meal”: how much to take and what to add"]),
         ("bulb", "", "Cooking tips", "Short tips to cook better, offline.", ["A tip of the day in the library", "Tips for each recipe from its ingredients", "Save and share them"]),
@@ -351,11 +389,46 @@ EN = {
         ("palette", "sage", "Your way", "Make Miga look the way you like.", ["Light, dark or system theme", "Eight accent colours, Garden by default", "English and Spanish"]),
         ("lock", "", "Private and secure", "Your recipes, just for you.", ["Fingerprint, face or PIN lock", "Assistant keys encrypted on the phone", "No accounts, ads or analytics"]),
     ],
+    "pages": {
+        "features": ("Features", "Everything Miga does: recipe books, cooking mode, a shopping list sorted by aisle, barcode scanner, recipe import, backups and more.", "Features", "Everything Miga does", "A complete app for home cooking, explained without small print and with screens of the real app."),
+        "health": ("Health", "Allergens, coeliac mode and carbohydrate portions in Miga: a guide, without the assistant and offline.", "Health · Optional", "Allergens, coeliac disease and carbohydrate portions", "Miga reads the ingredients of every recipe, without the assistant and offline, and tells you what matters to your family."),
+        "assistant": ("Cooking assistant", "Miga's cooking assistant: recipes from photos, websites and Instagram, polishing recipes and ideas, with your own key and the provider you choose.", "Assistant · Optional", "A cooking assistant that uses your own key", "Features marked with ✨ use artificial intelligence with the key you set up. You choose the provider and the model, and Miga only sends what each task needs."),
+        "sync": ("Family and sync", "Share books and the shopping list with your family through miga-server, a sync server you host yourself with Docker.", "miga-server", "Your own sync server", "To share books and the shopping list with your family, Miga connects to a server you host yourself. It's lightweight, runs on Docker and comes with a full admin website."),
+        "packs": ("Recipe packs", "Recipe packs for Miga: ready-made books to install with world cuisines, rice dishes, baking, Thermomix and more.", "Packs", "Recipe packs ready to install", "A pack is a recipe book you install with one tap from Settings › Recipe packs. Its recipes can't be edited, but you can copy any of them to your books."),
+        "faq": ("FAQ", "Answers about Miga: price, privacy, the cooking assistant, allergens, importing recipes from websites and Instagram, and more.", "Help", "Frequently asked questions", "What people ask us most. Question not here? Email us."),
+    },
+    "home_label": "Home", "skip": "Skip to content", "breadcrumb": "Breadcrumb",
+    "prev": "Previous", "next": "Next", "more": "See more", "page_nav": "More sections",
+    "discover_head": ("Discover Miga", "Each part of the app on its own page, with real screens.", "Sections"),
+    "discover": {
+        "features": ("shopping", "Books, cooking mode, shopping by aisle, the scanner, backups and everything else."),
+        "health": ("recipe_health", "Your allergens, coeliac mode and carbohydrate portions."),
+        "assistant": ("share_instagram", "Recipes from photos, websites and Instagram, ideas and polishing, with your key."),
+        "sync": ("server/mobile.png", "Books and the shopping list shared through your own server."),
+        "packs": ("books", "Recipe books ready to install with one tap."),
+        "faq": ("search", "Price, privacy, allergies, iPhone… what people ask most."),
+    },
+    "news_chip": "New",
+    "news_title": "Recipes from Instagram",
+    "news_text": "Share a reel to Miga and keep it as just another recipe: with its photo, and if the caption doesn't have it, the assistant listens to the video.",
+    "insta_chip": "New",
+    "insta_title": "Instagram recipes, in your book",
+    "insta_lead": "Saw a recipe in a reel? Share it to Miga or paste its link and it's saved as just another recipe, with its photo and the author in the notes.",
+    "insta_points": [
+        ("No assistant needed", "if the post's caption has the ingredients and steps, Miga reads them directly."),
+        ("Listens to the video ✨", "if the caption has no recipe, the assistant listens to the video: Gemini hears the audio, and OpenAI, Groq or Mistral transcribe it. Check the quantities."),
+        ("From Instagram", "tap Share on the reel, choose Miga and pick the book to save it in."),
+        ("The right photo", "full size and without the video's play button."),
+    ],
+    "insta_shots": [("share_instagram", "Sharing a reel to Miga"), ("new_recipe", "New recipe from a website or Instagram")],
+    "health_gallery": [("health_settings", "Health settings"), ("filters", "Filters without your allergens"), ("recipe_health", "A recipe's allergens and carbs"), ("fit_meal", "Fit to my meal")],
+    "assistant_more": "Ideas and polishing",
     "assistant_chip": "Optional",
     "assistant_title": "A cooking assistant that uses your own key",
     "assistant_lead": "Features marked ✨ use artificial intelligence with the key you set up. You choose the provider and the model, and Miga only sends what each task needs.",
     "assistant_points": [
         ("Recipes from photos and web pages", "reads the text of a photo or a page and fills in the editor; from a web page it also polishes it. You review it before saving."),
+        ("Recipes from videos", "if an Instagram reel has no recipe in its caption, it takes it from what is said in the video."),
         ("Improve recipes", "one or many at once: better wording, tidy ingredients and times in bold. Nothing is saved without your say-so."),
         ("Ideas", "suggestions from your own recipes, weekly menus and answers about techniques, storage or substitutions."),
         ("Health and nutrition", "a rough health rating, calories and macros per serving, and ingredient substitutes."),
@@ -398,6 +471,7 @@ EN = {
     "server_compose_note": "That file is all you need: the image has everything inside and the data lives in the <code>miga-data</code> volume.",
     "admin_token_placeholder": "replace-with-a-long-token",
     "server_cta": "See miga-server",
+    "server_admin_title": "The admin website",
     "packs_chip": "Packs",
     "packs_title": "Recipe packs, ready to install",
     "packs_lead": "A pack is a recipe book you install with one tap from Settings › Recipe packs. Its recipes can't be edited, but you can copy the ones you like into your books.",
@@ -419,6 +493,7 @@ EN = {
         ("Can I move my recipes to another phone?", "Yes: with a full backup (optionally encrypted), by exporting books as Miga files, or with sync."),
         ("Does it help with allergies, coeliac disease or diabetes?", "Miga works out allergens and carbohydrate portions from the ingredients to help you choose and plan, but it is a guide: it cannot see brands or labels. Always check each product's label and follow your care team's advice."),
         ("Can I save recipes from websites?", "Yes. Paste the link and Miga reads the recipe with its photo, times and servings, no assistant needed: almost every recipe site uses a standard format. With the assistant set up, it also polishes it."),
+        ("What about recipes from Instagram?", "Yes. Paste the link to a post or reel, or share it from Instagram to Miga. If the caption has the ingredients and steps, Miga reads them without the assistant; otherwise the assistant reads the caption or listens to the video (with Gemini, OpenAI, Groq or Mistral). Private posts cannot be imported."),
         ("Is there an iPhone version?", "For now Miga is Android only (8.0 or newer)."),
         ("What does it send to Open Food Facts?", "When you scan a barcode or search for a product, that code or text goes to Open Food Facts to fetch its sheet. The data is open (ODbL licence)."),
     ],
@@ -427,9 +502,9 @@ EN = {
     "cta_text_beta": "Join the beta, create your first book and save that recipe everyone keeps asking for.",
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
-        ("Miga", [("#features", "Features"), ("#health", "Health"), ("#assistant", "Cooking assistant"), ("#download", "Download")]),
-        ("More", [("#sync", "Sync server"), ("#packs", "Recipe packs"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
-        ("Legal", [("privacy/", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
+        ("Miga", [("features", "Features"), ("health", "Health"), ("assistant", "Cooking assistant"), ("faq", "FAQ")]),
+        ("More", [("sync", "Sync server"), ("packs", "Recipe packs"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
+        ("Legal", [("privacy", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
     ],
     "legal": f"© {YEAR} Calamares. Recipes in the packs are published under CC BY 4.0.",
     "off": "Product data from Open Food Facts (ODbL).",
@@ -437,11 +512,31 @@ EN = {
     "back": "Back to home",
 }
 
-# Section anchors differ per language (they appear in the URL).
-ANCHORS = {
-    "es": {"features": "funciones", "health": "salud", "screens": "capturas", "assistant": "asistente", "sync": "sincronizacion", "packs": "packs", "faq": "preguntas", "explore": "explora", "get": "descargar"},
-    "en": {"features": "features", "health": "health", "screens": "screenshots", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq", "explore": "explore", "get": "download"},
+# Pages and their folders in each language (they appear in the URL), in the order of the menu.
+PAGES = {
+    "home": {"es": "", "en": ""},
+    "features": {"es": "funciones/", "en": "features/"},
+    "health": {"es": "salud/", "en": "health/"},
+    "assistant": {"es": "asistente/", "en": "assistant/"},
+    "sync": {"es": "familia/", "en": "family/"},
+    "packs": {"es": "packs/", "en": "packs/"},
+    "faq": {"es": "preguntas/", "en": "faq/"},
+    "privacy": {"es": "privacy/", "en": "privacy/"},
 }
+SECTIONS = ["features", "health", "assistant", "sync", "packs", "faq"]
+
+# Anchors of the old one-page site, still in shared links: the home page sends them to their page.
+LEGACY_ANCHORS = {
+    "es": {"funciones": "features", "capturas": "features", "salud": "health", "asistente": "assistant", "sincronizacion": "sync", "packs": "packs", "preguntas": "faq"},
+    "en": {"features": "features", "screenshots": "features", "health": "health", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq"},
+}
+DOWNLOAD_ANCHOR = {"es": "descargar", "en": "download"}
+EXPLORE_ANCHOR = {"es": "explora", "en": "explore"}
+INSTAGRAM_ANCHOR = "instagram"
+
+# Where each tab of the home page's showcase is told in full.
+SHOWCASE_PAGE = {"books": "features", "recipe": "features", "cooking": "features", "shopping": "features", "health": "health", "assistant": "assistant", "sync": "sync"}
+
 
 COMPOSE = """services:
   miga-server:
@@ -480,9 +575,26 @@ CATALOG_EXAMPLE = """{
 # Rendering
 # ---------------------------------------------------------------------------------------------
 
-def other_language(t, root, page_path):
-    """The same page in the other language. [root] leads to the site root (where assets/ is)."""
-    return root + ("en/" if t["lang"] == "es" else "") + page_path
+class Page:
+    """Where a page is: its language texts [t], its [key] in PAGES and the relative paths from it to
+    the site root ([root], where assets/ is) and to its language's home page ([home])."""
+
+    def __init__(self, t, key):
+        self.t, self.key, self.lang = t, key, t["lang"]
+        self.path = PAGES[key][self.lang]
+        depth = self.path.count("/") + (1 if self.lang == "en" else 0)
+        self.root = "../" * depth
+        self.home = "../" * self.path.count("/")
+        self.img = f"{self.root}assets/img/"
+
+    def link(self, key, anchor=""):
+        """Relative link to another page of the same language."""
+        href = (self.home + PAGES[key][self.lang]) or "./"
+        return href + (f"#{anchor}" if anchor else "")
+
+    def other_language(self):
+        other = "es" if self.lang == "en" else "en"
+        return (self.root + ("en/" if other == "en" else "") + PAGES[self.key][other]) or "./"
 
 
 def page_url(lang, page_path):
@@ -508,8 +620,22 @@ def structured_data(t):
     return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>\n'
 
 
-def head(t, root, title, description, page_path, extra=""):
-    alternates = "".join(f'<link rel="alternate" hreflang="{lang}" href="{page_url(lang, page_path)}">\n' for lang in ("es", "en"))
+def breadcrumb_data(pg, name):
+    data = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Miga", "item": page_url(pg.lang, "")},
+            {"@type": "ListItem", "position": 2, "name": name, "item": page_url(pg.lang, pg.path)},
+        ],
+    }
+    return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>\n'
+
+
+def head(pg, title, description, extra=""):
+    t, root = pg.t, pg.root
+    alternates = "".join(f'<link rel="alternate" hreflang="{lang}" href="{page_url(lang, PAGES[pg.key][lang])}">\n' for lang in ("es", "en"))
+    url = page_url(t["lang"], pg.path)
     return f"""<!doctype html>
 <html lang="{t['lang']}" data-theme="dark">
 <head>
@@ -524,10 +650,10 @@ def head(t, root, title, description, page_path, extra=""):
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(description)}">
 <meta property="og:image" content="{SITE_URL}assets/img/og.png">
-<meta property="og:url" content="{page_url(t['lang'], page_path)}">
+<meta property="og:url" content="{url}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="{page_url(t['lang'], page_path)}">
-{alternates}<link rel="alternate" hreflang="x-default" href="{page_url('es', page_path)}">
+<link rel="canonical" href="{url}">
+{alternates}<link rel="alternate" hreflang="x-default" href="{page_url('es', PAGES[pg.key]['es'])}">
 {extra}<link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}assets/style.css?v={asset_version('style.css')}">
 <script>
@@ -541,21 +667,22 @@ def head(t, root, title, description, page_path, extra=""):
 </script>
 </head>
 <body>
+<a class="skip" href="#main">{escape(t['skip'])}</a>
 """
 
 
-def nav(t, root, home_rel, page_path):
-    """[home_rel] leads to this language's home page ("" on it)."""
-    links = "".join(f'<a href="{home_rel}{href}">{escape(label)}</a>' for href, label in t["nav"])
-    other_href = other_language(t, root, page_path)
+def nav(pg):
+    t = pg.t
+    current = ' aria-current="page"'
+    links = "".join(f'<a href="{pg.link(key)}"{current if key == pg.key else ""}>{escape(label)}</a>' for key, label in t["nav"])
     return f"""<header class="nav">
   <div class="wrap">
-    <a class="brand" href="{home_rel or './'}"><img src="{root}assets/img/logo.svg" alt=""><b>Miga</b></a>
-    <nav class="nav-links" aria-label="Miga">{links}</nav>
-    <a class="icon-btn" href="{other_href}" hreflang="{t['other']}" title="{escape(t['other_label'])}">{t['other_short']}</a>
+    <a class="brand" href="{pg.link('home')}"{current if pg.key == 'home' else ''}><img src="{pg.root}assets/img/logo.svg" alt=""><b>Miga</b></a>
+    <nav class="nav-links" id="menu" aria-label="Miga">{links}</nav>
+    <a class="icon-btn" href="{pg.other_language()}" hreflang="{t['other']}" lang="{t['other']}" title="{escape(t['other_label'])}">{t['other_short']}</a>
     <button class="icon-btn" data-theme-toggle title="{escape(t['theme'])}" aria-label="{escape(t['theme'])}">{icon('sun')}</button>
-    <button class="icon-btn menu-toggle" data-menu-toggle aria-expanded="false" aria-label="{escape(t['menu'])}">{icon('menu')}</button>
-    <a class="btn primary small" href="{home_rel}#{ANCHORS[t['lang']]['get']}">{icon('download')}<span class="cta-label">{escape(t['get'] if PLAY_PUBLIC else t['get_beta'])}</span></a>
+    <button class="icon-btn menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="{escape(t['menu'])}">{icon('menu')}</button>
+    <a class="btn primary small" href="#{DOWNLOAD_ANCHOR[pg.lang]}">{icon('download')}<span class="cta-label">{escape(t['get'] if PLAY_PUBLIC else t['get_beta'])}</span></a>
   </div>
 </header>
 """
@@ -593,8 +720,13 @@ def pack_cards(t, img):
         <p>{escape(pack['description'])}</p></div>
       </article>""")
     groups = sorted(series.items(), key=lambda kv: (-len(kv[1]), kv[0]))
-    return "".join(
-        (f'<h3 class="pack-series">{escape(name)}</h3>' if name else "") + f'<div class="packs">{"".join(cards)}</div>'
+    def anchor(name):
+        plain = unicodedata.normalize("NFD", name.lower()).encode("ascii", "ignore").decode()
+        return "serie-" + "-".join("".join(c if c.isalnum() else " " for c in plain).split())
+    # Jump links to each series: the list is long, above all on a phone.
+    jumps = "".join(f'<a class="chip outline" href="#{anchor(name)}">{escape(name)} · {len(cards)}</a>' for name, cards in groups if name)
+    return (f'<nav class="series-nav" aria-label="{escape(t["packs_available"])}">{jumps}</nav>' if jumps else "") + "".join(
+        (f'<h3 class="pack-series" id="{anchor(name)}">{escape(name)}</h3>' if name else "") + f'<div class="packs">{"".join(cards)}</div>'
         for name, cards in groups
     )
 
@@ -618,10 +750,79 @@ def screen(img, t, name):
     return img + (name if "/" in name else f"screens/{t['lang']}/{name}.webp")
 
 
-def home(t, root):
-    a = ANCHORS[t["lang"]]
-    img = f"{root}assets/img/"
-    out = [head(t, root, t["title"], t["description"], "", structured_data(t)), nav(t, root, "", ""), "<main>"]
+def page_hero(pg):
+    """Title block of a section page: breadcrumb, chip, heading and introduction."""
+    t = pg.t
+    name, _, chip, title, lead = t["pages"][pg.key]
+    return f"""<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="{escape(t['breadcrumb'])}"><ol><li><a href="{pg.link('home')}">{escape(t['home_label'])}</a></li><li><span aria-current="page">{escape(name)}</span></li></ol></nav>
+    <span class="chip primary">{escape(chip)}</span>
+    <h1>{escape(title)}</h1>
+    <p class="lead">{escape(lead)}</p>
+  </div>
+</section>
+"""
+
+
+def pager(pg):
+    """Links to the previous and next sections, so the site reads like the old long page did."""
+    t = pg.t
+    i = SECTIONS.index(pg.key)
+    labels = dict(t["nav"])
+    parts = []
+    if i > 0:
+        prev = SECTIONS[i - 1]
+        parts.append(f'<a class="prev" href="{pg.link(prev)}" rel="prev"><small>← {escape(t["prev"])}</small><b>{escape(t["pages"][prev][0])}</b></a>')
+    if i < len(SECTIONS) - 1:
+        nxt = SECTIONS[i + 1]
+        parts.append(f'<a class="next" href="{pg.link(nxt)}" rel="next"><small>{escape(t["next"])} →</small><b>{escape(t["pages"][nxt][0])}</b></a>')
+    others = "".join(f'<a href="{pg.link(k)}">{escape(labels[k])}</a>' for k in SECTIONS if k != pg.key)
+    return f"""<nav class="wrap pager" aria-label="{escape(t['page_nav'])}">
+  <div class="pager-steps">{''.join(parts)}</div>
+  <div class="pager-all">{others}</div>
+</nav>
+"""
+
+
+def cta(pg):
+    t = pg.t
+    return f"""<section class="wrap get" id="{DOWNLOAD_ANCHOR[pg.lang]}">
+  <div class="cta">
+    <h2>{escape(t['cta_title'])}</h2>
+    <p>{escape(t['cta_text'] if PLAY_PUBLIC else t['cta_text_beta'])}</p>
+    {downloads(t)}
+  </div>
+</section>
+"""
+
+
+def checks(points, ic, raw=False):
+    return "".join(f'<li>{icon(ic)}<div><b>{escape(b)}:</b> <span>{s if raw else escape(s)}</span></div></li>' for b, s in points)
+
+
+def strip(pg, shots):
+    figures = "".join(f'<figure>{phone(screen(pg.img, pg.t, name), caption)}<figcaption>{escape(caption)}</figcaption></figure>' for name, caption in shots)
+    return f'<div class="screens-strip" tabindex="0" role="group">{figures}</div>'
+
+
+def section_page(pg, content):
+    t = pg.t
+    name, description = t["pages"][pg.key][:2]
+    out = [head(pg, f"{name} · Miga", description, breadcrumb_data(pg, name)), nav(pg), '<main id="main">', page_hero(pg)]
+    out.append(content)
+    out.append(pager(pg))
+    out.append(cta(pg))
+    out.append("</main>\n")
+    out.append(footer(pg))
+    return "".join(out)
+
+
+def home(t):
+    pg = Page(t, "home")
+    img = pg.img
+    legacy = json.dumps({anchor: pg.link(key) for anchor, key in LEGACY_ANCHORS[t["lang"]].items()})
+    out = [head(pg, t["title"], t["description"], structured_data(t)), nav(pg), f'<main id="main" data-legacy-anchors=\'{legacy}\'>']
 
     badges = "".join(f'<span class="chip outline">{icon("check")}{escape(b)}</span>' for b in t["hero_badges"])
     out.append(f"""<section class="hero">
@@ -633,7 +834,7 @@ def home(t, root):
       {downloads(t)}
       <div class="hero-badges">{badges}</div>
     </div>
-    <div class="hero-phones" aria-hidden="false">
+    <div class="hero-phones">
       {phone(screen(img, t, 'books'), t['shot_alt_back'], 'back')}
       {phone(screen(img, t, 'recipe'), t['shot_alt_front'], 'front')}
     </div>
@@ -643,6 +844,14 @@ def home(t, root):
 
     chips = "".join(f'<span class="chip">{icon(i)}{escape(label)}</span>' for i, label in t["marquee"])
     out.append(f'<div class="marquee" aria-label="{escape(t["features_head"][2])}"><div class="marquee-track">{chips}</div></div>\n')
+
+    out.append(f"""<section class="wrap news">
+  <a class="news-card" href="{pg.link('assistant', INSTAGRAM_ANCHOR)}">
+    <img src="{screen(img, t, 'share_instagram')}" alt="" width="360" height="781" loading="lazy">
+    <div><span class="chip accent">{icon('sparkles')}{escape(t['news_chip'])}</span><h2>{escape(t['news_title'])}</h2><p>{escape(t['news_text'])}</p><span class="more">{escape(t['more'])} →</span></div>
+  </a>
+</section>
+""")
     out.append(wavy())
 
     pillars = "".join(f'<div class="pillar">{icon(i)}<h3>{escape(h)}</h3><p>{escape(p)}</p></div>' for i, h, p in t["pillars"])
@@ -655,6 +864,7 @@ def home(t, root):
         sel = n == 0
         tabs.append(f'<button role="tab" id="tab-{key}" aria-controls="panel-{key}" aria-selected="{str(sel).lower()}" tabindex="{0 if sel else -1}">{icon(ic)}{escape(short)}</button>')
         items = "".join(f'<li>{icon("check")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in points)
+        target = SHOWCASE_PAGE[key]
         panels.append(f"""<div class="showcase-panel" role="tabpanel" id="panel-{key}" aria-labelledby="tab-{key}"{'' if sel else ' hidden'}>
       <div class="showcase-card">
         <div>
@@ -662,11 +872,12 @@ def home(t, root):
           <h3>{escape(heading)}</h3>
           <p class="desc">{escape(desc)}</p>
           <ul class="checks">{items}</ul>
+          <a class="btn small" href="{pg.link(target)}">{escape(t['more'])}: {escape(t['pages'][target][0])} →</a>
         </div>
         <div class="showcase-media">{phone(screen(img, t, shot), heading)}</div>
       </div>
     </div>""")
-    out.append(f"""<section class="wrap" id="{a['explore']}">
+    out.append(f"""<section class="wrap" id="{EXPLORE_ANCHOR[t['lang']]}">
   {section_head(title, text, chip)}
   <div class="picker" role="tablist">{''.join(tabs)}</div>
   {''.join(panels)}
@@ -674,62 +885,92 @@ def home(t, root):
 """)
     out.append(wavy())
 
-    title, text, chip = t["gallery_head"]
-    shots = "".join(f'<figure>{phone(screen(img, t, name), caption)}<figcaption>{escape(caption)}</figcaption></figure>' for name, caption in t["gallery"])
-    out.append(f'<section class="wrap" id="{a["screens"]}">{section_head(title, text, chip)}<div class="screens-strip" tabindex="0">{shots}</div></section>\n')
-    out.append(wavy())
+    title, text, chip = t["discover_head"]
+    cards = []
+    for key in SECTIONS:
+        shot, blurb = t["discover"][key]
+        name = t["pages"][key][0]
+        cards.append(f"""<a class="dcard" href="{pg.link(key)}">
+      <div class="dcard-shot"><img src="{screen(img, t, shot)}" alt="" loading="lazy" width="360" height="781"></div>
+      <div class="dcard-text"><h3>{escape(name)}</h3><p>{escape(blurb)}</p><span class="more">{escape(t['more'])} →</span></div>
+    </a>""")
+    out.append(f'<section class="wrap" id="{"secciones" if t["lang"] == "es" else "sections"}">{section_head(title, text, chip)}<div class="discover">{"".join(cards)}</div></section>\n')
 
-    title, text, chip = t["features_head"]
+    out.append(cta(pg))
+    out.append("</main>\n")
+    out.append(footer(pg))
+    return "".join(out)
+
+
+def features_page(t):
+    pg = Page(t, "features")
+    title, text, _ = t["gallery_head"]
     cards = []
     for ic, tone, h, p, bullets in t["features"]:
         lis = "".join(f"<li>{escape(b)}</li>" for b in bullets)
         cards.append(f'<article class="card"><div class="icon-circle {tone}">{icon(ic)}</div><h3>{escape(h)}</h3><p>{escape(p)}</p><ul>{lis}</ul></article>')
-    out.append(f'<section class="wrap" id="{a["features"]}">{section_head(title, text, chip)}<div class="grid">{"".join(cards)}</div></section>\n')
-    out.append(wavy())
+    content = f"""<section class="wrap" aria-labelledby="capturas"><div class="section-head"><h2 id="capturas">{escape(title)}</h2><p>{escape(text)}</p></div>{strip(pg, t['gallery'])}</section>
+{wavy()}<section class="wrap" aria-label="{escape(t['pages']['features'][0])}"><div class="grid">{''.join(cards)}</div></section>
+"""
+    return section_page(pg, content)
 
-    hpoints = "".join(f'<li>{icon("shield")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in t["health_points"])
-    out.append(f"""<section class="wrap" id="{a['health']}">
+
+def health_page(t):
+    pg = Page(t, "health")
+    img = pg.img
+    content = f"""<section class="wrap">
   <div class="split reverse">
     <div>
-      <span class="chip primary">{icon('pulse')}{escape(t['health_chip'])}</span>
-      <h2>{escape(t['health_title'])}</h2>
-      <p>{escape(t['health_lead'])}</p>
-      <ul class="checks" style="margin-top:22px">{hpoints}</ul>
-      <p class="muted" style="font-size:15px;margin-top:18px">{escape(t['health_note'])}</p>
+      <ul class="checks">{checks(t['health_points'], 'shield')}</ul>
+      <p class="note">{escape(t['health_note'])}</p>
     </div>
-    <div class="showcase-media duo">{phone(screen(img, t, 'recipe_health'), t['health_title'])}{phone(screen(img, t, 'fit_meal'), t['health_title'], 'second')}</div>
+    <div class="showcase-media duo">{phone(screen(img, t, 'recipe_health'), t['health_gallery'][2][1])}{phone(screen(img, t, 'fit_meal'), t['health_gallery'][3][1], 'second')}</div>
   </div>
 </section>
-""")
-    out.append(wavy())
+{wavy()}<section class="wrap">{strip(pg, t['health_gallery'])}</section>
+"""
+    return section_page(pg, content)
 
-    points = "".join(f'<li>{icon("sparkles")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in t["assistant_points"])
+
+def assistant_page(t):
+    pg = Page(t, "assistant")
+    img = pg.img
     providers = "".join(f'<span class="chip outline">{escape(p)}</span>' for p in t["providers"])
-    out.append(f"""<section class="wrap" id="{a['assistant']}">
+    insta = "".join(phone(screen(img, t, name), caption, "second" if n else "") for n, (name, caption) in enumerate(t["insta_shots"]))
+    content = f"""<section class="wrap">
   <div class="split">
     <div>
-      <span class="chip primary">{icon('sparkles')}{escape(t['assistant_chip'])}</span>
-      <h2>{escape(t['assistant_title'])}</h2>
-      <p>{escape(t['assistant_lead'])}</p>
       <div class="providers">{providers}</div>
-      <p class="muted" style="font-size:15px;margin-top:-8px">{escape(t['providers_note'])}</p>
-      <ul class="checks" style="margin-top:22px">{points}</ul>
+      <p class="note">{escape(t['providers_note'])}</p>
+      <ul class="checks">{checks(t['assistant_points'], 'sparkles')}</ul>
     </div>
-    <div class="showcase-media">{phone(screen(img, t, 'ideas'), t['assistant_title'])}</div>
+    <div class="showcase-media">{phone(screen(img, t, 'ideas'), t['assistant_more'])}</div>
   </div>
 </section>
-""")
-    out.append(wavy())
+{wavy()}<section class="wrap" id="{INSTAGRAM_ANCHOR}">
+  <div class="split reverse">
+    <div>
+      <span class="chip accent">{icon('sparkles')}{escape(t['insta_chip'])}</span>
+      <h2>{escape(t['insta_title'])}</h2>
+      <p>{escape(t['insta_lead'])}</p>
+      <ul class="checks">{checks(t['insta_points'], 'check')}</ul>
+    </div>
+    <div class="showcase-media duo">{insta}</div>
+  </div>
+</section>
+"""
+    return section_page(pg, content)
 
+
+def sync_page(t):
+    pg = Page(t, "sync")
+    img = pg.img
     steps = "".join(f"<li><div><b>{escape(b)}</b><span>{s}</span></div></li>" for b, s in t["server_steps"])
     sfeat = "".join(f'<article class="card"><div class="icon-circle sage">{icon(i)}</div><h3>{escape(h)}</h3><p>{escape(p)}</p></article>' for i, h, p in t["server_features"])
     gallery = "".join(f'<figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="{img}server/{f}" alt="{escape(c)}" loading="lazy"></div><figcaption>{escape(c)}</figcaption></figure>' for f, c in t["server_gallery"])
-    out.append(f"""<section class="wrap" id="{a['sync']}">
+    content = f"""<section class="wrap">
   <div class="split reverse">
     <div>
-      <span class="chip primary">{icon('server')}{escape(t['server_chip'])}</span>
-      <h2>{escape(t['server_title'])}</h2>
-      <p>{escape(t['server_lead'])}</p>
       <ol class="steps">{steps}</ol>
       <a class="btn" href="{SERVER_REPO}">{icon('code')}{escape(t['server_cta'])}</a>
     </div>
@@ -739,20 +980,22 @@ def home(t, root):
     <p class="muted"><b>docker-compose.yml</b> · {t['server_compose_note']}</p>
     <pre><code>{escape(COMPOSE.format(image=SERVER_IMAGE, token=t['admin_token_placeholder']))}</code></pre>
   </div>
+</section>
+{wavy()}<section class="wrap">
+  <h2 class="subhead">{escape(t['server_admin_title'])}</h2>
   <div class="gallery">{gallery}</div>
   <div class="grid" style="margin-top:28px">{sfeat}</div>
 </section>
-""")
-    out.append(wavy())
+"""
+    return section_page(pg, content)
 
-    ppoints = "".join(f'<li>{icon("package")}<div><b>{escape(b)}:</b> <span>{s}</span></div></li>' for b, s in t["packs_points"])
-    out.append(f"""<section class="wrap" id="{a['packs']}">
+
+def packs_page(t):
+    pg = Page(t, "packs")
+    content = f"""<section class="wrap">
   <div class="split">
     <div>
-      <span class="chip primary">{icon('package')}{escape(t['packs_chip'])}</span>
-      <h2>{escape(t['packs_title'])}</h2>
-      <p>{escape(t['packs_lead'])}</p>
-      <ul class="checks" style="margin-bottom:26px">{ppoints}</ul>
+      <ul class="checks">{checks(t['packs_points'], 'package', raw=True)}</ul>
       <a class="btn" href="{PACKS_REPO}">{icon('package')}{escape(t['packs_cta'])}</a>
     </div>
     <div>
@@ -760,71 +1003,77 @@ def home(t, root):
       <pre><code>{escape(CATALOG_EXAMPLE)}</code></pre>
     </div>
   </div>
-  <h3 class="subhead">{escape(t['packs_available'])}</h3>
-  {pack_cards(t, img)}
 </section>
-""")
-    out.append(wavy())
+{wavy()}<section class="wrap">
+  <h2 class="subhead">{escape(t['packs_available'])}</h2>
+  {pack_cards(t, pg.img)}
+</section>
+"""
+    return section_page(pg, content)
 
-    title, text, chip = t["faq_head"]
+
+def faq_page(t):
+    pg = Page(t, "faq")
     questions = t["faq"] if PLAY_PUBLIC else [t["faq_beta"], *t["faq"]]
     faq = "".join(f"<details><summary>{escape(q)}</summary><p>{escape(r)}</p></details>" for q, r in questions)
-    out.append(f'<section class="wrap" id="{a["faq"]}">{section_head(title, text, chip)}<div class="faq">{faq}</div></section>\n')
-
-    out.append(f"""<section class="wrap" id="{a['get']}" style="margin-top:80px">
-  <div class="cta">
-    <h2>{escape(t['cta_title'])}</h2>
-    <p>{escape(t['cta_text'] if PLAY_PUBLIC else t['cta_text_beta'])}</p>
-    {downloads(t)}
-  </div>
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": r}} for q, r in questions],
+    }
+    content = f"""<section class="wrap"><div class="faq">{faq}</div>
+  <p class="faq-contact">{icon('mail')}<a href="mailto:{CONTACT}">{CONTACT}</a></p>
 </section>
-</main>
-""")
-    out.append(footer(t, root, ""))
-    return "".join(out)
+<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>
+"""
+    return section_page(pg, content)
 
 
-def footer(t, root, home_rel):
+def footer(pg):
+    t = pg.t
     cols = []
     for title, links in t["footer_cols"]:
         items = []
         for href, label in links:
-            if not href.startswith(("http", "mailto:")):
-                href = home_rel + href
+            if href in PAGES:
+                href = pg.link(href)
             items.append(f'<li><a href="{href}">{escape(label)}</a></li>')
-        cols.append(f"<div><h4>{escape(title)}</h4><ul>{''.join(items)}</ul></div>")
+        cols.append(f"<div><h2>{escape(title)}</h2><ul>{''.join(items)}</ul></div>")
     return f"""<footer>
   <div class="wrap">
     <div>
-      <a class="brand" href="{home_rel or './'}"><img src="{root}assets/img/logo.svg" alt=""><b>Miga</b></a>
+      <a class="brand" href="{pg.link('home')}"><img src="{pg.root}assets/img/logo.svg" alt=""><b>Miga</b></a>
       <p style="margin-top:12px">{escape(t['footer_tagline'])}</p>
     </div>
     {''.join(cols)}
     <div class="legal"><span>{escape(t['legal'])}</span><span>{escape(t['off'])}</span></div>
   </div>
 </footer>
-<script src="{root}assets/main.js?v={asset_version('main.js')}"></script>
+<script src="{pg.root}assets/main.js?v={asset_version('main.js')}"></script>
 </body>
 </html>
 """
 
 
-def privacy(t, root, source):
+def privacy(t, source):
+    pg = Page(t, "privacy")
     body = markdown.markdown(source.read_text(encoding="utf-8"), extensions=["tables"])
-    out = [head(t, root, t["privacy_title"], t["description"], "privacy/"), nav(t, root, "../", "privacy/")]
-    out.append(f'<main class="wrap"><article class="doc">{body}<p style="margin-top:40px"><a class="btn small" href="../">{escape(t["back"])}</a></p></article></main>\n')
-    out.append(footer(t, root, "../"))
+    out = [head(pg, t["privacy_title"], t["description"]), nav(pg)]
+    out.append(f'<main id="main"><article class="wrap doc">{body}<p style="margin-top:40px"><a class="btn small" href="{pg.link("home")}">{escape(t["back"])}</a></p></article>\n{cta(pg)}</main>\n')
+    out.append(footer(pg))
     return "".join(out)
 
 
 def main():
-    pages = {
-        ROOT / "index.html": home(ES, ""),
-        ROOT / "en" / "index.html": home(EN, "../"),
-        ROOT / "privacy" / "index.html": privacy(ES, "../", ROOT / "content" / "privacy-es.md"),
-        ROOT / "en" / "privacy" / "index.html": privacy(EN, "../../", ROOT / "content" / "privacy-en.md"),
-    }
-    urls = "".join(f"  <url><loc>{page_url(lang, path)}</loc></url>\n" for path in ("", "privacy/") for lang in ("es", "en"))
+    builders = {"home": home, "features": features_page, "health": health_page, "assistant": assistant_page,
+                "sync": sync_page, "packs": packs_page, "faq": faq_page}
+    pages = {}
+    for t in (ES, EN):
+        base = ROOT / ("en" if t["lang"] == "en" else "")
+        for key, build in builders.items():
+            pages[base / PAGES[key][t["lang"]] / "index.html"] = build(t)
+        pages[base / "privacy" / "index.html"] = privacy(t, ROOT / "content" / f"privacy-{t['lang']}.md")
+    urls = "".join(f"  <url><loc>{page_url(lang, PAGES[key][lang])}</loc></url>\n" for key in PAGES for lang in ("es", "en"))
     pages[ROOT / "sitemap.xml"] = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
     pages[ROOT / "robots.txt"] = f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n"
     for path, html in pages.items():
