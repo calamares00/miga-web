@@ -10,7 +10,8 @@ it works at `https://calamares00.github.io/miga-web/` and on its own domain alik
 
 | Path | Content |
 | :--- | :--- |
-| `index.html`, `en/index.html` | Home page in Spanish and English (generated) |
+| `index.html`, `en/index.html` | Home page in Spanish and English (generated): hero, showcase and links to each section |
+| `funciones/`, `salud/`, `asistente/`, `familia/`, `packs/index.html`, `preguntas/` | Section pages in Spanish (generated); in English under `en/` as `features/`, `health/`, `assistant/`, `family/`, `packs/`, `faq/` |
 | `privacy/`, `en/privacy/` | Privacy policy (generated from `content/privacy-*.md`) |
 | `packs/catalog.json` | Official recipe packs catalogue the app reads by default |
 | `assets/` | Styles, script, logo, app screens and miga-server screenshots |

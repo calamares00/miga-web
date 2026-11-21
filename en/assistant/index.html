@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cooking assistant · Miga</title>
+<meta name="description" content="Miga&#x27;s cooking assistant: recipes from photos, websites and Instagram, polishing recipes and ideas, with your own key and the provider you choose.">
+<meta name="theme-color" content="#0f1310">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Miga">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Cooking assistant · Miga">
+<meta property="og:description" content="Miga&#x27;s cooking assistant: recipes from photos, websites and Instagram, polishing recipes and ideas, with your own key and the provider you choose.">
+<meta property="og:image" content="https://miga.calamares.org/assets/img/og.png">
+<meta property="og:url" content="https://miga.calamares.org/en/assistant/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://miga.calamares.org/en/assistant/">
+<link rel="alternate" hreflang="es" href="https://miga.calamares.org/asistente/">
+<link rel="alternate" hreflang="en" href="https://miga.calamares.org/en/assistant/">
+<link rel="alternate" hreflang="x-default" href="https://miga.calamares.org/asistente/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Miga", "item": "https://miga.calamares.org/en/"}, {"@type": "ListItem", "position": 2, "name": "Cooking assistant", "item": "https://miga.calamares.org/en/assistant/"}]}</script>
+<link rel="icon" href="../../assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/style.css?v=f5e4cb0c2b">
+<script>
+  // Saved theme, else the system's, before the first paint.
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem('miga-theme'); } catch (e) {}
+    if (!theme) theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../../assets/img/logo.svg" alt=""><b>Miga</b></a>
+    <nav class="nav-links" id="menu" aria-label="Miga"><a href="../features/">Features</a><a href="../health/">Health</a><a href="../assistant/" aria-current="page">Assistant</a><a href="../family/">Family</a><a href="../packs/">Packs</a><a href="../faq/">FAQ</a></nav>
+    <a class="icon-btn" href="../../asistente/" hreflang="es" lang="es" title="Español">ES</a>
+    <button class="icon-btn" data-theme-toggle title="Switch theme" aria-label="Switch theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+    <button class="icon-btn menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <a class="btn primary small" href="#download"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg><span class="cta-label">Try the beta</span></a>
+  </div>
+</header>
+<main id="main"><section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><span aria-current="page">Cooking assistant</span></li></ol></nav>
+    <span class="chip primary">Assistant · Optional</span>
+    <h1>A cooking assistant that uses your own key</h1>
+    <p class="lead">Features marked with ✨ use artificial intelligence with the key you set up. You choose the provider and the model, and Miga only sends what each task needs.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="split">
+    <div>
+      <div class="providers"><span class="chip outline">Google Gemini</span><span class="chip outline">Anthropic Claude</span><span class="chip outline">OpenAI</span><span class="chip outline">DeepSeek</span><span class="chip outline">Mistral</span><span class="chip outline">Groq</span><span class="chip outline">OpenRouter (free models)</span><span class="chip outline">OpenAI-compatible (Ollama, LM Studio…)</span></div>
+      <p class="note">Add several and they are used in your order: if one fails, the next one steps in.</p>
+      <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Recipes from photos and web pages:</b> <span>reads the text of a photo or a page and fills in the editor; from a web page it also polishes it. You review it before saving.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Recipes from videos:</b> <span>if an Instagram reel has no recipe in its caption, it takes it from what is said in the video.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Improve recipes:</b> <span>one or many at once: better wording, tidy ingredients and times in bold. Nothing is saved without your say-so.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Ideas:</b> <span>suggestions from your own recipes, weekly menus and answers about techniques, storage or substitutions.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Health and nutrition:</b> <span>a rough health rating, calories and macros per serving, and ingredient substitutes.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Keeps going when you leave:</b> <span>long tasks continue in the background with a notification that takes you to the result.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Easy to set up:</b> <span>“Connect with OpenRouter” creates the key for you; for the others, “Get a key” and “Test connection”.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg><div><b>Transparent:</b> <span>generated content is labelled and can be reported. With no key, nothing is sent.</span></div></li></ul>
+    </div>
+    <div class="showcase-media"><div class="phone "><img src="../../assets/img/screens/en/ideas.webp" alt="Ideas and polishing" width="360" height="781" loading="lazy"></div></div>
+  </div>
+</section>
+<div class="wavy" aria-hidden="true"></div>
+<section class="wrap" id="instagram">
+  <div class="split reverse">
+    <div>
+      <span class="chip accent"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4"/></svg>New</span>
+      <h2>Instagram recipes, in your book</h2>
+      <p>Saw a recipe in a reel? Share it to Miga or paste its link and it&#x27;s saved as just another recipe, with its photo and the author in the notes.</p>
+      <ul class="checks"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>No assistant needed:</b> <span>if the post&#x27;s caption has the ingredients and steps, Miga reads them directly.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>Listens to the video ✨:</b> <span>if the caption has no recipe, the assistant listens to the video: Gemini hears the audio, and OpenAI, Groq or Mistral transcribe it. Check the quantities.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>From Instagram:</b> <span>tap Share on the reel, choose Miga and pick the book to save it in.</span></div></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div><b>The right photo:</b> <span>full size and without the video&#x27;s play button.</span></div></li></ul>
+    </div>
+    <div class="showcase-media duo"><div class="phone "><img src="../../assets/img/screens/en/share_instagram.webp" alt="Sharing a reel to Miga" width="360" height="781" loading="lazy"></div><div class="phone second"><img src="../../assets/img/screens/en/new_recipe.webp" alt="New recipe from a website or Instagram" width="360" height="781" loading="lazy"></div></div>
+  </div>
+</section>
+<nav class="wrap pager" aria-label="More sections">
+  <div class="pager-steps"><a class="prev" href="../health/" rel="prev"><small>← Previous</small><b>Health</b></a><a class="next" href="../family/" rel="next"><small>Next →</small><b>Family and sync</b></a></div>
+  <div class="pager-all"><a href="../features/">Features</a><a href="../health/">Health</a><a href="../family/">Family</a><a href="../packs/">Packs</a><a href="../faq/">FAQ</a></div>
+</nav>
+<section class="wrap get" id="download">
+  <div class="cta">
+    <h2>Start your recipe book today</h2>
+    <p>Join the beta, create your first book and save that recipe everyone keeps asking for.</p>
+    <div class="hero-actions">
+        <a class="btn primary" href="mailto:miga@calamares.org?subject=I%27d%20like%20to%20try%20Miga&amp;body=Hi%2C%20I%27d%20like%20to%20try%20the%20Miga%20beta.%20My%20Google%20account%27s%20email%20is%3A%20"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Join the beta</a>
+        <span class="btn" aria-disabled="true" title="Soon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 14 9-14 9V3z"/></svg>Google Play<span class="soon">Soon</span></span>
+      </div>
+      <p class="beta-note">Miga is in testing on Google Play. Email us from your Google account&#x27;s address and we&#x27;ll send you an invitation.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../../assets/img/logo.svg" alt=""><b>Miga</b></a>
+      <p style="margin-top:12px">Your family recipe book and shopping list, on your phone.</p>
+    </div>
+    <div><h2>Miga</h2><ul><li><a href="../features/">Features</a></li><li><a href="../health/">Health</a></li><li><a href="../assistant/">Cooking assistant</a></li><li><a href="../faq/">FAQ</a></li></ul></div><div><h2>More</h2><ul><li><a href="../family/">Sync server</a></li><li><a href="../packs/">Recipe packs</a></li><li><a href="https://github.com/calamares00/miga-server">miga-server</a></li><li><a href="https://github.com/calamares00/miga-packs">miga-packs</a></li></ul></div><div><h2>Legal</h2><ul><li><a href="../privacy/">Privacy policy</a></li><li><a href="mailto:miga@calamares.org">Contact</a></li></ul></div>
+    <div class="legal"><span>© 2026 Calamares. Recipes in the packs are published under CC BY 4.0.</span><span>Product data from Open Food Facts (ODbL).</span></div>
+  </div>
+</footer>
+<script src="../../assets/main.js?v=1f6d1af622"></script>
+</body>
+</html>
