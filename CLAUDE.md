@@ -1,7 +1,10 @@
 # Miga website
 
 Static site for https://miga.calamares.org (GitHub Pages, `CNAME`), in Spanish (`/`) and English
-(`/en/`).
+(`/en/`). A short home page plus one page per section (`PAGES` in `tools/build.py`: features,
+health, assistant, family/sync, packs, FAQ), each with breadcrumb, previous/next links and the
+download block (`#descargar` / `#download`). Anchors of the old one-page site (`#salud`...) are
+sent to their page by `assets/main.js` (`LEGACY_ANCHORS`).
 
 ## Conventions
 
