@@ -320,3 +320,22 @@ footer .legal { grid-column: 1 / -1; border-top: 1px solid var(--outline); paddi
 }
 @media (max-width: 960px) { .packs { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .packs { grid-template-columns: 1fr; } }
+
+/* --- Real screenshots --- */
+.phone img { display: block; aspect-ratio: 360 / 781; height: auto; object-fit: cover; object-position: top; }
+.screens-strip {
+  display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 4px 22px;
+  scrollbar-width: thin;
+}
+.screens-strip figure { flex: 0 0 auto; width: 210px; margin: 0; scroll-snap-align: start; text-align: center; }
+.screens-strip .phone { position: relative; width: 100%; padding: 7px; border-radius: 30px; }
+.screens-strip .phone img { border-radius: 24px; }
+.screens-strip figcaption { margin-top: 12px; font-size: 15px; color: var(--muted); font-weight: 600; }
+.showcase-media.duo { position: relative; min-height: 640px; }
+.showcase-media.duo .phone { position: absolute; width: 270px; }
+.showcase-media.duo .phone:first-child { left: 0; top: 0; }
+.showcase-media.duo .phone.second { right: 0; top: 70px; }
+@media (max-width: 860px) {
+  .showcase-media.duo { min-height: 0; gap: 14px; }
+  .showcase-media.duo .phone { position: relative; width: 46%; top: 0 !important; }
+}
