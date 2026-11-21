@@ -1,6 +1,15 @@
-// Theme switch, mobile menu and the feature showcase. No third-party code.
+// Theme switch, mobile menu, the feature showcase and old links. No third-party code.
 (function () {
   'use strict';
+
+  // The site used to be one long page: its section links (#funciones...) now go to their page.
+  const main = document.querySelector('main[data-legacy-anchors]');
+  if (main && location.hash) {
+    try {
+      const target = JSON.parse(main.dataset.legacyAnchors)[decodeURIComponent(location.hash.slice(1))];
+      if (target) location.replace(target);
+    } catch (e) { /* stays on the home page */ }
+  }
 
   const root = document.documentElement;
   const themeButton = document.querySelector('[data-theme-toggle]');
@@ -19,7 +28,17 @@
       const open = nav.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(open));
     });
-    nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    const close = () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    };
+    nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        close();
+        menuButton.focus();
+      }
+    });
   }
 
   // Showcase: one tab per area of the app, with arrow-key navigation.

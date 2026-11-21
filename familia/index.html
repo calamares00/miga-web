@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Familia y sincronización · Miga</title>
+<meta name="description" content="Comparte libros y la lista de la compra en familia con miga-server, un servidor de sincronización que alojas tú con Docker.">
+<meta name="theme-color" content="#0f1310">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Miga">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Familia y sincronización · Miga">
+<meta property="og:description" content="Comparte libros y la lista de la compra en familia con miga-server, un servidor de sincronización que alojas tú con Docker.">
+<meta property="og:image" content="https://miga.calamares.org/assets/img/og.png">
+<meta property="og:url" content="https://miga.calamares.org/familia/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://miga.calamares.org/familia/">
+<link rel="alternate" hreflang="es" href="https://miga.calamares.org/familia/">
+<link rel="alternate" hreflang="en" href="https://miga.calamares.org/en/family/">
+<link rel="alternate" hreflang="x-default" href="https://miga.calamares.org/familia/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Miga", "item": "https://miga.calamares.org/"}, {"@type": "ListItem", "position": 2, "name": "Familia y sincronización", "item": "https://miga.calamares.org/familia/"}]}</script>
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css?v=f5e4cb0c2b">
+<script>
+  // Saved theme, else the system's, before the first paint.
+  (function () {
+    var theme = null;
+    try { theme = localStorage.getItem('miga-theme'); } catch (e) {}
+    if (!theme) theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/img/logo.svg" alt=""><b>Miga</b></a>
+    <nav class="nav-links" id="menu" aria-label="Miga"><a href="../funciones/">Funciones</a><a href="../salud/">Salud</a><a href="../asistente/">Asistente</a><a href="../familia/" aria-current="page">Familia</a><a href="../packs/">Packs</a><a href="../preguntas/">Preguntas</a></nav>
+    <a class="icon-btn" href="../en/family/" hreflang="en" lang="en" title="English">EN</a>
+    <button class="icon-btn" data-theme-toggle title="Cambiar tema" aria-label="Cambiar tema"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+    <button class="icon-btn menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="Menú"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <a class="btn primary small" href="#descargar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg><span class="cta-label">Probar la beta</span></a>
+  </div>
+</header>
+<main id="main"><section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Ruta de navegación"><ol><li><a href="../">Inicio</a></li><li><span aria-current="page">Familia y sincronización</span></li></ol></nav>
+    <span class="chip primary">miga-server</span>
+    <h1>Tu propio servidor de sincronización</h1>
+    <p class="lead">Para compartir libros y la lista de la compra en familia, Miga se conecta a un servidor que alojas tú. Es ligero, funciona con Docker y trae una web de administración muy completa.</p>
+  </div>
+</section>
+<section class="wrap">
+  <div class="split reverse">
+    <div>
+      <ol class="steps"><li><div><b>Arranca el servidor</b><span>guarda el <code>docker-compose.yml</code> de abajo, cambia el token de administrador por una cadena larga y aleatoria (por ejemplo, la salida de <code>openssl rand -base64 32</code>) y ejecuta <code>docker compose up -d</code>.</span></div></li><li><div><b>Crea un espacio compartido</b><span>desde la web de administración (<code>http://tu-servidor:8080/ui</code>), crea un namespace (por ejemplo, «casa») y un token para cada móvil.</span></div></li><li><div><b>Conecta la app</b><span>en Ajustes › Servidor de sincronización, añade la conexión. El resto de la familia se une escaneando un QR.</span></div></li></ol>
+      <a class="btn" href="https://github.com/calamares00/miga-server"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Ver miga-server</a>
+    </div>
+    <div class="showcase-media"><div class="phone "><img src="../assets/img/server/mobile.png" alt="Tu propio servidor de sincronización" width="360" height="781" loading="lazy"></div></div>
+  </div>
+  <div class="compose">
+    <p class="muted"><b>docker-compose.yml</b> · Con este archivo basta: la imagen trae todo lo necesario y los datos se guardan en el volumen <code>miga-data</code>.</p>
+    <pre><code>services:
+  miga-server:
+    image: ghcr.io/calamares00/miga-server:latest
+    restart: unless-stopped
+    ports:
+      - &quot;8080:8080&quot;
+    environment:
+      MIGA_ADMIN_TOKEN: &quot;cambia-esto-por-un-token-largo&quot;
+    volumes:
+      - miga-data:/data
+
+volumes:
+  miga-data:</code></pre>
+  </div>
+</section>
+<div class="wavy" aria-hidden="true"></div>
+<section class="wrap">
+  <h2 class="subhead">La web de administración</h2>
+  <div class="gallery"><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="../assets/img/server/table.png" alt="Recetas en modo tabla, con acciones sobre varias a la vez" loading="lazy"></div><figcaption>Recetas en modo tabla, con acciones sobre varias a la vez</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="../assets/img/server/editor-dark.png" alt="Editor de recetas en modo oscuro" loading="lazy"></div><figcaption>Editor de recetas en modo oscuro</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="../assets/img/server/grid.png" alt="Vista de cuadrícula con fotos" loading="lazy"></div><figcaption>Vista de cuadrícula con fotos</figcaption></figure><figure><div class="frame"><div class="bar"><span></span><span></span><span></span></div><img src="../assets/img/server/mobile.png" alt="También funciona en el móvil" loading="lazy"></div><figcaption>También funciona en el móvil</figcaption></figure></div>
+  <div class="grid" style="margin-top:28px"><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Espacios privados</h3><p>cada namespace lo comparten los móviles que tú decidas, con un token por dispositivo que puedes revocar.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div><h3>Sincronización fiable</h3><p>libros, recetas, fotos y listas, con «la última edición gana» aunque los relojes no coincidan.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div><h3>Administración web</h3><p>edita recetas en una tabla como en una hoja de cálculo, cambia muchas a la vez o usa el editor completo.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M9 13h6M9 17h6"/></svg></div><h3>PDF desde el navegador</h3><p>descarga una receta o un libro entero con el mismo diseño que la app, en español o inglés.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg></div><h3>Copias automáticas</h3><p>una copia diaria con rotación, y copias y descargas con un clic.</p></article><article class="card"><div class="icon-circle sage"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Sin dependencias externas</h3><p>una sola imagen Docker con SQLite; ponla detrás de un proxy con TLS para usarla fuera de casa.</p></article></div>
+</section>
+<nav class="wrap pager" aria-label="Más secciones">
+  <div class="pager-steps"><a class="prev" href="../asistente/" rel="prev"><small>← Anterior</small><b>Asistente de cocina</b></a><a class="next" href="../packs/" rel="next"><small>Siguiente →</small><b>Packs de recetas</b></a></div>
+  <div class="pager-all"><a href="../funciones/">Funciones</a><a href="../salud/">Salud</a><a href="../asistente/">Asistente</a><a href="../packs/">Packs</a><a href="../preguntas/">Preguntas</a></div>
+</nav>
+<section class="wrap get" id="descargar">
+  <div class="cta">
+    <h2>Empieza tu recetario hoy</h2>
+    <p>Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.</p>
+    <div class="hero-actions">
+        <a class="btn primary" href="mailto:miga@calamares.org?subject=Quiero%20probar%20Miga&amp;body=Hola%2C%20quiero%20probar%20la%20beta%20de%20Miga.%20El%20correo%20de%20mi%20cuenta%20de%20Google%20es%3A%20"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Apúntate a la beta</a>
+        <span class="btn" aria-disabled="true" title="Pronto"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 14 9-14 9V3z"/></svg>Google Play<span class="soon">Pronto</span></span>
+      </div>
+      <p class="beta-note">Miga está en pruebas en Google Play. Escríbenos desde el correo de tu cuenta de Google y te enviamos la invitación.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../"><img src="../assets/img/logo.svg" alt=""><b>Miga</b></a>
+      <p style="margin-top:12px">El recetario de tu familia y tu lista de la compra, en tu móvil.</p>
+    </div>
+    <div><h2>Miga</h2><ul><li><a href="../funciones/">Funciones</a></li><li><a href="../salud/">Salud</a></li><li><a href="../asistente/">Asistente de cocina</a></li><li><a href="../preguntas/">Preguntas frecuentes</a></li></ul></div><div><h2>Más</h2><ul><li><a href="../familia/">Servidor de sincronización</a></li><li><a href="../packs/">Packs de recetas</a></li><li><a href="https://github.com/calamares00/miga-server">miga-server</a></li><li><a href="https://github.com/calamares00/miga-packs">miga-packs</a></li></ul></div><div><h2>Legal</h2><ul><li><a href="../privacy/">Política de privacidad</a></li><li><a href="mailto:miga@calamares.org">Contacto</a></li></ul></div>
+    <div class="legal"><span>© 2026 Calamares. Las recetas de los packs se publican bajo CC BY 4.0.</span><span>Datos de productos de Open Food Facts (ODbL).</span></div>
+  </div>
+</footer>
+<script src="../assets/main.js?v=1f6d1af622"></script>
+</body>
+</html>
