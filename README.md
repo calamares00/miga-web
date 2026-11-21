@@ -16,14 +16,14 @@ it works at `https://calamares00.github.io/miga-web/` and on its own domain alik
 | `assets/` | Styles, script, logo, app screens and miga-server screenshots |
 | `content/` | Privacy policy sources: the same text as `PRIVACY.md` in the app |
 | `tools/build.py` | Builds the HTML pages from the texts it holds |
-| `tools/mockups.py` | Draws the illustrative phone screens in `assets/img/screens/` |
+| `tools/screens.py` | Turns the app's screenshots into `assets/img/screens/{es,en}/*.webp` |
+| `tools/og.mjs` | Draws `assets/img/og.png`, the preview when the site is shared |
 
 ## Editing
 
 ```bash
 pip install markdown
 python3 tools/build.py        # after changing texts in tools/build.py or content/*.md
-python3 tools/mockups.py      # only to redraw the illustrative screens
 python3 -m http.server        # preview at http://localhost:8000
 ```
 
@@ -32,9 +32,10 @@ When the privacy policy changes in the app, copy `PRIVACY.md` to `content/privac
 
 ### Real screenshots
 
-The phone screens in `assets/img/screens/*.svg` are illustrations in the app's Huerta colours. To use
-real screenshots, save them as PNG (portrait, about 1080×2280) in the same folder and change the
-`.svg` extension of that screen in `tools/build.py`.
+The phone screens in `assets/img/screens/{es,en}/` are screenshots of the real app, taken by its
+screenshot tests with recipe packs installed. To refresh them, take new screenshots (see the
+docstring of `tools/screens.py`), run `python3 tools/screens.py <folder>` (needs Pillow) and
+`node tools/og.mjs` (needs Playwright), then rebuild.
 
 ### Recipe packs
 
