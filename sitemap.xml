@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://miga.calamares.org/</loc></url>
   <url><loc>https://miga.calamares.org/en/</loc></url>
+  <url><loc>https://miga.calamares.org/funciones/</loc></url>
+  <url><loc>https://miga.calamares.org/en/features/</loc></url>
+  <url><loc>https://miga.calamares.org/salud/</loc></url>
+  <url><loc>https://miga.calamares.org/en/health/</loc></url>
+  <url><loc>https://miga.calamares.org/asistente/</loc></url>
+  <url><loc>https://miga.calamares.org/en/assistant/</loc></url>
+  <url><loc>https://miga.calamares.org/familia/</loc></url>
+  <url><loc>https://miga.calamares.org/en/family/</loc></url>
+  <url><loc>https://miga.calamares.org/packs/</loc></url>
+  <url><loc>https://miga.calamares.org/en/packs/</loc></url>
+  <url><loc>https://miga.calamares.org/preguntas/</loc></url>
+  <url><loc>https://miga.calamares.org/en/faq/</loc></url>
   <url><loc>https://miga.calamares.org/privacy/</loc></url>
   <url><loc>https://miga.calamares.org/en/privacy/</loc></url>
 </urlset>
