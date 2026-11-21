@@ -17,7 +17,11 @@ Static site for https://miga.calamares.org (GitHub Pages, `CNAME`), in Spanish (
 - `content/privacy-es.md` and `content/privacy-en.md` are the privacy policy linked from Google
   Play. Keep them identical to `PRIVACY.md` and `app/src/main/assets/docs/privacy-*.md` in
   `calamares00/miga-app`.
-- `assets/img/screens/*.svg` are drawn by `tools/mockups.py` with the app's "Huerta" colours.
+- `assets/img/screens/{es,en}/*.webp` are real screenshots of the app: `StoreShotsEsTest` and
+  `StoreShotsEnTest` in `calamares00/miga-app` install recipe packs from miga-packs and drive the
+  app's interface; `tools/screens.py` turns their PNGs into these WebP files (see its docstring).
+  `assets/img/og.png`, the preview when the site is shared, is drawn from them by `tools/og.mjs`
+  (Playwright).
 
 ## Recipe pack catalogue
 

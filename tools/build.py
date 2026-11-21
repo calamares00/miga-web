@@ -66,6 +66,9 @@ ICONS = {
     "ban": '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
     "phone": '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
     "mail": '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+    "pulse": '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>',
+    "bulb": '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/>',
+    "wheat": '<path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/>',
     "wand": '<path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4M19 14v4M10 2v2M7 8H3M21 16h-4M11 3H9"/>',
 }
 
@@ -82,18 +85,18 @@ ES = {
     "lang": "es", "other": "en", "other_label": "English", "other_short": "EN",
     "title": "Miga · Tu recetario familiar y tu lista de la compra",
     "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.",
-    "nav": [("#funciones", "Funciones"), ("#asistente", "Asistente"), ("#sincronizacion", "Sincronización"), ("#packs", "Packs"), ("#preguntas", "Preguntas")],
+    "nav": [("#funciones", "Funciones"), ("#salud", "Salud"), ("#asistente", "Asistente"), ("#sincronizacion", "Sincronización"), ("#packs", "Packs"), ("#preguntas", "Preguntas")],
     "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Probar la beta",
     "badge": "Disponible en Google Play", "badge_beta": "Beta cerrada en Google Play",
     "hero_title": "Tus recetas. Tus libros. <em>Tu cocina.</em>",
-    "hero_lead": "Miga guarda las recetas de tu familia en libros con su portada, te acompaña paso a paso mientras cocinas y organiza la compra por los pasillos de tu supermercado. Sin cuentas, sin anuncios y con todo guardado en tu móvil.",
+    "hero_lead": "Miga guarda las recetas de tu familia en libros con su portada, te acompaña paso a paso mientras cocinas, te avisa de los alérgenos que te importan y organiza la compra por los pasillos de tu supermercado. Sin cuentas, sin anuncios y con todo guardado en tu móvil.",
     "play": "Google Play", "soon": "Pronto", "beta": "Apúntate a la beta",
     "beta_note": "Miga está en pruebas en Google Play. Escríbenos desde el correo de tu cuenta de Google y te enviamos la invitación.",
     "beta_subject": "Quiero probar Miga",
     "beta_body": "Hola, quiero probar la beta de Miga. El correo de mi cuenta de Google es: ",
     "hero_badges": ["Sin cuentas", "Sin anuncios", "Sin analítica", "Funciona sin conexión", "Español e inglés"],
     "shot_alt_front": "Pantalla de una receta en Miga", "shot_alt_back": "Lista de libros en Miga",
-    "marquee": [("book", "Libros de recetas"), ("utensils", "Modo cocina"), ("timer", "Temporizadores"), ("mic", "Dictado y voz"), ("cart", "Lista de la compra"), ("scan", "Escáner de productos"), ("leaf", "Open Food Facts"), ("sparkles", "Asistente de cocina"), ("server", "Servidor propio"), ("package", "Packs de recetas"), ("file", "PDF e imagen"), ("archive", "Copias cifradas"), ("palette", "Temas y marcos"), ("widget", "Widget"), ("lock", "Bloqueo con huella")],
+    "marquee": [("book", "Libros de recetas"), ("utensils", "Modo cocina"), ("timer", "Temporizadores"), ("mic", "Dictado y voz"), ("cart", "Lista de la compra"), ("scan", "Escáner de productos"), ("leaf", "Open Food Facts"), ("sparkles", "Asistente de cocina"), ("server", "Servidor propio"), ("package", "Packs de recetas"), ("shield", "Alérgenos"), ("wheat", "Modo celíacos"), ("pulse", "Raciones de hidratos"), ("bulb", "Consejos de cocina"), ("file", "PDF e imagen"), ("archive", "Copias cifradas"), ("palette", "Temas y marcos"), ("widget", "Widget"), ("lock", "Bloqueo con huella")],
     "pillars_head": ("Hecha para tu cocina, no para vender tus datos", "Miga no tiene servidores propios ni te pide registrarte. Lo que guardas es tuyo y se queda en tu teléfono."),
     "pillars": [
         ("phone", "Todo en tu móvil", "Recetas, fotos, listas y ajustes se guardan en el teléfono. Funciona sin conexión."),
@@ -101,58 +104,68 @@ ES = {
         ("shield", "Tú decides qué sale", "Internet solo se usa para lo que activas: tu asistente, Open Food Facts, packs o tu servidor."),
         ("users", "Para toda la familia", "Comparte libros y la lista de la compra con tu propio servidor, sin nadie en medio."),
     ],
-    "showcase_head": ("Explora Miga", "Elige una parte de la app para ver qué puede hacer por ti.", "Vista interactiva"),
+    "showcase_head": ("Explora Miga", "Elige una parte de la app para verla tal cual es: estas pantallas son de la app de verdad.", "Vista interactiva"),
     "showcase": [
         ("books", "book", "Libros", "Libros y recetas", "Un recetario para cada cosa",
          "Crea un libro para cada persona o cada tema, cada uno con su portada, y llena sus páginas con recetas completas.",
          [("Recetas completas", "ingredientes con cantidad y unidad, pasos, fotos, dificultad, tiempos, raciones, origen con bandera y etiquetas."),
           ("Subrecetas", "separa la salsa, la masa o la guarnición, cada una con sus ingredientes y sus pasos."),
           ("Ingredientes opcionales", "marca el perejil para decorar sin ensuciar su nombre."),
+          ("Packs de recetas", "libros listos para instalar, con cocinas del mundo, arroces, panadería, Thermomix y más."),
+          ("Consejo del día", "un truco de cocina cada día y cientos más que funcionan sin conexión.")], "books"),
+        ("recipe", "list", "Recetas", "La receta", "Todo claro de un vistazo",
+         "Tiempo, raciones y dificultad en una línea; los ingredientes, escritos como los dirías.",
+         [("Ingredientes naturales", "«½ vaso de vino», «2 dientes de ajo»: sin tablas ni columnas."),
           ("Raciones al momento", "cambia las raciones y las cantidades se recalculan solas."),
-          ("Mis notas", "apuntes con fecha que no cambian la receta: «la próxima vez, menos sal».")], "books"),
+          ("Alérgenos calculados", "los 14 de la ley europea y la lactosa, a partir de los ingredientes."),
+          ("Consejos para esta receta", "si un truco ayuda con sus ingredientes o pasos, aparece ahí mismo."),
+          ("Mis notas", "apuntes con fecha que no cambian la receta: «la próxima vez, menos sal».")], "recipe"),
         ("cooking", "utensils", "Modo cocina", "Modo cocina", "Cocina con las manos en la masa",
          "Los pasos uno a uno, en grande y sin que se apague la pantalla.",
-         [("Temporizadores de un toque", "«cocer 10 minutos» se convierte en un temporizador."),
+         [("Temporizadores de un toque", "«cocer 10 minutos» se convierte en un temporizador; puedes tener varios y siguen aunque salgas."),
           ("Lectura en voz alta", "Miga te lee cada paso con la voz que elijas."),
           ("Manos libres", "di «siguiente», «anterior», «repite» o «temporizador» sin tocar el móvil."),
-          ("Formato claro", "tiempos y temperaturas en negrita para encontrarlos de un vistazo.")], "cooking"),
+          ("Formato claro", "tiempos y temperaturas resaltados para encontrarlos de un vistazo.")], "cook_mode"),
         ("shopping", "cart", "Compra", "Lista de la compra", "La compra, en el orden de tu súper",
          "Añade lo que falta escribiendo, dictando, escaneando o desde una receta, y recórrela por pasillos.",
-         [("Por pasillos", "agrupada por categorías y ordenada como tu supermercado."),
+         [("Por pasillos", "escribe «limones» o «leche» como siempre y cada cosa va a su pasillo."),
           ("Varias listas y plantillas", "la de casa, la de la fiesta y la compra semanal guardada."),
           ("Modo tienda", "desliza para marcar y la pantalla se queda encendida."),
           ("Compartir", "por texto, con un código QR o sincronizada con tu familia."),
-          ("Widget", "añade cosas desde la pantalla de inicio sin abrir la app.")], "shopping"),
-        ("product", "scan", "Productos", "Ficha de producto", "Sabe lo que compras",
-         "Escanea el código de barras y consulta la ficha del producto con los datos abiertos de Open Food Facts.",
-         [("Nutri-Score y NOVA", "la calidad nutricional y el grado de procesado de un vistazo."),
-          ("Alérgenos y aditivos", "lo que conviene vigilar, marcado claramente."),
-          ("Puntuación de 0 a 100", "una estimación orientativa de Miga a partir de esos datos."),
-          ("Tabla nutricional", "energía, grasas, hidratos, fibra y proteínas por 100 g.")], "product"),
+          ("Ficha del producto", "escanea el código de barras y mira Nutri-Score, NOVA, alérgenos y aditivos (Open Food Facts).")], "shopping"),
+        ("health", "shield", "Salud", "Alérgenos y salud", "Cocina para quien tienes en la mesa",
+         "Miga calcula los alérgenos de cada receta y te ayuda con la celiaquía y con las raciones de hidratos. Todo opcional y sin el asistente.",
+         [("Solo los tuyos", "marca tus alergias e intolerancias y cada receta dice «Lleva huevo» o «Sin tus alérgenos»."),
+          ("Filtros", "busca «Sin huevo», «Sin ingredientes con gluten» o recetas para celíacos."),
+          ("Modo celíacos", "qué comprar certificado y cómo evitar la contaminación cruzada."),
+          ("Raciones de hidratos", "cuántas lleva cada receta por persona y cuánto servirte según tu plan.")], "filters"),
         ("assistant", "sparkles", "Asistente", "Asistente de cocina", "Una ayuda cuando la quieras",
          "Funciones opcionales con inteligencia artificial y tu propia clave. Si no lo configuras, no se envía nada.",
          [("Recetas desde fotos", "fotografía una receta de un libro o escrita a mano y precarga el editor."),
           ("Desde una web", "pega un enlace y obtén la receta limpia, sin anuncios ni historias."),
           ("Mejorar recetas", "pule la redacción y normaliza ingredientes; ves el antes y el después."),
-          ("Ideas", "pregunta qué cocinar con lo que tienes, pide un menú semanal o un plato de temporada.")], "assistant"),
+          ("Ideas", "pregunta qué cocinar con lo que tienes, pide un menú semanal o un plato de temporada.")], "new_recipe"),
         ("sync", "users", "Familia", "Sincronización", "Compartid libros y listas en familia",
          "Conecta Miga a un servidor que alojes tú y comparte libros y la lista de la compra entre varios móviles.",
          [("Tu servidor", "miga-server funciona en tu casa o en tu VPS con Docker."),
           ("Invitaciones con QR", "escanea el código desde otro móvil y ya estáis conectados."),
           ("Lista compartida en directo", "se actualiza cada pocos segundos mientras la miras."),
-          ("Sin terceros", "los datos van solo a tu servidor.")], "sync"),
+          ("Sin terceros", "los datos van solo a tu servidor.")], "server/mobile.png"),
     ],
     "features_head": ("Todo lo que hace Miga", "Una app completa para la cocina de casa, explicada sin letra pequeña.", "Funciones"),
     "features": [
         ("book", "", "Libros con portada", "Organiza las recetas en libros: el de tu madre, el de un amigo o uno por temas.", ["Fija tus libros favoritos arriba", "Recetas agrupadas por categoría", "Desliza para pasar de receta como las páginas de un libro"]),
-        ("search", "", "Buscar y filtrar", "Encuentra cualquier receta en todos tus libros por nombre o ingrediente.", ["Filtros por tiempo, dificultad, categoría, equipamiento, etiquetas, ingredientes u origen", "Favoritas a un toque", "Filtros activos como chips que quitas de uno en uno"]),
-        ("list", "", "Editor cómodo", "Escribir una receta es rápido: la app te sugiere lo que ya has usado.", ["Pasos con negrita, cursiva, tachado y listas", "Dicta los pasos con el micrófono", "Selecciona varias recetas y cámbialas de una vez"]),
+        ("search", "", "Buscar y filtrar", "Encuentra cualquier receta en todos tus libros por nombre o ingrediente.", ["Filtros por tiempo, dificultad, categoría, ingredientes, origen y alérgenos", "«¿Qué cocino con lo que tengo?» con lo que hay en tu despensa", "Búsquedas guardadas y recientes"]),
+        ("list", "", "Editor cómodo", "Escribir una receta es rápido: pestañas para cada parte y sugerencias de lo que ya has usado.", ["Escribe «200 g de patatas» y Miga separa cantidad, unidad y nombre", "Pasos con negrita, cursiva y listas, o dictados", "Selecciona varias recetas y cámbialas de una vez"]),
         ("camera", "accent", "Fotos a juego", "Recorta, gira y mejora tus fotos, que se guardan con el tamaño justo.", ["Marcos para todas las fotos: Polaroid, galería, viñeta…", "Mejora automática de luz, color y nitidez ✨", "La foto del plato se recorta sola al importar"]),
-        ("utensils", "", "Modo cocina", "Los pasos en grande y la pantalla siempre encendida.", ["Temporizadores a partir del texto", "Lectura en voz alta", "Control por voz y manos libres"]),
+        ("utensils", "", "Modo cocina", "Los pasos en grande y la pantalla siempre encendida.", ["Varios temporizadores que siguen aunque salgas de la app", "Lectura en voz alta", "Control por voz y manos libres"]),
         ("cart", "", "Lista de la compra", "Desde una receta añades todos sus ingredientes de una vez.", ["Varias listas y plantillas", "Orden por pasillos de tu supermercado", "Modo tienda, QR y widget"]),
         ("scan", "sage", "Escáner y Open Food Facts", "Escanea códigos de barras para añadir productos y ver su ficha.", ["Nutri-Score, NOVA, alérgenos y aditivos", "Puntuación orientativa de 0 a 100", "Datos abiertos bajo licencia ODbL"]),
-        ("download", "", "Importar recetas", "Trae recetas de donde estén.", ["Desde un archivo de Miga (JSON o ZIP con fotos)", "Desde fotos, una web o el nombre de un plato ✨", "Varias recetas desde muchas fotos a la vez ✨"]),
-        ("file", "accent", "Exportar y compartir", "Comparte una receta o un libro entero en el formato que necesites.", ["PDF con portada e índice para imprimir", "Imagen de la receta lista para WhatsApp o Instagram", "Archivo de Miga para pasarlo a otro móvil, o texto"]),
+        ("download", "", "Importar recetas", "Trae recetas de donde estén.", ["Desde una web, con su foto y tiempos, sin necesitar el asistente", "Desde un archivo de Miga o un enlace compartido", "Desde fotos o el nombre de un plato, incluso varias a la vez ✨"]),
+        ("shield", "accent", "Alérgenos e intolerancias", "Los 14 alérgenos de la ley europea y la lactosa, calculados con los ingredientes.", ["Muestra todos, solo los tuyos o ninguno", "Aviso en las listas y búsquedas sin tus alérgenos", "Modo celíacos con lo que hay que comprar certificado"]),
+        ("pulse", "sage", "Raciones de hidratos", "Para quien cuenta raciones (por ejemplo, con diabetes). Opcional.", ["Raciones por persona en cada receta", "Tu plan por comidas y grupos de alimentos", "«Ajustar a mi comida»: cuánto servirte y qué añadir"]),
+        ("bulb", "", "Consejos de cocina", "Trucos cortos para cocinar mejor, sin conexión.", ["Un consejo del día en la biblioteca", "Consejos para cada receta según sus ingredientes", "Guárdalos y compártelos"]),
+        ("file", "accent", "Exportar y compartir", "Comparte una receta o un libro entero en el formato que necesites.", ["Enlace cifrado que caduca a los 7 días", "PDF con portada e índice, o imagen para WhatsApp e Instagram", "Archivo de Miga para pasarlo a otro móvil, o texto"]),
         ("archive", "", "Copias de seguridad", "Guarda toda tu biblioteca en un archivo y restáurala cuando quieras.", ["Con fotos incluidas", "Cifrado opcional con contraseña (AES-256)", "Compatible con la copia de Android"]),
         ("palette", "sage", "A tu gusto", "Que Miga se vea como te gusta.", ["Tema claro, oscuro o del sistema", "Ocho colores de acento, con Huerta por defecto", "Español e inglés"]),
         ("lock", "", "Privada y segura", "Tus recetas, solo para ti.", ["Bloqueo con huella, rostro o PIN", "Claves del asistente cifradas en el móvil", "Sin cuentas, anuncios ni analítica"]),
@@ -161,13 +174,27 @@ ES = {
     "assistant_title": "Un asistente de cocina que usa tu propia clave",
     "assistant_lead": "Las funciones marcadas con ✨ usan inteligencia artificial con la clave que tú configures. Eliges el proveedor y el modelo, y Miga solo envía lo necesario para cada tarea.",
     "assistant_points": [
-        ("Recetas desde fotos y webs", "lee el texto de una foto o de una página y precarga el editor; tú lo revisas antes de guardar."),
+        ("Recetas desde fotos y webs", "lee el texto de una foto o de una página y precarga el editor; al importar de una web, también la pule. Tú lo revisas antes de guardar."),
         ("Mejorar recetas", "una o muchas a la vez: mejor redacción, ingredientes normalizados y tiempos en negrita. Nada se guarda sin tu permiso."),
         ("Ideas", "recomendaciones a partir de tus recetas, menús semanales y respuestas sobre técnicas, conservación o sustituciones."),
         ("Salud y nutrición", "valoración orientativa, calorías y macros por ración, y sustitutos de ingredientes."),
         ("Sigue aunque salgas", "las tareas largas continúan en segundo plano con una notificación que te lleva al resultado."),
+        ("Fácil de configurar", "«Conectar con OpenRouter» crea la clave por ti; con el resto, «Conseguir clave» y «Probar conexión»."),
         ("Transparente", "el contenido generado se marca como tal y puedes reportarlo. Si no hay clave, no se envía nada."),
     ],
+    "health_chip": "Opcional",
+    "health_title": "Alérgenos, celiaquía y raciones de hidratos",
+    "health_lead": "Miga lee los ingredientes de cada receta, sin el asistente y sin conexión, y te dice lo que importa para tu familia. En Ajustes › Salud eliges qué ver.",
+    "health_points": [
+        ("14 alérgenos y lactosa", "los que la ley europea obliga a declarar. «Contiene» o «Puede contener» según el producto que compres, con la explicación al tocar el aviso."),
+        ("Solo lo tuyo", "todos los alérgenos, solo los tuyos o ninguno; avisos en las listas y búsquedas que empiezan sin ellos."),
+        ("Celíacos", "qué ingredientes llevan gluten, cuáles comprar certificados y cómo evitar la contaminación cruzada."),
+        ("Raciones de hidratos", "cuántas raciones lleva cada receta por persona (10 g por ración, o la que te indiquen)."),
+        ("Ajustar a mi comida", "con tu plan de raciones por grupos, cuánto servirte y qué añadir para completar esa comida, en medidas caseras."),
+    ],
+    "health_note": "Es orientativo: revisa siempre la etiqueta de cada producto y sigue la pauta de tu equipo médico.",
+    "gallery_head": ("Así es Miga por dentro", "Pantallas de la app tal cual, con recetas de los packs.", "Capturas"),
+    "gallery": [("books", "Tu biblioteca"), ("recipe", "Una receta"), ("cook_mode", "Modo cocina"), ("shopping", "La compra por pasillos"), ("search", "Buscar recetas"), ("health_settings", "Ajustes de salud"), ("recipe_health", "Alérgenos e hidratos"), ("fit_meal", "Ajustar a mi comida"), ("ideas", "Ideas del asistente"), ("recipe_dark", "Tema oscuro")],
     "providers": ["Google Gemini", "Anthropic Claude", "OpenAI", "DeepSeek", "Mistral", "Groq", "OpenRouter (modelos gratuitos)", "Compatible con OpenAI (Ollama, LM Studio…)"],
     "providers_note": "Si añades varios, se usan en el orden que elijas: si uno falla, se prueba el siguiente.",
     "server_chip": "miga-server",
@@ -209,6 +236,8 @@ ES = {
         ("¿Cuánto cuesta el asistente de cocina?", "Depende del proveedor que elijas. Con OpenRouter hay modelos gratuitos; con Groq hay una capa gratuita y con un modelo en tu propio ordenador (Ollama, LM Studio) no pagas nada; con Gemini, Claude, OpenAI, DeepSeek o Mistral pagas a ellos según tu uso. Miga no cobra nada ni ve tus datos."),
         ("¿Dónde se guardan mis recetas?", "En el almacenamiento interno de tu móvil. Si usas la sincronización, también en tu propio servidor. Miga no tiene servidores propios."),
         ("¿Puedo pasar mis recetas a otro móvil?", "Sí: con una copia de seguridad completa (opcionalmente cifrada), exportando libros como archivo de Miga o con la sincronización."),
+        ("¿Sirve si tengo alergias, celiaquía o diabetes?", "Miga calcula los alérgenos y las raciones de hidratos a partir de los ingredientes para ayudarte a elegir y a organizarte, pero es orientativo: no puede ver las marcas ni las etiquetas. Revisa siempre la etiqueta de cada producto y sigue la pauta de tu equipo médico."),
+        ("¿Puedo guardar recetas de webs?", "Sí. Pega el enlace y Miga lee la receta con su foto, tiempos y raciones, sin necesitar el asistente: casi todas las webs de recetas usan un formato estándar. Con el asistente configurado, además la pule."),
         ("¿Hay versión para iPhone?", "De momento Miga es solo para Android (8.0 o superior)."),
         ("¿Qué datos usa de Open Food Facts?", "Al escanear un código o buscar un producto se envía ese código o ese texto a Open Food Facts para obtener su ficha. Los datos son abiertos (licencia ODbL)."),
     ],
@@ -217,7 +246,7 @@ ES = {
     "cta_text_beta": "Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.",
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
-        ("Miga", [("#funciones", "Funciones"), ("#asistente", "Asistente de cocina"), ("#descargar", "Descargar")]),
+        ("Miga", [("#funciones", "Funciones"), ("#salud", "Salud"), ("#asistente", "Asistente de cocina"), ("#descargar", "Descargar")]),
         ("Más", [("#sincronizacion", "Servidor de sincronización"), ("#packs", "Packs de recetas"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy/", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
     ],
@@ -231,18 +260,18 @@ EN = {
     "lang": "en", "other": "es", "other_label": "Español", "other_short": "ES",
     "title": "Miga · Your family recipe book and shopping list",
     "description": "Miga is an Android app to keep your family's recipes in books, cook step by step and do the shopping. No accounts, no ads, and your data stays on your phone.",
-    "nav": [("#features", "Features"), ("#assistant", "Assistant"), ("#sync", "Sync"), ("#packs", "Packs"), ("#faq", "FAQ")],
+    "nav": [("#features", "Features"), ("#health", "Health"), ("#assistant", "Assistant"), ("#sync", "Sync"), ("#packs", "Packs"), ("#faq", "FAQ")],
     "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Try the beta",
     "badge": "Available on Google Play", "badge_beta": "Closed beta on Google Play",
     "hero_title": "Your recipes. Your books. <em>Your kitchen.</em>",
-    "hero_lead": "Miga keeps your family's recipes in books with their own covers, guides you step by step while you cook and sorts the shopping by your supermarket's aisles. No accounts, no ads, and everything stays on your phone.",
+    "hero_lead": "Miga keeps your family's recipes in books with their own covers, guides you step by step while you cook, flags the allergens that matter to you and sorts the shopping by your supermarket's aisles. No accounts, no ads, and everything stays on your phone.",
     "play": "Google Play", "soon": "Soon", "beta": "Join the beta",
     "beta_note": "Miga is in testing on Google Play. Email us from your Google account's address and we'll send you an invitation.",
     "beta_subject": "I'd like to try Miga",
     "beta_body": "Hi, I'd like to try the Miga beta. My Google account's email is: ",
     "hero_badges": ["No accounts", "No ads", "No analytics", "Works offline", "English and Spanish"],
     "shot_alt_front": "A recipe in Miga", "shot_alt_back": "The list of books in Miga",
-    "marquee": [("book", "Recipe books"), ("utensils", "Cooking mode"), ("timer", "Timers"), ("mic", "Dictation and voice"), ("cart", "Shopping list"), ("scan", "Product scanner"), ("leaf", "Open Food Facts"), ("sparkles", "Cooking assistant"), ("server", "Your own server"), ("package", "Recipe packs"), ("file", "PDF and image"), ("archive", "Encrypted backups"), ("palette", "Themes and frames"), ("widget", "Widget"), ("lock", "Fingerprint lock")],
+    "marquee": [("book", "Recipe books"), ("utensils", "Cooking mode"), ("timer", "Timers"), ("mic", "Dictation and voice"), ("cart", "Shopping list"), ("scan", "Product scanner"), ("leaf", "Open Food Facts"), ("sparkles", "Cooking assistant"), ("server", "Your own server"), ("package", "Recipe packs"), ("shield", "Allergens"), ("wheat", "Coeliac mode"), ("pulse", "Carb portions"), ("bulb", "Cooking tips"), ("file", "PDF and image"), ("archive", "Encrypted backups"), ("palette", "Themes and frames"), ("widget", "Widget"), ("lock", "Fingerprint lock")],
     "pillars_head": ("Made for your kitchen, not to sell your data", "Miga has no servers of its own and never asks you to sign up. What you save is yours and stays on your phone."),
     "pillars": [
         ("phone", "Everything on your phone", "Recipes, photos, lists and settings live on the phone. It works offline."),
@@ -250,58 +279,68 @@ EN = {
         ("shield", "You decide what leaves", "The internet is only used for what you turn on: your assistant, Open Food Facts, packs or your server."),
         ("users", "For the whole family", "Share books and the shopping list through your own server, with no one in between."),
     ],
-    "showcase_head": ("Explore Miga", "Pick a part of the app to see what it can do for you.", "Interactive preview"),
+    "showcase_head": ("Explore Miga", "Pick a part of the app to see it as it is: these are screens of the real app.", "Interactive preview"),
     "showcase": [
         ("books", "book", "Books", "Books and recipes", "A recipe book for everything",
          "Make a book for each person or each topic, each with its own cover, and fill it with complete recipes.",
          [("Complete recipes", "ingredients with quantity and unit, steps, photos, difficulty, times, servings, origin with a flag and tags."),
           ("Sub-recipes", "keep the sauce, the dough or the side apart, each with its own ingredients and steps."),
           ("Optional ingredients", "mark the parsley for garnish without cluttering its name."),
+          ("Recipe packs", "ready-made books to install: world cuisines, rice dishes, baking, Thermomix and more."),
+          ("Tip of the day", "a cooking tip every day and hundreds more that work offline.")], "books"),
+        ("recipe", "list", "Recipes", "The recipe", "Everything clear at a glance",
+         "Time, servings and difficulty in one line; ingredients written the way you'd say them.",
+         [("Natural ingredients", "“½ glass of wine”, “2 cloves garlic”: no tables or columns."),
           ("Servings on the fly", "change the servings and the quantities update themselves."),
-          ("My notes", "dated notes that never change the recipe: “next time, less salt”.")], "books"),
+          ("Allergens worked out", "the 14 of EU law plus lactose, from the ingredients."),
+          ("Tips for this recipe", "if a tip helps with its ingredients or steps, it shows up right there."),
+          ("My notes", "dated notes that never change the recipe: “next time, less salt”.")], "recipe"),
         ("cooking", "utensils", "Cooking", "Cooking mode", "Cook with your hands in the dough",
          "One step at a time, in large type, with the screen kept on.",
-         [("One-tap timers", "“simmer for 10 minutes” turns into a timer."),
+         [("One-tap timers", "“simmer for 10 minutes” turns into a timer; run several and they keep going when you leave."),
           ("Read aloud", "Miga reads each step with the voice you choose."),
           ("Hands-free", "say “next”, “back”, “repeat” or “timer” without touching the phone."),
-          ("Clear formatting", "times and temperatures in bold, easy to spot.")], "cooking"),
+          ("Clear formatting", "times and temperatures highlighted, easy to spot.")], "cook_mode"),
         ("shopping", "cart", "Shopping", "Shopping list", "Shopping in your supermarket's order",
          "Add what you need by typing, dictating, scanning or straight from a recipe, and walk it aisle by aisle.",
-         [("By aisle", "grouped by category and sorted like your supermarket."),
+         [("By aisle", "write “lemons” or “milk” as usual and each item goes to its aisle."),
           ("Several lists and templates", "home, the party, and your saved weekly shop."),
           ("Store mode", "swipe to tick items off while the screen stays on."),
           ("Share", "as text, with a QR code or synced with your family."),
-          ("Widget", "add items from the home screen without opening the app.")], "shopping"),
-        ("product", "scan", "Products", "Product sheet", "Know what you buy",
-         "Scan a barcode and read the product sheet with Open Food Facts' open data.",
-         [("Nutri-Score and NOVA", "nutritional quality and processing level at a glance."),
-          ("Allergens and additives", "what to watch out for, clearly flagged."),
-          ("A score from 0 to 100", "Miga's own rough estimate from that data."),
-          ("Nutrition table", "energy, fat, carbs, fibre and protein per 100 g.")], "product"),
+          ("Product sheet", "scan a barcode to see Nutri-Score, NOVA, allergens and additives (Open Food Facts).")], "shopping"),
+        ("health", "shield", "Health", "Allergens and health", "Cook for whoever is at your table",
+         "Miga works out each recipe's allergens and helps with coeliac disease and carbohydrate portions. All optional, without the assistant.",
+         [("Only yours", "mark your allergies and intolerances and each recipe says “Has egg” or “None of your allergens”."),
+          ("Filters", "search “No eggs”, “No gluten ingredients” or recipes for coeliacs."),
+          ("Coeliac mode", "what to buy certified and how to avoid cross-contact."),
+          ("Carb portions", "how many each recipe has per serving and how much to take for your plan.")], "filters"),
         ("assistant", "sparkles", "Assistant", "Cooking assistant", "Help whenever you want it",
          "Optional AI features with your own key. Without one, nothing is sent anywhere.",
          [("Recipes from photos", "snap a recipe from a book or a handwritten card and the editor fills itself."),
           ("From a web page", "paste a link and get the clean recipe, without the ads and life stories."),
           ("Improve recipes", "better wording and tidy ingredients; you see the before and after."),
-          ("Ideas", "ask what to cook with what you have, plan a weekly menu or find a seasonal dish.")], "assistant"),
+          ("Ideas", "ask what to cook with what you have, plan a weekly menu or find a seasonal dish.")], "new_recipe"),
         ("sync", "users", "Family", "Sync", "Share books and lists with your family",
          "Connect Miga to a server you host and share books and the shopping list across phones.",
          [("Your server", "miga-server runs at home or on your VPS with Docker."),
           ("QR invitations", "scan the code from another phone and you're connected."),
           ("Live shared list", "it refreshes every few seconds while you look at it."),
-          ("No third parties", "your data only goes to your server.")], "sync"),
+          ("No third parties", "your data only goes to your server.")], "server/mobile.png"),
     ],
     "features_head": ("Everything Miga does", "A complete app for home cooking, explained without fine print.", "Features"),
     "features": [
         ("book", "", "Books with covers", "Organise recipes into books: your mum's, a friend's, or one per topic.", ["Pin your favourite books on top", "Recipes grouped by category", "Swipe between recipes like the pages of a book"]),
-        ("search", "", "Search and filters", "Find any recipe across all your books by name or ingredient.", ["Filter by time, difficulty, category, equipment, tags, ingredients or origin", "Favourites in one tap", "Active filters as chips you remove one by one"]),
-        ("list", "", "A friendly editor", "Writing a recipe is quick: the app suggests what you've used before.", ["Steps with bold, italic, strikethrough and lists", "Dictate the steps with the microphone", "Select several recipes and change them at once"]),
+        ("search", "", "Search and filters", "Find any recipe across all your books by name or ingredient.", ["Filter by time, difficulty, category, ingredients, origin and allergens", "“What can I cook?” with what's in your pantry", "Saved and recent searches"]),
+        ("list", "", "A friendly editor", "Writing a recipe is quick: tabs for each part and suggestions from what you've used before.", ["Type “200 g potatoes” and Miga splits amount, unit and name", "Steps with bold, italic and lists, or dictated", "Select several recipes and change them at once"]),
         ("camera", "accent", "Matching photos", "Crop, rotate and improve your photos, saved at just the right size.", ["Frames for every photo: Polaroid, gallery, vignette…", "Automatic light, colour and sharpness ✨", "The dish photo is cropped for you when importing"]),
-        ("utensils", "", "Cooking mode", "Big steps and the screen always on.", ["Timers from the text", "Read aloud", "Voice control and hands-free"]),
+        ("utensils", "", "Cooking mode", "Big steps and the screen always on.", ["Several timers that keep going when you leave the app", "Read aloud", "Voice control and hands-free"]),
         ("cart", "", "Shopping list", "Add all the ingredients of a recipe in one go.", ["Several lists and templates", "Sorted by your supermarket's aisles", "Store mode, QR code and widget"]),
         ("scan", "sage", "Scanner and Open Food Facts", "Scan barcodes to add products and see their sheet.", ["Nutri-Score, NOVA, allergens and additives", "A rough score from 0 to 100", "Open data under the ODbL licence"]),
-        ("download", "", "Import recipes", "Bring recipes from wherever they are.", ["From a Miga file (JSON or ZIP with photos)", "From photos, a web page or a dish name ✨", "Many recipes from many photos at once ✨"]),
-        ("file", "accent", "Export and share", "Share a recipe or a whole book in the format you need.", ["PDF with cover and contents, ready to print", "A recipe image ready for WhatsApp or Instagram", "A Miga file for another phone, or plain text"]),
+        ("download", "", "Import recipes", "Bring recipes from wherever they are.", ["From a web page, with its photo and times, no assistant needed", "From a Miga file or a shared link", "From photos or a dish name, even several at once ✨"]),
+        ("shield", "accent", "Allergens and intolerances", "The 14 allergens of EU law plus lactose, worked out from the ingredients.", ["Show all, only yours or none", "Warnings in lists and searches without your allergens", "Coeliac mode with what to buy certified"]),
+        ("pulse", "sage", "Carbohydrate portions", "For those who count portions (with diabetes, for instance). Optional.", ["Portions per serving on every recipe", "Your plan by meals and food groups", "“Fit to my meal”: how much to take and what to add"]),
+        ("bulb", "", "Cooking tips", "Short tips to cook better, offline.", ["A tip of the day in the library", "Tips for each recipe from its ingredients", "Save and share them"]),
+        ("file", "accent", "Export and share", "Share a recipe or a whole book in the format you need.", ["An encrypted link that expires in 7 days", "PDF with cover and contents, or an image for WhatsApp and Instagram", "A Miga file for another phone, or plain text"]),
         ("archive", "", "Backups", "Save your whole library in one file and restore it whenever you like.", ["Photos included", "Optional password encryption (AES-256)", "Works with Android's own backup"]),
         ("palette", "sage", "Your way", "Make Miga look the way you like.", ["Light, dark or system theme", "Eight accent colours, Garden by default", "English and Spanish"]),
         ("lock", "", "Private and secure", "Your recipes, just for you.", ["Fingerprint, face or PIN lock", "Assistant keys encrypted on the phone", "No accounts, ads or analytics"]),
@@ -310,13 +349,27 @@ EN = {
     "assistant_title": "A cooking assistant that uses your own key",
     "assistant_lead": "Features marked ✨ use artificial intelligence with the key you set up. You choose the provider and the model, and Miga only sends what each task needs.",
     "assistant_points": [
-        ("Recipes from photos and web pages", "reads the text of a photo or a page and fills in the editor; you review it before saving."),
+        ("Recipes from photos and web pages", "reads the text of a photo or a page and fills in the editor; from a web page it also polishes it. You review it before saving."),
         ("Improve recipes", "one or many at once: better wording, tidy ingredients and times in bold. Nothing is saved without your say-so."),
         ("Ideas", "suggestions from your own recipes, weekly menus and answers about techniques, storage or substitutions."),
         ("Health and nutrition", "a rough health rating, calories and macros per serving, and ingredient substitutes."),
         ("Keeps going when you leave", "long tasks continue in the background with a notification that takes you to the result."),
+        ("Easy to set up", "“Connect with OpenRouter” creates the key for you; for the others, “Get a key” and “Test connection”."),
         ("Transparent", "generated content is labelled and can be reported. With no key, nothing is sent."),
     ],
+    "health_chip": "Optional",
+    "health_title": "Allergens, coeliac disease and carb portions",
+    "health_lead": "Miga reads each recipe's ingredients, without the assistant and offline, and tells you what matters to your family. You choose what to see in Settings › Health.",
+    "health_points": [
+        ("14 allergens and lactose", "those EU law requires to be declared. “Has” or “May have” depending on the product you buy, explained when you tap the warning."),
+        ("Only yours", "all allergens, only yours or none; warnings in lists and searches that start without them."),
+        ("Coeliacs", "which ingredients have gluten, which to buy certified and how to avoid cross-contact."),
+        ("Carb portions", "how many portions each recipe has per serving (10 g per portion, or the one you were given)."),
+        ("Fit to my meal", "with your portion plan by food groups, how much to take and what to add to complete that meal, in kitchen measures."),
+    ],
+    "health_note": "It is a guide: always check each product's label and follow your care team's advice.",
+    "gallery_head": ("Inside Miga", "Screens of the app as they are, with recipes from the packs.", "Screenshots"),
+    "gallery": [("books", "Your library"), ("recipe", "A recipe"), ("cook_mode", "Cooking mode"), ("shopping", "Shopping by aisle"), ("search", "Search recipes"), ("health_settings", "Health settings"), ("recipe_health", "Allergens and carbs"), ("fit_meal", "Fit to my meal"), ("ideas", "Assistant ideas"), ("recipe_dark", "Dark theme")],
     "providers": ["Google Gemini", "Anthropic Claude", "OpenAI", "DeepSeek", "Mistral", "Groq", "OpenRouter (free models)", "OpenAI-compatible (Ollama, LM Studio…)"],
     "providers_note": "Add several and they are used in your order: if one fails, the next one steps in.",
     "server_chip": "miga-server",
@@ -358,6 +411,8 @@ EN = {
         ("How much does the cooking assistant cost?", "It depends on the provider you pick. OpenRouter has free models; Groq has a free tier and a model on your own computer (Ollama, LM Studio) costs nothing; with Gemini, Claude, OpenAI, DeepSeek or Mistral you pay them for what you use. Miga charges nothing and never sees your data."),
         ("Where are my recipes stored?", "In your phone's internal storage, and on your own server if you use sync. Miga has no servers of its own."),
         ("Can I move my recipes to another phone?", "Yes: with a full backup (optionally encrypted), by exporting books as Miga files, or with sync."),
+        ("Does it help with allergies, coeliac disease or diabetes?", "Miga works out allergens and carbohydrate portions from the ingredients to help you choose and plan, but it is a guide: it cannot see brands or labels. Always check each product's label and follow your care team's advice."),
+        ("Can I save recipes from websites?", "Yes. Paste the link and Miga reads the recipe with its photo, times and servings, no assistant needed: almost every recipe site uses a standard format. With the assistant set up, it also polishes it."),
         ("Is there an iPhone version?", "For now Miga is Android only (8.0 or newer)."),
         ("What does it send to Open Food Facts?", "When you scan a barcode or search for a product, that code or text goes to Open Food Facts to fetch its sheet. The data is open (ODbL licence)."),
     ],
@@ -366,7 +421,7 @@ EN = {
     "cta_text_beta": "Join the beta, create your first book and save that recipe everyone keeps asking for.",
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
-        ("Miga", [("#features", "Features"), ("#assistant", "Cooking assistant"), ("#download", "Download")]),
+        ("Miga", [("#features", "Features"), ("#health", "Health"), ("#assistant", "Cooking assistant"), ("#download", "Download")]),
         ("More", [("#sync", "Sync server"), ("#packs", "Recipe packs"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy/", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
     ],
@@ -378,8 +433,8 @@ EN = {
 
 # Section anchors differ per language (they appear in the URL).
 ANCHORS = {
-    "es": {"features": "funciones", "assistant": "asistente", "sync": "sincronizacion", "packs": "packs", "faq": "preguntas", "explore": "explora", "get": "descargar"},
-    "en": {"features": "features", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq", "explore": "explore", "get": "download"},
+    "es": {"features": "funciones", "health": "salud", "screens": "capturas", "assistant": "asistente", "sync": "sincronizacion", "packs": "packs", "faq": "preguntas", "explore": "explora", "get": "descargar"},
+    "en": {"features": "features", "health": "health", "screens": "screenshots", "assistant": "assistant", "sync": "sync", "packs": "packs", "faq": "faq", "explore": "explore", "get": "download"},
 }
 
 COMPOSE = """services:
@@ -543,13 +598,18 @@ def wavy():
 
 
 def phone(src, alt, cls=""):
-    return f'<div class="phone {cls}"><img src="{src}" alt="{escape(alt)}" width="360" height="760" loading="lazy"></div>'
+    return f'<div class="phone {cls}"><img src="{src}" alt="{escape(alt)}" width="360" height="781" loading="lazy"></div>'
 
 
 def section_head(title, text, chip=None):
     chip_html = f'<span class="chip primary">{escape(chip)}</span>' if chip else ""
     text_html = f"<p>{escape(text)}</p>" if text else ""
     return f'<div class="section-head">{chip_html}<h2>{escape(title)}</h2>{text_html}</div>'
+
+
+def screen(img, t, name):
+    """A real screenshot of the app in the page's language (see tools/screens.py), or another image."""
+    return img + (name if "/" in name else f"screens/{t['lang']}/{name}.webp")
 
 
 def home(t, root):
@@ -568,8 +628,8 @@ def home(t, root):
       <div class="hero-badges">{badges}</div>
     </div>
     <div class="hero-phones" aria-hidden="false">
-      {phone(img + 'screens/books.svg', t['shot_alt_back'], 'back')}
-      {phone(img + 'screens/recipe.svg', t['shot_alt_front'], 'front')}
+      {phone(screen(img, t, 'books'), t['shot_alt_back'], 'back')}
+      {phone(screen(img, t, 'recipe'), t['shot_alt_front'], 'front')}
     </div>
   </div>
 </section>
@@ -585,7 +645,7 @@ def home(t, root):
 
     title, text, chip = t["showcase_head"]
     tabs, panels = [], []
-    for n, (key, ic, short, kicker, heading, desc, points, screen) in enumerate(t["showcase"]):
+    for n, (key, ic, short, kicker, heading, desc, points, shot) in enumerate(t["showcase"]):
         sel = n == 0
         tabs.append(f'<button role="tab" id="tab-{key}" aria-controls="panel-{key}" aria-selected="{str(sel).lower()}" tabindex="{0 if sel else -1}">{icon(ic)}{escape(short)}</button>')
         items = "".join(f'<li>{icon("check")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in points)
@@ -597,7 +657,7 @@ def home(t, root):
           <p class="desc">{escape(desc)}</p>
           <ul class="checks">{items}</ul>
         </div>
-        <div class="showcase-media">{phone(img + 'screens/' + screen + '.svg', heading)}</div>
+        <div class="showcase-media">{phone(screen(img, t, shot), heading)}</div>
       </div>
     </div>""")
     out.append(f"""<section class="wrap" id="{a['explore']}">
@@ -608,12 +668,33 @@ def home(t, root):
 """)
     out.append(wavy())
 
+    title, text, chip = t["gallery_head"]
+    shots = "".join(f'<figure>{phone(screen(img, t, name), caption)}<figcaption>{escape(caption)}</figcaption></figure>' for name, caption in t["gallery"])
+    out.append(f'<section class="wrap" id="{a["screens"]}">{section_head(title, text, chip)}<div class="screens-strip" tabindex="0">{shots}</div></section>\n')
+    out.append(wavy())
+
     title, text, chip = t["features_head"]
     cards = []
     for ic, tone, h, p, bullets in t["features"]:
         lis = "".join(f"<li>{escape(b)}</li>" for b in bullets)
         cards.append(f'<article class="card"><div class="icon-circle {tone}">{icon(ic)}</div><h3>{escape(h)}</h3><p>{escape(p)}</p><ul>{lis}</ul></article>')
     out.append(f'<section class="wrap" id="{a["features"]}">{section_head(title, text, chip)}<div class="grid">{"".join(cards)}</div></section>\n')
+    out.append(wavy())
+
+    hpoints = "".join(f'<li>{icon("shield")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in t["health_points"])
+    out.append(f"""<section class="wrap" id="{a['health']}">
+  <div class="split reverse">
+    <div>
+      <span class="chip primary">{icon('pulse')}{escape(t['health_chip'])}</span>
+      <h2>{escape(t['health_title'])}</h2>
+      <p>{escape(t['health_lead'])}</p>
+      <ul class="checks" style="margin-top:22px">{hpoints}</ul>
+      <p class="muted" style="font-size:15px;margin-top:18px">{escape(t['health_note'])}</p>
+    </div>
+    <div class="showcase-media duo">{phone(screen(img, t, 'recipe_health'), t['health_title'])}{phone(screen(img, t, 'fit_meal'), t['health_title'], 'second')}</div>
+  </div>
+</section>
+""")
     out.append(wavy())
 
     points = "".join(f'<li>{icon("sparkles")}<div><b>{escape(b)}:</b> <span>{escape(s)}</span></div></li>' for b, s in t["assistant_points"])
@@ -628,7 +709,7 @@ def home(t, root):
       <p class="muted" style="font-size:15px;margin-top:-8px">{escape(t['providers_note'])}</p>
       <ul class="checks" style="margin-top:22px">{points}</ul>
     </div>
-    <div class="showcase-media">{phone(img + 'screens/assistant.svg', t['assistant_title'])}</div>
+    <div class="showcase-media">{phone(screen(img, t, 'ideas'), t['assistant_title'])}</div>
   </div>
 </section>
 """)
@@ -646,7 +727,7 @@ def home(t, root):
       <ol class="steps">{steps}</ol>
       <a class="btn" href="{SERVER_REPO}">{icon('code')}{escape(t['server_cta'])}</a>
     </div>
-    <div class="showcase-media">{phone(img + 'screens/sync.svg', t['server_title'])}</div>
+    <div class="showcase-media">{phone(screen(img, t, 'server/mobile.png'), t['server_title'])}</div>
   </div>
   <div class="compose">
     <p class="muted"><b>docker-compose.yml</b> · {t['server_compose_note']}</p>
