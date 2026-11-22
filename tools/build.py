@@ -92,7 +92,7 @@ ES = {
     "lang": "es", "other": "en", "other_label": "English", "other_short": "EN",
     "title": "Miga · Tu recetario familiar y tu lista de la compra",
     "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.",
-    "nav": [("features", "Funciones"), ("health", "Salud"), ("assistant", "Asistente"), ("sync", "Familia"), ("packs", "Packs"), ("faq", "Preguntas")],
+    "nav": [("features", "Funciones"), ("favorites", "Favoritos"), ("health", "Salud"), ("assistant", "Asistente"), ("sync", "Familia"), ("packs", "Packs"), ("faq", "Preguntas")],
     "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Probar la beta",
     "badge": "Disponible en Google Play", "badge_beta": "Beta cerrada en Google Play",
     "hero_title": "Tus recetas. Tus libros. <em>Tu cocina.</em>",
@@ -180,6 +180,7 @@ ES = {
     ],
     "pages": {
         "features": ("Funciones", "Todo lo que hace Miga: libros de recetas, modo cocina, lista de la compra por pasillos, escáner, importar recetas, copias de seguridad y más.", "Funciones", "Todo lo que hace Miga", "Una app completa para la cocina de casa, explicada sin letra pequeña y con capturas de la app de verdad."),
+        "favorites": ("Favoritos", "Favoritos de Miga: sigue canales de YouTube, perfiles de Instagram y webs de recetas, guarda vídeos y reels e importa sus recetas con un toque.", "Favoritos", "Tus cocineros y webs de recetas, en un solo sitio", "Sigue a quien te inspira y ten a mano sus últimas recetas, vídeos y reels. Guarda lo que quieras cocinar e impórtalo a tus libros cuando te apetezca."),
         "health": ("Salud", "Alérgenos, modo celíacos y raciones de hidratos en Miga: orientativo, sin el asistente y sin conexión.", "Salud · Opcional", "Alérgenos, celiaquía y raciones de hidratos", "Miga lee los ingredientes de cada receta, sin el asistente y sin conexión, y te dice lo que importa para tu familia."),
         "assistant": ("Asistente de cocina", "El asistente de cocina de Miga: recetas desde fotos, webs, Instagram y YouTube, mejorar recetas e ideas, con tu propia clave y el proveedor que elijas.", "Asistente · Opcional", "Un asistente de cocina que usa tu propia clave", "Las funciones marcadas con ✨ usan inteligencia artificial con la clave que tú configures. Eliges el proveedor y el modelo, y Miga solo envía lo necesario para cada tarea."),
         "sync": ("Familia y sincronización", "Comparte libros y la lista de la compra en familia con miga-server, un servidor de sincronización que alojas tú con Docker.", "miga-server", "Tu propio servidor de sincronización", "Para compartir libros y la lista de la compra en familia, Miga se conecta a un servidor que alojas tú. Es ligero, funciona con Docker y trae una web de administración muy completa."),
@@ -191,6 +192,7 @@ ES = {
     "discover_head": ("Descubre Miga", "Cada parte de la app en su página, con capturas reales.", "Secciones"),
     "discover": {
         "features": ("shopping", "Libros, modo cocina, la compra por pasillos, el escáner, copias y todo lo demás."),
+        "favorites": ("fav_all", "Tus canales de YouTube, perfiles de Instagram y webs de recetas, con lo último que han publicado."),
         "health": ("recipe_health", "Tus alérgenos, el modo celíacos y las raciones de hidratos."),
         "assistant": ("share_instagram", "Recetas desde fotos, webs, Instagram y YouTube, ideas y mejoras, con tu clave."),
         "sync": ("server/mobile.png", "Libros y lista de la compra compartidos con tu propio servidor."),
@@ -198,8 +200,8 @@ ES = {
         "faq": ("search", "Precio, privacidad, alergias, iPhone… lo que más nos preguntan."),
     },
     "news_chip": "Novedad",
-    "news_title": "Recetas de Instagram y YouTube",
-    "news_text": "Comparte un reel o un vídeo con Miga y guárdalo como una receta más: con su foto, y si el texto no la trae, el asistente escucha o ve el vídeo.",
+    "news_title": "Favoritos: tus canales y webs de recetas",
+    "news_text": "Sigue canales de YouTube, perfiles de Instagram y webs de cocina, y mira sus últimas recetas en Miga. Guarda las que te gusten e impórtalas con un toque.",
     "insta_chip": "Novedad",
     "insta_title": "Recetas de Instagram y YouTube, en tu libro",
     "insta_lead": "¿Has visto una receta en un reel o en un vídeo? Compártela con Miga o pega su enlace y queda guardada como una receta más, con su foto y el autor en las notas.",
@@ -210,6 +212,17 @@ ES = {
         ("La foto buena", "a tamaño completo y sin el botón de reproducir del vídeo."),
         ("YouTube", "la receta de la descripción o de la web del autor que enlaza; si no está, Gemini ve el vídeo: lo que se dice y lo que sale escrito en pantalla."),
     ],
+    "fav_points": [
+        ("Canales y perfiles", "pega el enlace de un canal de YouTube o de un perfil de Instagram, o compártelo con Miga. Verás sus últimos vídeos y reels, con lo nuevo marcado."),
+        ("Webs de recetas", "sigue una web de cocina o solo una sección, como su página de recetas o la de postres, y verás sus recetas con foto."),
+        ("Ver más recetas", "en las webs, empieza por las 50 más recientes y sigue hacia atrás cuando quieras. En muchas también puedes buscar una receta concreta."),
+        ("Guarda para luego", "toca el corazón en un vídeo, reel o receta y queda en Vídeos y reels aunque deje de salir en el canal."),
+        ("Importa con un toque", "las recetas de las webs se leen sin el asistente; en vídeos y reels, Miga usa el texto o, si hace falta, el asistente ✨."),
+        ("Solo cocina", "lo que no es de cocina (viajes, fotos de familia…) se oculta solo, y en cada canal puedes verlo si quieres."),
+    ],
+    "fav_note": "Miga consulta las páginas públicas directamente, sin cuenta ni inicio de sesión. Las cuentas privadas no se pueden seguir.",
+    "fav_shots": [("fav_all", "Todo: lo último de tus canales y webs"), ("fav_channels", "Canales de YouTube, Instagram y webs"), ("fav_posts", "Vídeos y reels guardados"),
+                  ("fav_channel", "Un canal de YouTube"), ("fav_profile", "Un perfil de Instagram en cuadrícula"), ("fav_website", "Una web de recetas, con buscador y «Ver más recetas»")],
     "insta_shots": [("share_instagram", "Compartir un reel con Miga"), ("new_recipe", "Nueva receta desde una web o Instagram")],
     "health_gallery": [("health_settings", "Ajustes de salud"), ("filters", "Filtros sin tus alérgenos"), ("recipe_health", "Alérgenos e hidratos de una receta"), ("fit_meal", "Ajustar a mi comida")],
     "assistant_more": "Ideas y mejoras",
@@ -295,7 +308,7 @@ ES = {
     "cta_text_beta": "Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.",
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
-        ("Miga", [("features", "Funciones"), ("health", "Salud"), ("assistant", "Asistente de cocina"), ("faq", "Preguntas frecuentes")]),
+        ("Miga", [("features", "Funciones"), ("favorites", "Favoritos"), ("health", "Salud"), ("assistant", "Asistente de cocina"), ("faq", "Preguntas frecuentes")]),
         ("Más", [("sync", "Servidor de sincronización"), ("packs", "Packs de recetas"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy", "Política de privacidad"), (f"mailto:{CONTACT}", "Contacto")]),
     ],
@@ -309,7 +322,7 @@ EN = {
     "lang": "en", "other": "es", "other_label": "Español", "other_short": "ES",
     "title": "Miga · Your family recipe book and shopping list",
     "description": "Miga is an Android app to keep your family's recipes in books, cook step by step and do the shopping. No accounts, no ads, and your data stays on your phone.",
-    "nav": [("features", "Features"), ("health", "Health"), ("assistant", "Assistant"), ("sync", "Family"), ("packs", "Packs"), ("faq", "FAQ")],
+    "nav": [("features", "Features"), ("favorites", "Favourites"), ("health", "Health"), ("assistant", "Assistant"), ("sync", "Family"), ("packs", "Packs"), ("faq", "FAQ")],
     "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Try the beta",
     "badge": "Available on Google Play", "badge_beta": "Closed beta on Google Play",
     "hero_title": "Your recipes. Your books. <em>Your kitchen.</em>",
@@ -397,6 +410,7 @@ EN = {
     ],
     "pages": {
         "features": ("Features", "Everything Miga does: recipe books, cooking mode, a shopping list sorted by aisle, barcode scanner, recipe import, backups and more.", "Features", "Everything Miga does", "A complete app for home cooking, explained without small print and with screens of the real app."),
+        "favorites": ("Favourites", "Miga's Favourites: follow YouTube channels, Instagram profiles and recipe websites, save videos and reels and import their recipes with one tap.", "Favourites", "Your cooks and recipe websites, in one place", "Follow the people who inspire you and keep their latest recipes, videos and reels at hand. Save what you want to cook and import it into your books whenever you like."),
         "health": ("Health", "Allergens, coeliac mode and carbohydrate portions in Miga: a guide, without the assistant and offline.", "Health · Optional", "Allergens, coeliac disease and carbohydrate portions", "Miga reads the ingredients of every recipe, without the assistant and offline, and tells you what matters to your family."),
         "assistant": ("Cooking assistant", "Miga's cooking assistant: recipes from photos, websites, Instagram and YouTube, polishing recipes and ideas, with your own key and the provider you choose.", "Assistant · Optional", "A cooking assistant that uses your own key", "Features marked with ✨ use artificial intelligence with the key you set up. You choose the provider and the model, and Miga only sends what each task needs."),
         "sync": ("Family and sync", "Share books and the shopping list with your family through miga-server, a sync server you host yourself with Docker.", "miga-server", "Your own sync server", "To share books and the shopping list with your family, Miga connects to a server you host yourself. It's lightweight, runs on Docker and comes with a full admin website."),
@@ -408,6 +422,7 @@ EN = {
     "discover_head": ("Discover Miga", "Each part of the app on its own page, with real screens.", "Sections"),
     "discover": {
         "features": ("shopping", "Books, cooking mode, shopping by aisle, the scanner, backups and everything else."),
+        "favorites": ("fav_all", "Your YouTube channels, Instagram profiles and recipe websites, with what they posted last."),
         "health": ("recipe_health", "Your allergens, coeliac mode and carbohydrate portions."),
         "assistant": ("share_instagram", "Recipes from photos, websites, Instagram and YouTube, ideas and polishing, with your key."),
         "sync": ("server/mobile.png", "Books and the shopping list shared through your own server."),
@@ -415,8 +430,8 @@ EN = {
         "faq": ("search", "Price, privacy, allergies, iPhone… what people ask most."),
     },
     "news_chip": "New",
-    "news_title": "Recipes from Instagram and YouTube",
-    "news_text": "Share a reel or a video to Miga and keep it as just another recipe: with its photo, and if the text doesn't have it, the assistant listens to or watches the video.",
+    "news_title": "Favourites: your channels and recipe websites",
+    "news_text": "Follow YouTube channels, Instagram profiles and cooking websites, and see their latest recipes in Miga. Save the ones you like and import them with one tap.",
     "insta_chip": "New",
     "insta_title": "Instagram and YouTube recipes, in your book",
     "insta_lead": "Saw a recipe in a reel or a video? Share it to Miga or paste its link and it's saved as just another recipe, with its photo and the author in the notes.",
@@ -427,6 +442,17 @@ EN = {
         ("The right photo", "full size and without the video's play button."),
         ("YouTube", "the recipe in the description or on the author's website it links to; if it is not there, Gemini watches the video: what is said and what is written on screen."),
     ],
+    "fav_points": [
+        ("Channels and profiles", "paste the link to a YouTube channel or an Instagram profile, or share it to Miga. You'll see their latest videos and reels, with what's new marked."),
+        ("Recipe websites", "follow a cooking website or just one section, such as its recipes or desserts page, and see its recipes with photos."),
+        ("More recipes", "on websites, start with the 50 most recent and keep going back whenever you like. Many also let you search for a particular recipe."),
+        ("Save for later", "tap the heart on a video, reel or recipe and it stays in Videos and reels even after it leaves the channel."),
+        ("One-tap import", "website recipes are read without the assistant; for videos and reels, Miga uses the text or, if needed, the assistant ✨."),
+        ("Just cooking", "posts that aren't about cooking (trips, family photos…) are hidden, and you can show them in each channel if you want."),
+    ],
+    "fav_note": "Miga reads the public pages directly, with no account and no sign-in. Private accounts can't be followed.",
+    "fav_shots": [("fav_all", "All: the latest from your channels and websites"), ("fav_channels", "YouTube, Instagram and website channels"), ("fav_posts", "Saved videos and reels"),
+                  ("fav_channel", "A YouTube channel"), ("fav_profile", "An Instagram profile as a grid"), ("fav_website", "A recipe website, with search and More recipes")],
     "insta_shots": [("share_instagram", "Sharing a reel to Miga"), ("new_recipe", "New recipe from a website or Instagram")],
     "health_gallery": [("health_settings", "Health settings"), ("filters", "Filters without your allergens"), ("recipe_health", "A recipe's allergens and carbs"), ("fit_meal", "Fit to my meal")],
     "assistant_more": "Ideas and polishing",
@@ -512,7 +538,7 @@ EN = {
     "cta_text_beta": "Join the beta, create your first book and save that recipe everyone keeps asking for.",
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
-        ("Miga", [("features", "Features"), ("health", "Health"), ("assistant", "Cooking assistant"), ("faq", "FAQ")]),
+        ("Miga", [("features", "Features"), ("favorites", "Favourites"), ("health", "Health"), ("assistant", "Cooking assistant"), ("faq", "FAQ")]),
         ("More", [("sync", "Sync server"), ("packs", "Recipe packs"), (SERVER_REPO, "miga-server"), (PACKS_REPO, "miga-packs")]),
         ("Legal", [("privacy", "Privacy policy"), (f"mailto:{CONTACT}", "Contact")]),
     ],
@@ -526,6 +552,7 @@ EN = {
 PAGES = {
     "home": {"es": "", "en": ""},
     "features": {"es": "funciones/", "en": "features/"},
+    "favorites": {"es": "favoritos/", "en": "favourites/"},
     "health": {"es": "salud/", "en": "health/"},
     "assistant": {"es": "asistente/", "en": "assistant/"},
     "sync": {"es": "familia/", "en": "family/"},
@@ -533,7 +560,7 @@ PAGES = {
     "faq": {"es": "preguntas/", "en": "faq/"},
     "privacy": {"es": "privacy/", "en": "privacy/"},
 }
-SECTIONS = ["features", "health", "assistant", "sync", "packs", "faq"]
+SECTIONS = ["features", "favorites", "health", "assistant", "sync", "packs", "faq"]
 
 # Anchors of the old one-page site, still in shared links: the home page sends them to their page.
 LEGACY_ANCHORS = {
@@ -856,9 +883,9 @@ def home(t):
     out.append(f'<div class="marquee" aria-label="{escape(t["features_head"][2])}"><div class="marquee-track">{chips}</div></div>\n')
 
     out.append(f"""<section class="wrap news">
-  <a class="news-card" href="{pg.link('assistant', INSTAGRAM_ANCHOR)}">
-    <img src="{screen(img, t, 'share_instagram')}" alt="" width="360" height="781" loading="lazy">
-    <div><span class="chip accent">{icon('sparkles')}{escape(t['news_chip'])}</span><h2>{escape(t['news_title'])}</h2><p>{escape(t['news_text'])}</p><span class="more">{escape(t['more'])} →</span></div>
+  <a class="news-card" href="{pg.link('favorites')}">
+    <img src="{screen(img, t, 'fav_all')}" alt="" width="360" height="781" loading="lazy">
+    <div><span class="chip accent">{icon('heart')}{escape(t['news_chip'])}</span><h2>{escape(t['news_title'])}</h2><p>{escape(t['news_text'])}</p><span class="more">{escape(t['more'])} →</span></div>
   </a>
 </section>
 """)
@@ -921,6 +948,24 @@ def features_page(t):
         cards.append(f'<article class="card"><div class="icon-circle {tone}">{icon(ic)}</div><h3>{escape(h)}</h3><p>{escape(p)}</p><ul>{lis}</ul></article>')
     content = f"""<section class="wrap" aria-labelledby="capturas"><div class="section-head"><h2 id="capturas">{escape(title)}</h2><p>{escape(text)}</p></div>{strip(pg, t['gallery'])}</section>
 {wavy()}<section class="wrap" aria-label="{escape(t['pages']['features'][0])}"><div class="grid">{''.join(cards)}</div></section>
+"""
+    return section_page(pg, content)
+
+
+def favorites_page(t):
+    pg = Page(t, "favorites")
+    img = pg.img
+    duo = "".join(phone(screen(img, t, name), caption, "second" if n else "") for n, (name, caption) in enumerate(t["fav_shots"][::5]))
+    content = f"""<section class="wrap">
+  <div class="split">
+    <div>
+      <ul class="checks">{checks(t['fav_points'], 'heart')}</ul>
+      <p class="note">{escape(t['fav_note'])}</p>
+    </div>
+    <div class="showcase-media duo">{duo}</div>
+  </div>
+</section>
+{wavy()}<section class="wrap">{strip(pg, t['fav_shots'])}</section>
 """
     return section_page(pg, content)
 
@@ -1075,7 +1120,7 @@ def privacy(t, source):
 
 
 def main():
-    builders = {"home": home, "features": features_page, "health": health_page, "assistant": assistant_page,
+    builders = {"home": home, "features": features_page, "favorites": favorites_page, "health": health_page, "assistant": assistant_page,
                 "sync": sync_page, "packs": packs_page, "faq": faq_page}
     pages = {}
     for t in (ES, EN):
