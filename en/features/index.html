@@ -20,7 +20,7 @@
 <link rel="alternate" hreflang="x-default" href="https://miga.calamares.org/funciones/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Miga", "item": "https://miga.calamares.org/en/"}, {"@type": "ListItem", "position": 2, "name": "Features", "item": "https://miga.calamares.org/en/features/"}]}</script>
 <link rel="icon" href="../../assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/style.css?v=f5e4cb0c2b">
+<link rel="stylesheet" href="../../assets/style.css?v=9c4a9bb39d">
 <script>
   // Saved theme, else the system's, before the first paint.
   (function () {
@@ -33,6 +33,9 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<a class="launch-bar" href="../#download" data-countdown="2026-11-27T13:00:00Z" data-live-text="Miga is on Google Play: get it now">
+  <span class="launch-dot" aria-hidden="true"></span><span class="lb-text">Miga lands on Google Play in</span> <b data-cd-short>—</b>
+</a>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="../"><img src="../../assets/img/logo.svg" alt=""><b>Miga</b></a>
@@ -40,7 +43,7 @@
     <a class="icon-btn" href="../../funciones/" hreflang="es" lang="es" title="Español">ES</a>
     <button class="icon-btn" data-theme-toggle title="Switch theme" aria-label="Switch theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
     <button class="icon-btn menu-toggle" data-menu-toggle aria-controls="menu" aria-expanded="false" aria-label="Menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-    <a class="btn primary small" href="#download"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg><span class="cta-label">Try the beta</span></a>
+    <a class="btn primary small" href="#download"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg><span class="cta-label">Download</span></a>
   </div>
 </header>
 <main id="main"><section class="page-hero">
@@ -61,12 +64,16 @@
 <section class="wrap get" id="download">
   <div class="cta">
     <h2>Start your recipe book today</h2>
-    <p>Join the beta, create your first book and save that recipe everyone keeps asking for.</p>
-    <div class="hero-actions">
-        <a class="btn primary" href="mailto:miga@calamares.org?subject=I%27d%20like%20to%20try%20Miga&amp;body=Hi%2C%20I%27d%20like%20to%20try%20the%20Miga%20beta.%20My%20Google%20account%27s%20email%20is%3A%20"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Join the beta</a>
-        <span class="btn" aria-disabled="true" title="Soon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 14 9-14 9V3z"/></svg>Google Play<span class="soon">Soon</span></span>
+    <p>It lands on Google Play this Friday at 14:00 Spanish time, free for everyone. Create your first book and save that recipe everyone keeps asking for.</p>
+    <div class="launch" data-countdown="2026-11-27T13:00:00Z" role="timer" aria-live="off">
+        <div class="launch-head"><span class="launch-dot" aria-hidden="true"></span><span>Miga is coming to Google Play</span></div>
+        <div class="cd"><div class="cd-unit"><b data-cd="d">00</b><span>days</span></div><div class="cd-unit"><b data-cd="h">00</b><span>hours</span></div><div class="cd-unit"><b data-cd="m">00</b><span>min</span></div><div class="cd-unit"><b data-cd="s">00</b><span>sec</span></div></div>
+        <p class="launch-when">Friday 27 November · 14:00 Spanish time (13:00 UTC) · free</p>
+        <p class="launch-live"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Now available on Google Play!</p>
       </div>
-      <p class="beta-note">Miga is in testing on Google Play. Email us from your Google account&#x27;s address and we&#x27;ll send you an invitation.</p>
+      <div class="hero-actions">
+        <span class="btn primary" aria-disabled="true" data-launch-link="https://play.google.com/store/apps/details?id=org.calamares.miga"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 3 14 9-14 9V3z"/></svg>Google Play<span class="soon">Friday 14:00</span></span>
+      </div>
   </div>
 </section>
 </main>
@@ -80,6 +87,6 @@
     <div class="legal"><span>© 2026 Calamares. Recipes in the packs are published under CC BY 4.0.</span><span>Product data from Open Food Facts (ODbL).</span></div>
   </div>
 </footer>
-<script src="../../assets/main.js?v=1f6d1af622"></script>
+<script src="../../assets/main.js?v=f88470dfc5"></script>
 </body>
 </html>
