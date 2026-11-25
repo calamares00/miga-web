@@ -22,9 +22,12 @@ PACKS_REPO = "https://github.com/calamares00/miga-packs"
 SERVER_REPO = "https://github.com/calamares00/miga-server"
 SERVER_IMAGE = "ghcr.io/calamares00/miga-server:latest"
 PLAY_URL = "https://play.google.com/store/apps/details?id=org.calamares.miga"
-# False while Miga is in closed testing on Google Play: its store page only opens for testers, so
-# the site asks people to join the beta by email instead. Set to True once it is in production.
+# False until Miga is public on Google Play: the site counts down to LAUNCH_AT and, when it gets
+# there, main.js turns the countdowns into "available" and the Play buttons into links, without a
+# new build. Set to True afterwards to drop the countdown.
 PLAY_PUBLIC = False
+# Friday 27 November 2026, 14:00 in Spain (CET, UTC+1).
+LAUNCH_AT = "2026-11-27T13:00:00Z"
 CONTACT = "miga@calamares.org"
 SITE_URL = "https://miga.calamares.org/"
 YEAR = 2026
@@ -93,14 +96,17 @@ ES = {
     "title": "Miga · Tu recetario familiar y tu lista de la compra",
     "description": "Miga es una app de Android para guardar las recetas de tu familia en libros, cocinar paso a paso y hacer la compra. Sin cuentas, sin anuncios y con tus datos en tu móvil.",
     "nav": [("features", "Funciones"), ("favorites", "Favoritos"), ("health", "Salud"), ("assistant", "Asistente"), ("sync", "Familia"), ("packs", "Packs"), ("faq", "Preguntas")],
-    "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Probar la beta",
-    "badge": "Disponible en Google Play", "badge_beta": "Beta cerrada en Google Play",
+    "theme": "Cambiar tema", "menu": "Menú", "get": "Descargar", "get_beta": "Descargar",
+    "badge": "Disponible en Google Play", "badge_beta": "Llega a Google Play el viernes 27",
     "hero_title": "Tus recetas. Tus libros. <em>Tu cocina.</em>",
     "hero_lead": "Miga guarda las recetas de tu familia en libros con su portada, te acompaña paso a paso mientras cocinas, te avisa de los alérgenos que te importan y organiza la compra por los pasillos de tu supermercado. Sin cuentas, sin anuncios y con todo guardado en tu móvil.",
-    "play": "Google Play", "soon": "Pronto", "beta": "Apúntate a la beta",
-    "beta_note": "Miga está en pruebas en Google Play. Escríbenos desde el correo de tu cuenta de Google y te enviamos la invitación.",
-    "beta_subject": "Quiero probar Miga",
-    "beta_body": "Hola, quiero probar la beta de Miga. El correo de mi cuenta de Google es: ",
+    "play": "Google Play", "soon": "Viernes 14:00",
+    "launch_title": "Miga llega a Google Play",
+    "launch_when": "Viernes 27 de noviembre · 14:00 (hora de España) · gratis",
+    "launch_units": ("días", "horas", "min", "seg"),
+    "launch_live": "¡Ya disponible en Google Play!",
+    "launch_bar": "Miga llega a Google Play en",
+    "launch_bar_live": "Miga ya está en Google Play: descárgala",
     "hero_badges": ["Sin cuentas", "Sin anuncios", "Sin analítica", "Funciona sin conexión", "Español e inglés"],
     "shot_alt_front": "Pantalla de una receta en Miga", "shot_alt_back": "Lista de libros en Miga",
     "marquee": [("book", "Libros de recetas"), ("utensils", "Modo cocina"), ("timer", "Temporizadores"), ("mic", "Dictado y voz"), ("cart", "Lista de la compra"), ("scan", "Escáner de productos"), ("leaf", "Open Food Facts"), ("sparkles", "Asistente de cocina"), ("server", "Servidor propio"), ("package", "Packs de recetas"), ("shield", "Alérgenos"), ("wheat", "Modo celíacos"), ("pulse", "Raciones de hidratos"), ("bulb", "Consejos de cocina"), ("file", "PDF e imagen"), ("archive", "Copias cifradas"), ("palette", "Temas y marcos"), ("widget", "Widget"), ("lock", "Bloqueo con huella")],
@@ -287,7 +293,7 @@ ES = {
     "packs_cta": "Repositorio de packs",
     "packs_available": "Packs disponibles",
     "faq_head": ("Preguntas frecuentes", "", "Ayuda"),
-    "faq_beta": ("¿Cómo consigo Miga?", f"Ahora mismo está en pruebas cerradas en Google Play. Escríbenos a {CONTACT} desde el correo de tu cuenta de Google y te enviamos la invitación. Pronto estará disponible para todo el mundo."),
+    "faq_beta": ("¿Cuándo puedo descargar Miga?", "Este viernes 27 de noviembre a las 14:00 (hora de España) en Google Play, gratis y para todo el mundo."),
     "faq": [
         ("¿Miga es gratis?", "Sí. Es gratuita, sin anuncios ni compras dentro de la app."),
         ("¿Necesito una cuenta o internet?", "No. Todo funciona sin conexión y sin registrarte. Internet solo se usa para las funciones que eliges: el asistente con tu clave, Open Food Facts, el catálogo de packs y tu servidor."),
@@ -305,7 +311,7 @@ ES = {
     ],
     "cta_title": "Empieza tu recetario hoy",
     "cta_text": "Descarga Miga, crea tu primer libro y guarda esa receta que siempre te piden.",
-    "cta_text_beta": "Apúntate a la beta, crea tu primer libro y guarda esa receta que siempre te piden.",
+    "cta_text_beta": "Llega a Google Play este viernes a las 14:00, gratis para todo el mundo. Crea tu primer libro y guarda esa receta que siempre te piden.",
     "footer_tagline": "El recetario de tu familia y tu lista de la compra, en tu móvil.",
     "footer_cols": [
         ("Miga", [("features", "Funciones"), ("favorites", "Favoritos"), ("health", "Salud"), ("assistant", "Asistente de cocina"), ("faq", "Preguntas frecuentes")]),
@@ -323,14 +329,17 @@ EN = {
     "title": "Miga · Your family recipe book and shopping list",
     "description": "Miga is an Android app to keep your family's recipes in books, cook step by step and do the shopping. No accounts, no ads, and your data stays on your phone.",
     "nav": [("features", "Features"), ("favorites", "Favourites"), ("health", "Health"), ("assistant", "Assistant"), ("sync", "Family"), ("packs", "Packs"), ("faq", "FAQ")],
-    "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Try the beta",
-    "badge": "Available on Google Play", "badge_beta": "Closed beta on Google Play",
+    "theme": "Switch theme", "menu": "Menu", "get": "Download", "get_beta": "Download",
+    "badge": "Available on Google Play", "badge_beta": "On Google Play this Friday, 27th",
     "hero_title": "Your recipes. Your books. <em>Your kitchen.</em>",
     "hero_lead": "Miga keeps your family's recipes in books with their own covers, guides you step by step while you cook, flags the allergens that matter to you and sorts the shopping by your supermarket's aisles. No accounts, no ads, and everything stays on your phone.",
-    "play": "Google Play", "soon": "Soon", "beta": "Join the beta",
-    "beta_note": "Miga is in testing on Google Play. Email us from your Google account's address and we'll send you an invitation.",
-    "beta_subject": "I'd like to try Miga",
-    "beta_body": "Hi, I'd like to try the Miga beta. My Google account's email is: ",
+    "play": "Google Play", "soon": "Friday 14:00",
+    "launch_title": "Miga is coming to Google Play",
+    "launch_when": "Friday 27 November · 14:00 Spanish time (13:00 UTC) · free",
+    "launch_units": ("days", "hours", "min", "sec"),
+    "launch_live": "Now available on Google Play!",
+    "launch_bar": "Miga lands on Google Play in",
+    "launch_bar_live": "Miga is on Google Play: get it now",
     "hero_badges": ["No accounts", "No ads", "No analytics", "Works offline", "English and Spanish"],
     "shot_alt_front": "A recipe in Miga", "shot_alt_back": "The list of books in Miga",
     "marquee": [("book", "Recipe books"), ("utensils", "Cooking mode"), ("timer", "Timers"), ("mic", "Dictation and voice"), ("cart", "Shopping list"), ("scan", "Product scanner"), ("leaf", "Open Food Facts"), ("sparkles", "Cooking assistant"), ("server", "Your own server"), ("package", "Recipe packs"), ("shield", "Allergens"), ("wheat", "Coeliac mode"), ("pulse", "Carb portions"), ("bulb", "Cooking tips"), ("file", "PDF and image"), ("archive", "Encrypted backups"), ("palette", "Themes and frames"), ("widget", "Widget"), ("lock", "Fingerprint lock")],
@@ -517,7 +526,7 @@ EN = {
     "packs_cta": "Packs repository",
     "packs_available": "Available packs",
     "faq_head": ("Frequently asked questions", "", "Help"),
-    "faq_beta": ("How do I get Miga?", f"Right now it's in closed testing on Google Play. Email {CONTACT} from your Google account's address and we'll send you an invitation. It will be open to everyone soon."),
+    "faq_beta": ("When can I download Miga?", "This Friday, 27 November, at 14:00 Spanish time (13:00 UTC) on Google Play, free and for everyone."),
     "faq": [
         ("Is Miga free?", "Yes. It's free, with no ads or in-app purchases."),
         ("Do I need an account or the internet?", "No. Everything works offline and without signing up. The internet is only used for what you choose: the assistant with your key, Open Food Facts, the packs catalogue and your server."),
@@ -535,7 +544,7 @@ EN = {
     ],
     "cta_title": "Start your recipe book today",
     "cta_text": "Download Miga, create your first book and save that recipe everyone keeps asking for.",
-    "cta_text_beta": "Join the beta, create your first book and save that recipe everyone keeps asking for.",
+    "cta_text_beta": "It lands on Google Play this Friday at 14:00 Spanish time, free for everyone. Create your first book and save that recipe everyone keeps asking for.",
     "footer_tagline": "Your family recipe book and shopping list, on your phone.",
     "footer_cols": [
         ("Miga", [("features", "Features"), ("favorites", "Favourites"), ("health", "Health"), ("assistant", "Cooking assistant"), ("faq", "FAQ")]),
@@ -712,7 +721,7 @@ def nav(pg):
     t = pg.t
     current = ' aria-current="page"'
     links = "".join(f'<a href="{pg.link(key)}"{current if key == pg.key else ""}>{escape(label)}</a>' for key, label in t["nav"])
-    return f"""<header class="nav">
+    return launch_bar(pg) + f"""<header class="nav">
   <div class="wrap">
     <a class="brand" href="{pg.link('home')}"{current if pg.key == 'home' else ''}><img src="{pg.root}assets/img/logo.svg" alt=""><b>Miga</b></a>
     <nav class="nav-links" id="menu" aria-label="Miga">{links}</nav>
@@ -725,8 +734,18 @@ def nav(pg):
 """
 
 
-def beta_mail(t):
-    return f"mailto:{CONTACT}?subject={quote(t['beta_subject'])}&body={quote(t['beta_body'])}"
+def countdown(t):
+    """The launch countdown (days, hours, minutes, seconds), filled in and kept running by main.js."""
+    units = "".join(
+        f'<div class="cd-unit"><b data-cd="{key}">00</b><span>{escape(label)}</span></div>'
+        for key, label in zip(("d", "h", "m", "s"), t["launch_units"])
+    )
+    return f"""<div class="launch" data-countdown="{LAUNCH_AT}" role="timer" aria-live="off">
+        <div class="launch-head"><span class="launch-dot" aria-hidden="true"></span><span>{escape(t['launch_title'])}</span></div>
+        <div class="cd">{units}</div>
+        <p class="launch-when">{escape(t['launch_when'])}</p>
+        <p class="launch-live">{icon('check')}{escape(t['launch_live'])}</p>
+      </div>"""
 
 
 def downloads(t):
@@ -734,11 +753,22 @@ def downloads(t):
         return f"""<div class="hero-actions">
         <a class="btn primary" href="{PLAY_URL}">{icon('play')}{escape(t['play'])}</a>
       </div>"""
-    return f"""<div class="hero-actions">
-        <a class="btn primary" href="{escape(beta_mail(t))}">{icon('mail')}{escape(t['beta'])}</a>
-        <span class="btn" aria-disabled="true" title="{escape(t['soon'])}">{icon('play')}{escape(t['play'])}<span class="soon">{escape(t['soon'])}</span></span>
-      </div>
-      <p class="beta-note">{escape(t['beta_note'])}</p>"""
+    # Until the launch the Play button waits; main.js makes it a link when the countdown ends.
+    return f"""{countdown(t)}
+      <div class="hero-actions">
+        <span class="btn primary" aria-disabled="true" data-launch-link="{PLAY_URL}">{icon('play')}{escape(t['play'])}<span class="soon">{escape(t['soon'])}</span></span>
+      </div>"""
+
+
+def launch_bar(pg):
+    """A slim bar above every page with the time left, until the launch."""
+    if PLAY_PUBLIC:
+        return ""
+    t = pg.t
+    return f"""<a class="launch-bar" href="{pg.link('home')}#{DOWNLOAD_ANCHOR[pg.lang]}" data-countdown="{LAUNCH_AT}" data-live-text="{escape(t['launch_bar_live'])}">
+  <span class="launch-dot" aria-hidden="true"></span><span class="lb-text">{escape(t['launch_bar'])}</span> <b data-cd-short>—</b>
+</a>
+"""
 
 
 def pack_cards(t, img):
@@ -865,7 +895,7 @@ def home(t):
     out.append(f"""<section class="hero">
   <div class="wrap">
     <div>
-      <span class="chip primary">{icon('leaf')}{escape(t['badge'] if PLAY_PUBLIC else t['badge_beta'])}</span>
+      <span class="chip primary">{icon('leaf')}{escape(t['badge']) if PLAY_PUBLIC else f'<span class="pre-launch">{escape(t["badge_beta"])}</span><span class="post-launch">{escape(t["badge"])}</span>'}</span>
       <h1>{t['hero_title']}</h1>
       <p class="lead">{escape(t['hero_lead'])}</p>
       {downloads(t)}
