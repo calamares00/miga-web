@@ -1,6 +1,6 @@
 # Miga privacy policy
 
-Last updated: 22 November 2026.
+Last updated: 27 November 2026.
 
 Miga is a family recipe book and shopping list app. This document explains what data the app handles, where it goes and what control you have over it.
 
@@ -77,6 +77,10 @@ Data is kept while the app is installed. You can:
 - remove your AI keys in Settings;
 - delete sync connections (data already on your server is up to you as its administrator);
 - delete everything by uninstalling the app or clearing its data in Android settings.
+
+## This website
+
+Miga's website (miga.calamares.org) counts visits with **Cloudflare Web Analytics**, without cookies and without storing data that identifies you: only pages viewed, the website you came from, country, device type and browser, and load times, as aggregated data. It is not used for advertising or combined with other data. The app does not include this measurement.
 
 ## Children
 

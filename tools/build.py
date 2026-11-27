@@ -678,6 +678,14 @@ def breadcrumb_data(pg, name):
     return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>\n'
 
 
+# Cloudflare Web Analytics: counts visits without cookies or personal data (see the privacy pages).
+# The token is public by design. Not on openrouter/, whose address carries an authorisation code.
+CLOUDFLARE_ANALYTICS = (
+    "<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
+    "data-cf-beacon='{\"token\": \"820e9501ec444841820d162c273e4031\"}'></script>"
+)
+
+
 def head(pg, title, description, extra=""):
     t, root = pg.t, pg.root
     alternates = "".join(f'<link rel="alternate" hreflang="{lang}" href="{page_url(lang, PAGES[pg.key][lang])}">\n' for lang in ("es", "en"))
@@ -702,6 +710,7 @@ def head(pg, title, description, extra=""):
 {alternates}<link rel="alternate" hreflang="x-default" href="{page_url('es', PAGES[pg.key]['es'])}">
 {extra}<link rel="icon" href="{root}assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}assets/style.css?v={asset_version('style.css')}">
+{CLOUDFLARE_ANALYTICS}
 <script>
   // Saved theme, else the system's, before the first paint.
   (function () {{
