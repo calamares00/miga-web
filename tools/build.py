@@ -679,10 +679,10 @@ def breadcrumb_data(pg, name):
 
 
 # Cloudflare Web Analytics: counts visits without cookies or personal data (see the privacy pages).
-# The token is public by design. Not on openrouter/, whose address carries an authorisation code.
+# The token (site miga.calamares.org in Cloudflare) is public by design. Not on openrouter/, whose address carries an authorisation code.
 CLOUDFLARE_ANALYTICS = (
     "<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" "
-    "data-cf-beacon='{\"token\": \"820e9501ec444841820d162c273e4031\"}'></script>"
+    "data-cf-beacon='{\"token\": \"e13f4d9cbc93496bb2346a6efb3250aa\"}'></script>"
 )
 
 
