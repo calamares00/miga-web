@@ -1,6 +1,6 @@
 # Política de privacidad de Miga
 
-Última actualización: 22 de noviembre de 2026.
+Última actualización: 27 de noviembre de 2026.
 
 Miga es una app de recetario familiar y lista de la compra. Este documento explica qué datos maneja la app, adónde van y qué control tienes sobre ellos.
 
@@ -77,6 +77,10 @@ Los datos se conservan mientras tengas la app instalada. Puedes:
 - quitar tus claves de IA en Ajustes;
 - eliminar conexiones de sincronización (los datos que ya estén en tu servidor dependen de ti como administrador);
 - borrarlo todo desinstalando la app o limpiando sus datos desde los ajustes de Android.
+
+## Esta web
+
+La web de Miga (miga.calamares.org) cuenta las visitas con **Cloudflare Web Analytics**, sin cookies y sin guardar datos que te identifiquen: solo páginas vistas, de qué web llegas, país, tipo de dispositivo y navegador, y tiempos de carga, en datos agregados. No se usa para publicidad ni se cruza con otros datos. La app no incluye esta medición.
 
 ## Menores de edad
 
